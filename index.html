@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagjeet Singh Makhija - Data Architecture Expert <a href="https://github.com/jackiemakhija"></a></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for better icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+    </script>
+    <style>
+        /* Base Variables */
+        :root {
+            --bg-color: #0f0c29;
+            --gradient-1: linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+            --gradient-2: linear-gradient(to right, #FC466B, #3F5EFB);
+            --gradient-3: linear-gradient(to right, #6a11cb, #2575fc);
+            --gradient-4: linear-gradient(135deg, #ff6b6b, #ffa07a, #ffd700);
+            --gradient-5: linear-gradient(135deg, #00c6ff, #0072ff);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --section-bg-network: rgba(84, 51, 255, 0.2);
+            --section-bg-playground: rgba(252, 70, 107, 0.2);
+            --section-bg-articles: rgba(106, 17, 203, 0.2);
+            --section-bg-support: rgba(37, 117, 252, 0.2);
+            --section-bg-podcasts: rgba(255, 0, 0, 0.2);
+        }
+
+        /* Light Mode Variables */
+        .light-mode {
+            --bg-color: #f0f4f8;
+            --text-primary: #1a202c;
+            --text-secondary: rgba(26, 32, 44, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --card-border: rgba(0, 0, 0, 0.1);
+            --section-bg-network: rgba(84, 51, 255, 0.1);
+            --section-bg-playground: rgba(252, 70, 107, 0.1);
+            --section-bg-articles: rgba(106, 17, 203, 0.1);
+            --section-bg-support: rgba(37, 117, 252, 0.1);
+            --section-bg-podcasts: rgba(255, 0, 0, 0.1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(84, 51, 255, 0.25) 0%, transparent 25%),
+                radial-gradient(circle at 85% 25%, rgba(252, 70, 107, 0.25) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(106, 17, 203, 0.2) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(37, 117, 252, 0.25) 0%, transparent 35%),
+                radial-gradient(circle at 25% 65%, rgba(255, 107, 107, 0.2) 0%, transparent 30%),
+                radial-gradient(circle at 70% 10%, rgba(255, 215, 0, 0.15) 0%, transparent 25%);
+            z-index: -1;
+            animation: backgroundShift 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 10% 20%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 20s;
+            background: rgba(84, 51, 255, 0.3);
+        }
+
+        .particle:nth-child(2) {
+            top: 70%;
+            left: 80%;
+            animation-delay: 2s;
+            animation-duration: 18s;
+            background: rgba(252, 70, 107, 0.3);
+        }
+
+        .particle:nth-child(3) {
+            top: 40%;
+            left: 40%;
+            animation-delay: 4s;
+            animation-duration: 25s;
+            background: rgba(106, 17, 203, 0.3);
+        }
+
+        .particle:nth-child(4) {
+            top: 10%;
+            left: 70%;
+            animation-delay: 6s;
+            animation-duration: 22s;
+            background: rgba(37, 117, 252, 0.3);
+        }
+
+        .particle:nth-child(5) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 8s;
+            animation-duration: 23s;
+            background: rgba(255, 107, 107, 0.3);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-40px) translateX(20px) scale(1.2);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        /* Header Styles */
+        header {
+            width: 100%;
+            max-width: 720px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .brand-text {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(34, 184, 255, 0.2);
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 14px;
+            padding: 5px;
+            width: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .search-container:hover .search-input,
+        .search-input:focus {
+            width: 150px;
+            opacity: 1;
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .visitor-counter {
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--card-bg);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-primary);
+            font-size: 20px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Container Styles */
+        .container {
+            width: 100%;
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Profile Card Styles */
+        .profile-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--gradient-3);
+        }
+
+        /* Avatar styles with initials fallback */
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border: 3px solid transparent;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .status-indicator {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #10B981;
+            border: 3px solid var(--card-bg);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .profile-info {
+            text-align: center;
+            width: 100%;
+        }
+
+        .profile-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-title {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .profile-bio {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            max-width: 80%;
+        }
+
+        .about-me {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 3px solid #22b8ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-me::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(34, 184, 255, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .about-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #22b8ff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .social-share {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(34, 184, 255, 0.2);
+            color: #22b8ff;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+        }
+
+        /* Section Styles */
+        .section {
+            width: 100%;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-3);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .section:hover .section-header::after {
+            width: 100px;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-right: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-icon i {
+            font-size: 18px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .section:hover .section-icon::before {
+            opacity: 1;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover .section-title {
+            transform: translateX(5px);
+        }
+
+        .section-network {
+            background: var(--section-bg-network);
+        }
+
+        .section-network .section-icon {
+            background: var(--gradient-1);
+        }
+
+        .section-playground {
+            background: var(--section-bg-playground);
+        }
+
+        .section-playground .section-icon {
+            background: var(--gradient-2);
+        }
+
+        .section-articles {
+            background: var(--section-bg-articles);
+        }
+
+        .section-articles .section-icon {
+            background: var(--gradient-3);
+        }
+
+        .section-training {
+            background: linear-gradient(135deg, rgba(0, 120, 212, 0.05), rgba(123, 97, 255, 0.05));
+            border: 1px solid rgba(0, 120, 212, 0.1);
+        }
+
+        .section-training .section-icon {
+            background: linear-gradient(135deg, #0078D4, #7B61FF);
+            color: white;
+        }
+
+        .section-training .icon i {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .section-training .link-button:hover .icon i {
+            transform: scale(1.2);
+        }
+
+        .section-training .link-button {
+            border: 1px solid rgba(0, 120, 212, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .section-training .link-button:hover {
+            border-color: rgba(0, 120, 212, 0.4);
+            background: rgba(0, 120, 212, 0.05);
+        }
+
+        .section-support {
+            background: var(--section-bg-support);
+        }
+
+        .section-support .section-icon {
+            background: var(--gradient-1);
+        }
+
+        .section-podcasts {
+            background: var(--section-bg-podcasts);
+        }
+
+        .section-podcasts .section-icon {
+            background: var(--gradient-2);
+        }
+
+        .section-newsletter {
+            background: linear-gradient(135deg, #2a1b4a, #1e1033);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(34, 184, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(34, 184, 255, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-newsletter .section-icon {
+            background: linear-gradient(135deg, #22b8ff, #1a8dff);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(34, 184, 255, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(34, 184, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 184, 255, 0);
+            }
+        }
+
+        /* Link Styles */
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .link-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: all 0.6s ease;
+        }
+
+        .link-button::after {
+            content: "→";
+            position: absolute;
+            right: 20px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .link-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding-right: 45px;
+        }
+
+        .link-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .link-button:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .links > a:nth-child(1) { animation-delay: 0.1s; }
+        .links > a:nth-child(2) { animation-delay: 0.2s; }
+        .links > a:nth-child(3) { animation-delay: 0.3s; }
+        .links > a:nth-child(4) { animation-delay: 0.4s; }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            margin-right: 15px;
+            background: var(--card-bg);
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .link-button:hover .icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .link-button:hover .icon::before {
+            opacity: 1;
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .link-description {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .linkedin .icon { background-color: #0A66C2; }
+        .github .icon { background-color: #333333; }
+        .twitter .icon { background-color: #1DA1F2; }
+        .youtube .icon { background-color: #FF0000; }
+        .copilot .icon { background-color: #7B61FF; }
+        .sap .icon { background-color: #00A1E4; }
+        .powerplatform .icon { background-color: #7B61FF; }
+        .azure .icon { background-color: #0078D4; }
+        .kofi .icon { background-color: #FF5E5B; }
+
+        /* Newsletter Styles */
+        .newsletter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 0;
+        }
+
+        .newsletter-content {
+            flex: 1;
+            min-width: 300px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .newsletter-heading {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #22b8ff;
+            line-height: 1.3;
+        }
+
+        .newsletter-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .newsletter-benefits {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-benefits li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .newsletter-benefits li i {
+            color: #22b8ff;
+            margin-right: 10px;
+            font-size: 18px;
+            background: rgba(34, 184, 255, 0.15);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .newsletter-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 100%;
+            background: rgba(59, 46, 88, 0.5);
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .newsletter-form:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        .form-group input[type="email"] {
+            flex: 1;
+            padding: 15px 20px;
+            height: 48px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            min-width: 0; /* Prevents input from overflowing */
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="email"]:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 0 3px rgba(34, 184, 255, 0.2);
+        }
+
+        .form-group input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .subscribe-btn {
+            margin-left: 10px;
+            padding: 0 20px;
+            height: 48px;
+            min-width: 120px;
+            border: none;
+            border-radius: 10px;
+            background: #22b8ff;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(34, 184, 255, 0.3);
+            white-space: nowrap;
+        }
+
+        .subscribe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(34, 184, 255, 0.4);
+            background: #1ca9f0;
+        }
+
+        .subscribe-btn i {
+            transition: transform 0.3s ease;
+            margin-left: 5px;
+        }
+
+        .subscribe-btn:hover i {
+            transform: translateX(3px);
+        }
+
+        .form-privacy {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-privacy label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+
+        .form-privacy input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 3px;
+            accent-color: #22b8ff;
+            width: 16px;
+            height: 16px;
+        }
+
+        #form-message {
+            font-size: 14px;
+            padding: 10px 0;
+            color: #10B981;
+            font-weight: 500;
+            min-height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-container {
+                flex-direction: column;
+            }
+
+            .newsletter-content, .newsletter-form {
+                width: 100%;
+            }
+
+            .beehiiv-embed {
+                min-height: 420px;
+            }
+
+            .beehiiv-iframe {
+                min-height: 420px;
+            }
+        }
+
+        /* Footer Styles */
+        footer {
+            width: 100%;
+            max-width: 720px;
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            font-size: 12px;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .links {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-bio {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-card, .section {
+                padding: 20px 15px;
+            }
+
+            .profile-name {
+                font-size: 24px;
+            }
+
+            .skill-tag {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .link-button {
+                padding: 12px 15px;
+            }
+
+            .link-title {
+                font-size: 14px;
+            }
+
+            .newsletter-heading {
+                font-size: 22px;
+            }
+
+            .beehiiv-embed {
+                min-height: 450px;
+            }
+
+            .beehiiv-iframe {
+                min-height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header>
+        <div class="brand">
+            <div class="logo">AL</div>
+            <div class="brand-text">Jagjeet Singh Makhija</div>
+        </div>
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search..." class="search-input">
+                <button id="search-btn" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="visitor-counter">Visitor #247</div>
+            <button id="theme-btn" class="theme-toggle" aria-label="Toggle light mode">🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile-card">
+            <div class="avatar-container">
+                <img src="MyPic.jpg" alt="Jagjeet Singh Makhija" class="avatar" style="object-fit: cover;">
+                <div class="status-indicator"></div>
+            </div>
+
+            <div class="profile-info">
+                <h1 class="profile-name">Jagjeet Singh Makhija</h1>
+                <p class="profile-title">Senior Solution Architect • Ex-Microsoft • Published Author • EMBA</p>
+
+                <div class="about-me">
+                    <h3 class="about-title"><i class="fas fa-briefcase"></i> About Me</h3>
+                    <p class="about-text">I'm a distinguished Senior Solution Architect with 20+ years architecting enterprise data platforms. Specializing in Microsoft Fabric, Azure Synapse, Snowflake, and Power BI, I transform complex data challenges into scalable, intelligent solutions. As a published author and Ex-Microsoft architect with an Executive MBA, I bring both technical depth and strategic business acumen to every engagement.</p>
+                </div>
+
+                <div class="skills">
+                    <span class="skill-tag">Microsoft Fabric</span>
+                    <span class="skill-tag">Azure Synapse</span>
+                    <span class="skill-tag">Snowflake</span>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Data Architecture</span>
+                    <span class="skill-tag">AI/ML Integration</span>
+                </div>
+
+                <div class="social-share">
+                    <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" class="share-btn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/JagjeetMakhija" target="_blank" class="share-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/jackiemakhija" target="_blank" class="share-btn"><i class="fab fa-github"></i></a>
+                    <a href="/cdn-cgi/l/email-protection#2445494d50484548644b5150484b4b4f0a474b49" class="share-btn"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join My AI Network Section -->
+        <section class="section section-network">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-network-wired"></i></div>
+                <h2 class="section-title">Connect With Me</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://linkedin.com/in/jagjeetmakhija" target="_blank" class="link-button linkedin">
+                    <div class="icon">in</div>
+                    <div class="link-content">
+                        <div class="link-title">LinkedIn</div>
+                        <div class="link-description">Connect with me professionally</div>
+                    </div>
+                </a>
+
+                <a href="http://github.com/jackiemakhija" target="_blank" class="link-button github">
+                    <div class="icon">GH</div>
+                    <div class="link-content">
+                        <div class="link-title">GitHub</div>
+                        <div class="link-description">Check out my code repositories</div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/JagjeetMakhija" target="_blank" class="link-button twitter">
+                    <div class="icon">X</div>
+                    <div class="link-content">
+                        <div class="link-title">X / Twitter</div>
+                        <div class="link-description">Follow me for tech insights</div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/Implementing-Analytics-Solutions-Microsoft-Fabric-DP-600-ebook/dp/B0DQXNKS5Z" target="_blank" class="link-button kofi">
+                    <div class="icon">📚</div>
+                    <div class="link-content">
+                        <div class="link-title">Published Book</div>
+                        <div class="link-description">Microsoft Fabric DP-600 Study Guide</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- AI Playground Section -->
+        <section class="section section-playground">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-robot"></i></div>
+                <h2 class="section-title">Featured AI Projects</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/jackiemakhija/Natural-Language-to-Governed-Insights-End-to-End-Runbook" target="_blank" class="link-button copilot">
+                    <div class="icon">🔍</div>
+                    <div class="link-content">
+                        <div class="link-title">Natural Language to Governed Insights</div>
+                        <div class="link-description">End-to-End Runbook: Microsoft Fabric + Semantic Model + Foundry Local</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/jackiemakhija/CallCenter-AIAgent" target="_blank" class="link-button sap">
+                    <div class="icon">📞</div>
+                    <div class="link-content">
+                        <div class="link-title">AI-Powered Call Center Solution</div>
+                        <div class="link-description">Intelligent call center agent with natural language processing capabilities</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Published Books Section with Covers -->
+        <section class="section section-articles">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-book"></i></div>
+                <h2 class="section-title">My Published Books</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 20px;">
+                <a href="https://www.amazon.com/Implementing-Analytics-Solutions-Microsoft-Fabric-DP-600-ebook/dp/B0DQXNKS5Z" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div style="background: var(--card-bg); border-radius: 14px; overflow: hidden; transition: all 0.3s ease; border: 1px solid var(--card-border); height: 100%;">
+                        <img src="fabric-book-cover.png" alt="Microsoft Fabric DP-600 Book Cover" style="width: 100%; height: auto; display: block;">
+                        <div style="padding: 20px;">
+                            <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; color: var(--text-primary);">Implementing Analytics Solutions Using Microsoft Fabric</h3>
+                            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 10px;">DP-600 Exam Study Guide</p>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Co-authored with Charles Odunukwe. Comprehensive certification guide with expert insights and certification-ready strategies for Microsoft analytics.</p>
+                            <div style="margin-top: 15px; display: inline-block; padding: 8px 16px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; border-radius: 6px; font-size: 0.9rem; font-weight: 500;">View on Amazon →</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/ADVANCED-AI-INSIGHT-Pushing-Boundaries/dp/B0DSJBBMNJ" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div style="background: var(--card-bg); border-radius: 14px; overflow: hidden; transition: all 0.3s ease; border: 1px solid var(--card-border); height: 100%;">
+                        <img src="ai-insight-book-cover.png" alt="Advanced AI Insight Book Cover" style="width: 100%; height: auto; display: block;">
+                        <div style="padding: 20px;">
+                            <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; color: var(--text-primary);">ADVANCED AI INSIGHT</h3>
+                            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 10px;">Pushing the Boundaries of Data Science</p>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Exploration of advanced AI concepts and their practical applications in modern data science. Cutting-edge techniques reshaping the data landscape.</p>
+                            <div style="margin-top: 15px; display: inline-block; padding: 8px 16px; background: linear-gradient(135deg, #FC466B, #3F5EFB); color: white; border-radius: 6px; font-size: 0.9rem; font-weight: 500;">View on Amazon →</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Books I've Reviewed Section -->
+        <section class="section section-playground">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-star"></i></div>
+                <h2 class="section-title">Books I've Reviewed & Recommend</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://www.amazon.com/Data-Ingestion-Python-Cookbook-identifying/dp/183763260X" target="_blank" class="link-button copilot">
+                    <div class="icon">🐍</div>
+                    <div class="link-content">
+                        <div class="link-title">Data Ingestion with Python Cookbook</div>
+                        <div class="link-description">By Gláucia Esppenchutz - Practical guide to building data ingestion pipelines with Python and PySpark</div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/Azure-Data-Engineering-Cookbook-recipe-based/dp/1803246782/" target="_blank" class="link-button azure">
+                    <div class="icon">☁️</div>
+                    <div class="link-content">
+                        <div class="link-title">Azure Data Engineering Cookbook</div>
+                        <div class="link-description">By Nagaraj Venkatesan & Ahmad Osama - 80+ recipes for Azure data engineering pipelines</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Published Articles Section -->
+        <section class="section section-articles">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-book-open"></i></div>
+                <h2 class="section-title">Published Articles & Insights</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://linkedin.com/pulse/strategy-crack-snowflake-advance-architect-jagjeet-makhija" target="_blank" class="link-button powerplatform">
+                    <div class="icon">❄️</div>
+                    <div class="link-content">
+                        <div class="link-title">Crack Snowflake Advanced Architect</div>
+                        <div class="link-description">Comprehensive strategy guide for passing the SnowPro Advanced Architect exam</div>
+                    </div>
+                </a>
+
+                <a href="https://linkedin.com/pulse/custom-copilot-chatgpt-customer-journey-orchestration-jagjeet-makhija-3rslc" target="_blank" class="link-button powerplatform">
+                    <div class="icon">🤖</div>
+                    <div class="link-content">
+                        <div class="link-title">Custom Copilot for Dynamics 365</div>
+                        <div class="link-description">ChatGPT integration for customer journey orchestration in Dynamics 365</div>
+                    </div>
+                </a>
+
+                <a href="https://linkedin.com/pulse/beauty-snowflake-power-bi-jagjeet-makhija" target="_blank" class="link-button powerplatform">
+                    <div class="icon">📊</div>
+                    <div class="link-content">
+                        <div class="link-title">Snowflake with Power BI</div>
+                        <div class="link-description">Technical deep-dive into integrating Snowflake with Microsoft Power BI</div>
+                    </div>
+                </a>
+
+                <a href="https://linkedin.com/pulse/cloud-katana-microsoft-open-source-jagjeet-makhija" target="_blank" class="link-button powerplatform">
+                    <div class="icon">☁️</div>
+                    <div class="link-content">
+                        <div class="link-title">Cloud Katana - Microsoft Open Source</div>
+                        <div class="link-description">Analysis of Microsoft's open-source security tooling</div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/Implementing-Analytics-Solutions-Microsoft-Fabric-DP-600-ebook/dp/B0DQXNKS5Z" target="_blank" class="link-button azure">
+                    <div class="icon">📚</div>
+                    <div class="link-content">
+                        <div class="link-title">Microsoft Fabric Study Guide Book</div>
+                        <div class="link-description">Implementing Analytics Solutions Using Microsoft Fabric—DP-600 Exam Study Guide</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/jackiemakhija" target="_blank" class="link-button github">
+                    <div class="icon">GH</div>
+                    <div class="link-content">
+                        <div class="link-title">More Repositories</div>
+                        <div class="link-description">Explore 23+ repositories on GitHub</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="section section-podcasts">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-certificate"></i></div>
+                <h2 class="section-title">Certifications & Credentials</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://www.linkedin.com/in/jagjeetmakhija" target="_blank" class="link-button youtube">
+                    <div class="icon">🎖️</div>
+                    <div class="link-content">
+                        <div class="link-title">Microsoft Fabric Analytics Engineer (DP-600)</div>
+                        <div class="link-description">Certified in implementing analytics solutions using Microsoft Fabric</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/jagjeetmakhija" target="_blank" class="link-button youtube">
+                    <div class="icon">☁️</div>
+                    <div class="link-content">
+                        <div class="link-title">Azure Solutions Architect Expert</div>
+                        <div class="link-description">Microsoft Certified in enterprise cloud architecture</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/jagjeetmakhija" target="_blank" class="link-button youtube">
+                    <div class="icon">❄️</div>
+                    <div class="link-content">
+                        <div class="link-title">SnowPro Advanced Architect</div>
+                        <div class="link-description">Advanced certification in Snowflake data platform architecture</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/jagjeetmakhija" target="_blank" class="link-button youtube">
+                    <div class="icon">🎓</div>
+                    <div class="link-content">
+                        <div class="link-title">Executive MBA</div>
+                        <div class="link-description">From prestigious U.S. business school</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- AI Training & Labs Section -->
+        <section class="section section-training">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h2 class="section-title">AI Training & Labs</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/microsoft/ai-agents-for-beginners" target="_blank" class="link-button github">
+                    <div class="icon"><i class="fas fa-book-reader"></i></div>
+                    <div class="link-content">
+                        <div class="link-title">AI Agents for Beginners</div>
+                        <div class="link-description">10 Lessons to Get Started Building AI Agents</div>
+                    </div>
+                </a>
+
+                <a href="https://microsoftlearning.github.io/mslearn-ai-agents/" target="_blank" class="link-button azure">
+                    <div class="icon"><i class="fas fa-robot"></i></div>
+                    <div class="link-content">
+                        <div class="link-title">Microsoft AI Agent Lab - Azure AI Foundry</div>
+                        <div class="link-description">Hands-on labs for building AI agents with Azure AI</div>
+                    </div>
+                </a>
+
+                <a href="https://microsoftlearning.github.io/mslearn-ai-studio/" target="_blank" class="link-button powerplatform">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <div class="link-content">
+                        <div class="link-title">Microsoft AI Agent Lab - Copilot Studio</div>
+                        <div class="link-description">Learn to build AI agents with Microsoft Copilot Studio</div>
+                    </div>
+                </a>
+
+                <a href="https://microsoft.github.io/TechExcel-Fabric-with-Databricks-for-Data-Analytics/docs/Ex_00/Ex00.html" target="_blank" class="link-button azure">
+                    <div class="icon"><i class="fas fa-database"></i></div>
+                    <div class="link-content">
+                        <div class="link-title">Microsoft Fabric with Databricks</div>
+                        <div class="link-description">TechExcel labs for data analytics with Fabric and Databricks</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section section-support">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-envelope"></i></div>
+                <h2 class="section-title">Let's Connect</h2>
+            </div>
+
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h3 class="newsletter-heading">Ready to Transform Your Data Strategy?</h3>
+                    <p class="newsletter-description">I'm always interested in discussing data architecture, cloud solutions, Microsoft Fabric, Snowflake, AI integration, and enterprise analytics. Whether you're looking for consulting, collaboration, or just want to exchange ideas—reach out!</p>
+                    <ul class="newsletter-benefits">
+                        <li><i class="fas fa-check"></i> Enterprise Data Platform Consulting</li>
+                        <li><i class="fas fa-check"></i> Microsoft Fabric & Azure Synapse Expertise</li>
+                        <li><i class="fas fa-check"></i> Snowflake Architecture & Implementation</li>
+                        <li><i class="fas fa-check"></i> Technical Training & Mentorship</li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; margin-right: 10px;">Connect on LinkedIn</a>
+                        <a href="https://github.com/jackiemakhija" target="_blank" style="display: inline-block; padding: 12px 24px; background: #333; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">View GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Jagjeet Singh Makhija. All rights reserved. Views are personal. External links may lead to third-party sites.</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Theme toggle functionality with minimal code
+        var themeButton = document.getElementById('theme-btn');
+        if (themeButton) {
+            themeButton.onclick = function() {
+                document.body.classList.toggle('light-mode');
+                this.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+            };
+        }
+
+        // Search functionality
+        document.getElementById('search-btn').addEventListener('click', function() {
+            performSearch();
+        });
+
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+            if (!searchTerm) return;
+
+            // Get all section titles, link titles, and descriptions
+            const sections = document.querySelectorAll('.section-title, .link-title, .link-description, .newsletter-heading, .newsletter-description');
+            let foundElements = [];
+
+            // Search through all text content
+            sections.forEach(section => {
+                if (section.textContent.toLowerCase().includes(searchTerm)) {
+                    // Find the closest section or link to highlight
+                    let elementToHighlight = section.closest('.section') || section.closest('.link-button');
+                    if (elementToHighlight && !foundElements.includes(elementToHighlight)) {
+                        foundElements.push(elementToHighlight);
+                    }
+                }
+            });
+
+            // Clear previous highlights
+            document.querySelectorAll('.search-highlight').forEach(el => {
+                el.classList.remove('search-highlight');
+            });
+
+            // Highlight found elements
+            if (foundElements.length > 0) {
+                foundElements.forEach(el => {
+                    el.classList.add('search-highlight');
+                    // Scroll to the first result
+                    if (el === foundElements[0]) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+
+                // Show search results count
+                alert(`Found ${foundElements.length} results for "${searchTerm}"`);
+            } else {
+                alert(`No results found for "${searchTerm}"`);
+            }
+        }
+
+        // Beehiiv iframe integration
+        // The form is now handled directly by Beehiiv through the iframe
+
+        // Social sharing functionality
+        function shareProfile(platform) {
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent("Check out Jagjeet Singh Makhija's AI & SAP expertise");
+            const pageDescription = encodeURIComponent("Jagjeet Singh Makhija drives enterprise innovation at the intersection of SAP and AI—leveraging Power Platform and Azure AI.");
+
+            let shareUrl = '';
+
+            switch(platform) {
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=${pageTitle}&body=${pageDescription}%0A%0A${pageUrl}`;
+                    break;
+                default:
+                    return;
+            }
+
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    </script>
+
+    <style>
+        /* Success animation for the form */
+        @keyframes successPulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .newsletter-form.success {
+            border-color: #10B981;
+            animation: successPulse 2s ease-out;
+        }
+
+        /* Beehiiv iframe styling */
+        .beehiiv-embed {
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 0;
+            min-height: 400px;
+            background: rgba(59, 46, 88, 0.5);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .beehiiv-embed:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .beehiiv-iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* Search highlight styles */
+        .search-highlight {
+            animation: highlightPulse 2s ease-in-out;
+            box-shadow: 0 0 20px rgba(34, 184, 255, 0.6);
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes highlightPulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
+            50% { box
