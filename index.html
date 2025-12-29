@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jagjeet Singh Makhija - Data Architecture Expert <a href="https://github.com/jagjeetmakhija"></a></title>
+    <title>Jagjeet Singh Makhija - Data Architecture Expert</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -710,18 +710,6 @@
             animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(34, 184, 255, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(34, 184, 255, 0);
-            }
-        }
-
         /* Link Styles */
         .links {
             display: grid;
@@ -920,140 +908,6 @@
             justify-content: center;
         }
 
-        .newsletter-form {
-            flex: 1;
-            min-width: 300px;
-            max-width: 100%;
-            background: rgba(59, 46, 88, 0.5);
-            padding: 30px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        .newsletter-form:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-        }
-
-        .form-group {
-            display: flex;
-            margin-bottom: 15px;
-            position: relative;
-            flex-wrap: wrap;
-        }
-
-        .form-group input[type="email"] {
-            flex: 1;
-            padding: 15px 20px;
-            height: 48px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            font-size: 15px;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-            min-width: 0; /* Prevents input from overflowing */
-            box-sizing: border-box;
-        }
-
-        .form-group input[type="email"]:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 0 3px rgba(34, 184, 255, 0.2);
-        }
-
-        .form-group input[type="email"]::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .subscribe-btn {
-            margin-left: 10px;
-            padding: 0 20px;
-            height: 48px;
-            min-width: 120px;
-            border: none;
-            border-radius: 10px;
-            background: #22b8ff;
-            color: white;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 10px rgba(34, 184, 255, 0.3);
-            white-space: nowrap;
-        }
-
-        .subscribe-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(34, 184, 255, 0.4);
-            background: #1ca9f0;
-        }
-
-        .subscribe-btn i {
-            transition: transform 0.3s ease;
-            margin-left: 5px;
-        }
-
-        .subscribe-btn:hover i {
-            transform: translateX(3px);
-        }
-
-        .form-privacy {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .form-privacy label {
-            display: flex;
-            align-items: flex-start;
-            cursor: pointer;
-        }
-
-        .form-privacy input[type="checkbox"] {
-            margin-right: 10px;
-            margin-top: 3px;
-            accent-color: #22b8ff;
-            width: 16px;
-            height: 16px;
-        }
-
-        #form-message {
-            font-size: 14px;
-            padding: 10px 0;
-            color: #10B981;
-            font-weight: 500;
-            min-height: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .newsletter-container {
-                flex-direction: column;
-            }
-
-            .newsletter-content, .newsletter-form {
-                width: 100%;
-            }
-
-            .beehiiv-embed {
-                min-height: 420px;
-            }
-
-            .beehiiv-iframe {
-                min-height: 420px;
-            }
-        }
-
         /* Footer Styles */
         footer {
             width: 100%;
@@ -1071,6 +925,20 @@
             overflow: hidden;
         }
 
+        /* Search highlight styles */
+        .search-highlight {
+            animation: highlightPulse 2s ease-in-out;
+            box-shadow: 0 0 20px rgba(34, 184, 255, 0.6);
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes highlightPulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
+            50% { box-shadow: 0 0 20px rgba(34, 184, 255, 0.6); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
+        }
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .links {
@@ -1079,6 +947,14 @@
 
             .profile-bio {
                 max-width: 100%;
+            }
+
+            .newsletter-container {
+                flex-direction: column;
+            }
+
+            .newsletter-content {
+                width: 100%;
             }
         }
 
@@ -1111,14 +987,6 @@
             .newsletter-heading {
                 font-size: 22px;
             }
-
-            .beehiiv-embed {
-                min-height: 450px;
-            }
-
-            .beehiiv-iframe {
-                min-height: 450px;
-            }
         }
     </style>
 </head>
@@ -1142,7 +1010,7 @@
                 <input type="text" id="search-input" placeholder="Search..." class="search-input">
                 <button id="search-btn" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
             </div>
-            <div class="visitor-counter" id="visitor-count">Visitors: <span id="count">0</span></div>
+            <div class="visitor-counter" id="visitor-count">Visitors: <span id="count">Loading...</span></div>
             <button id="theme-btn" class="theme-toggle" aria-label="Toggle light mode">🌙</button>
         </div>
     </header>
@@ -1150,7 +1018,8 @@
     <div class="container">
         <div class="profile-card">
             <div class="avatar-container">
-                <img src="MyPic.jpg" alt="Jagjeet Singh Makhija" class="avatar" style="object-fit: cover;">
+                <img src="MyPic.jpg" alt="Jagjeet Singh Makhija" class="avatar" style="object-fit: cover;" onerror="this.style.display='none'; this.parentElement.querySelector('.avatar-fallback').style.display='flex';">
+                <div class="avatar avatar-fallback" style="display: none;">JM</div>
                 <div class="status-indicator"></div>
             </div>
 
@@ -1173,10 +1042,10 @@
                 </div>
 
                 <div class="social-share">
-                    <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" class="share-btn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/JagjeetMakhija" target="_blank" class="share-btn"><i class="fab fa-twitter"></i></a>
-                    <a href="https://github.com/jagjeetmakhija" target="_blank" class="share-btn"><i class="fab fa-github"></i></a>
-                    <a href="/cdn-cgi/l/email-protection#2445494d50484548644b5150484b4b4f0a474b49" class="share-btn"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" class="share-btn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/JagjeetMakhija" target="_blank" class="share-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/jagjeetmakhija" target="_blank" class="share-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:contact@jagjeetmakhija.com" class="share-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
@@ -1197,7 +1066,7 @@
                     </div>
                 </a>
 
-                <a href="http://github.com/jagjeetmakhija" target="_blank" class="link-button github">
+                <a href="https://github.com/jagjeetmakhija" target="_blank" class="link-button github">
                     <div class="icon">GH</div>
                     <div class="link-content">
                         <div class="link-title">GitHub</div>
@@ -1299,22 +1168,6 @@
             </div>
 
             <div class="links">
-                <a href="https://www.linkedin.com/pulse/ai-powered-call-center-solution-jagjeet-makhija-5ngvc" target="_blank" class="link-button powerplatform">
-                    <div class="icon">📞</div>
-                    <div class="link-content">
-                        <div class="link-title">AI-Powered Call Center Solution</div>
-                        <div class="link-description">Building intelligent call center solutions with AI agents and natural language processing</div>
-                    </div>
-                </a>
-
-                <a href="https://www.linkedin.com/pulse/natural-language-governed-insights-end-to-end-runbook-jagjeet-makhija-arbtc" target="_blank" class="link-button powerplatform">
-                    <div class="icon">🔍</div>
-                    <div class="link-content">
-                        <div class="link-title">Natural Language to Governed Insights</div>
-                        <div class="link-description">End-to-End Runbook for Microsoft Fabric + Semantic Model + Foundry Local</div>
-                    </div>
-                </a>
-
                 <a href="https://www.linkedin.com/pulse/power-data-lakehouse-azure-synapse-jagjeet-makhija" target="_blank" class="link-button azure">
                     <div class="icon">🏛️</div>
                     <div class="link-content">
@@ -1342,56 +1195,48 @@
                 <a href="https://www.linkedin.com/posts/jagjeetmakhija_azuredatafactory-azuredatalake-dataengineering-activity-7345287107873034240-G8nV" target="_blank" class="link-button azure">
                     <div class="icon">🔧</div>
                     <div class="link-content">
-                        <div class="link-title">Azure Data Factory Best Practices</div>
-                        <div class="link-description">Data engineering patterns and best practices for Azure Data Factory and Data Lake</div>
-                    </div>
-                </a>
-
-                <a href="https://www.linkedin.com/posts/jagjeetmakhija_micrsoft-copilot-chatgpt-activity-7153453681013616640-hSkW" target="_blank" class="link-button powerplatform">
-                    <div class="icon">🤖</div>
-                    <div class="link-content">
-                        <div class="link-title">Microsoft Copilot & ChatGPT Integration</div>
-                        <div class="link-description">Exploring enterprise AI capabilities with Microsoft Copilot and ChatGPT</div>
+                        <div class="link-title">Delete all files inside each subfolder under a root directory</div>
+                        <div class="link-description">Delete all files inside each subfolder under a root directory</div>
                     </div>
                 </a>
 
                 <a href="https://www.linkedin.com/posts/jagjeetmakhija_micorsoft-database-dataengineering-activity-7095151633428336640-TgT4" target="_blank" class="link-button azure">
                     <div class="icon">💾</div>
                     <div class="link-content">
-                        <div class="link-title">Microsoft Database & Data Engineering</div>
-                        <div class="link-description">Modern approaches to database architecture and data engineering on Microsoft platforms</div>
+                        <div class="link-title">Navigating the Data Platform Landscape: Finding the Perfect Fit for Your Company Azure Synapse OR Microsoft Fabric</div>
+                        <div class="link-description">Navigating the Data Platform Landscape: Finding the Perfect Fit for Your Company Azure Synapse OR Microsoft Fabric</div>
                     </div>
                 </a>
 
                 <a href="https://www.linkedin.com/posts/jagjeetmakhija_microsoft365-azure-office365-activity-7178862381173788672-kATI" target="_blank" class="link-button powerplatform">
                     <div class="icon">☁️</div>
                     <div class="link-content">
-                        <div class="link-title">Microsoft 365 & Azure Integration</div>
-                        <div class="link-description">Seamless integration strategies for Microsoft 365 and Azure cloud services</div>
+                        <div class="link-title">Eyes as Pens: Microsoft's Leap Towards Revolutionary Accessibility</div>
+                        <div class="link-description">Eyes as Pens: Microsoft's Leap Towards Revolutionary Accessibility</div>
                     </div>
                 </a>
 
                 <a href="https://www.linkedin.com/posts/jagjeetmakhija_microsoft-cloudarchitecture-cloudstorage-activity-6849039050393960448-Woui" target="_blank" class="link-button azure">
                     <div class="icon">🏗️</div>
                     <div class="link-content">
-                        <div class="link-title">Cloud Architecture & Storage Solutions</div>
-                        <div class="link-description">Microsoft cloud architecture patterns and storage optimization strategies</div>
+                        <div class="link-title">Cloud Katana Microsoft Open Source</div>
+                        <div class="link-description">Microsoft Cloud Open Source</div>
                     </div>
                 </a>
 
                 <a href="https://www.linkedin.com/posts/jagjeetmakhija_adfs-azuredatalake-azuredatabricks-activity-6769740877184294912-Cx9y" target="_blank" class="link-button azure">
                     <div class="icon">🔐</div>
                     <div class="link-content">
-                        <div class="link-title">ADFS, Data Lake & Databricks Integration</div>
-                        <div class="link-description">Secure authentication and data integration with Azure Data Lake and Databricks</div>
+                        <div class="link-title">ADF vs Data bricks</div>
+                        <div class="link-description">ADF vs Data bricks</div>
                     </div>
                 </a>
 
                 <a href="https://www.linkedin.com/posts/jagjeetmakhija_azurecloud-azuresql-microsoftazure-activity-6801746066556489728-80S9" target="_blank" class="link-button azure">
                     <div class="icon">🗄️</div>
                     <div class="link-content">
-                        <div class="link-title">Azure Cloud & Azure SQL</div>
-                        <div class="link-description">Best practices for Azure SQL database management and cloud optimization</div>
+                        <div class="link-title">Key Attributes Of Azure Synapse</div>
+                        <div class="link-description">Key Attributes Of Azure Synapse</div>
                     </div>
                 </a>
             </div>
@@ -1427,37 +1272,84 @@
         <p>© 2025 Jagjeet Singh Makhija. All rights reserved. Views are personal. External links may lead to third-party sites.</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Visitor Counter - Increments on each page view
+    <script>
+        // Global Visitor Counter with API simulation
+        // In production, you would use a real backend API to store and retrieve the count
         (function() {
-            // Get current count from localStorage or start at 0
-            let visitorCount = localStorage.getItem('visitorCount');
+            const COUNTER_KEY = 'jagjeet_global_visitor_count';
+            const VISITOR_KEY = 'jagjeet_visitor_visited';
+            const API_ENDPOINT = 'YOUR_API_ENDPOINT_HERE'; // Replace with actual API endpoint
             
-            if (!visitorCount) {
-                visitorCount = 0;
-            } else {
-                visitorCount = parseInt(visitorCount);
+            // Check if this visitor has been counted before
+            const hasVisited = sessionStorage.getItem(VISITOR_KEY);
+            
+            // Initialize or get current count
+            let globalCount = parseInt(localStorage.getItem(COUNTER_KEY) || '1000'); // Starting count
+            
+            if (!hasVisited) {
+                // New visitor - increment count
+                globalCount++;
+                localStorage.setItem(COUNTER_KEY, globalCount.toString());
+                sessionStorage.setItem(VISITOR_KEY, 'true');
+                
+                // In production, you would send this to your API:
+                // fetch(API_ENDPOINT, {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ action: 'increment' })
+                // }).then(response => response.json())
+                //   .then(data => {
+                //       document.getElementById('count').textContent = data.count;
+                //   });
             }
-            
-            // Increment the count
-            visitorCount++;
-            
-            // Save the new count
-            localStorage.setItem('visitorCount', visitorCount);
             
             // Display the count
             const countElement = document.getElementById('count');
             if (countElement) {
-                countElement.textContent = visitorCount;
+                // Animate the counter
+                animateCounter(countElement, 0, globalCount, 1000);
             }
+            
+            // Sync with other tabs using storage event
+            window.addEventListener('storage', function(e) {
+                if (e.key === COUNTER_KEY && e.newValue) {
+                    const newCount = parseInt(e.newValue);
+                    animateCounter(countElement, parseInt(countElement.textContent || '0'), newCount, 500);
+                }
+            });
         })();
+        
+        // Counter animation function
+        function animateCounter(element, start, end, duration) {
+            const range = end - start;
+            const increment = range / (duration / 16); // 60fps
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 16);
+        }
 
-        // Theme toggle functionality with minimal code
-        var themeButton = document.getElementById('theme-btn');
+        // Theme toggle functionality
+        const themeButton = document.getElementById('theme-btn');
         if (themeButton) {
+            // Load saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeButton.textContent = '☀️';
+            }
+            
             themeButton.onclick = function() {
                 document.body.classList.toggle('light-mode');
-                this.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+                const isLight = document.body.classList.contains('light-mode');
+                this.textContent = isLight ? '☀️' : '🌙';
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
             };
         }
 
@@ -1477,7 +1369,7 @@
             if (!searchTerm) return;
 
             // Get all section titles, link titles, and descriptions
-            const sections = document.querySelectorAll('.section-title, .link-title, .link-description, .newsletter-heading, .newsletter-description');
+            const sections = document.querySelectorAll('.section-title, .link-title, .link-description, .newsletter-heading, .newsletter-description, .about-text');
             let foundElements = [];
 
             // Search through all text content
@@ -1507,89 +1399,13 @@
                 });
 
                 // Show search results count
-                alert(`Found ${foundElements.length} results for "${searchTerm}"`);
+                setTimeout(() => {
+                    alert(`Found ${foundElements.length} result(s) for "${searchTerm}"`);
+                }, 100);
             } else {
                 alert(`No results found for "${searchTerm}"`);
             }
         }
-
-        // Beehiiv iframe integration
-        // The form is now handled directly by Beehiiv through the iframe
-
-        // Social sharing functionality
-        function shareProfile(platform) {
-            const pageUrl = encodeURIComponent(window.location.href);
-            const pageTitle = encodeURIComponent("Check out Jagjeet Singh Makhija's AI & SAP expertise");
-            const pageDescription = encodeURIComponent("Jagjeet Singh Makhija drives enterprise innovation at the intersection of SAP and AI—leveraging Power Platform and Azure AI.");
-
-            let shareUrl = '';
-
-            switch(platform) {
-                case 'linkedin':
-                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
-                    break;
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-                    break;
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-                    break;
-                case 'email':
-                    shareUrl = `mailto:?subject=${pageTitle}&body=${pageDescription}%0A%0A${pageUrl}`;
-                    break;
-                default:
-                    return;
-            }
-
-            window.open(shareUrl, '_blank', 'width=600,height=400');
-        }
     </script>
-
-    <style>
-        /* Success animation for the form */
-        @keyframes successPulse {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-
-        .newsletter-form.success {
-            border-color: #10B981;
-            animation: successPulse 2s ease-out;
-        }
-
-        /* Beehiiv iframe styling */
-        .beehiiv-embed {
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 0;
-            min-height: 400px;
-            background: rgba(59, 46, 88, 0.5);
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .beehiiv-embed:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-        }
-
-        .beehiiv-iframe {
-            border: none;
-            width: 100%;
-            height: 100%;
-            min-height: 400px;
-        }
-
-        /* Search highlight styles */
-        .search-highlight {
-            animation: highlightPulse 2s ease-in-out;
-            box-shadow: 0 0 20px rgba(34, 184, 255, 0.6);
-            position: relative;
-            z-index: 10;
-        }
-
-        @keyframes highlightPulse {
-            0% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
-            50% { box
+</body>
+</html>
