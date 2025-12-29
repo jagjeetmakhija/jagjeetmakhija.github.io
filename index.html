@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagjeet Singh Makhija - Data Architecture Expert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for better icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+    </script>
+    <style>
+        /* Base Variables */
+        :root {
+            --bg-color: #0f0c29;
+            --gradient-1: linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
+            --gradient-2: linear-gradient(to right, #FC466B, #3F5EFB);
+            --gradient-3: linear-gradient(to right, #6a11cb, #2575fc);
+            --gradient-4: linear-gradient(135deg, #ff6b6b, #ffa07a, #ffd700);
+            --gradient-5: linear-gradient(135deg, #00c6ff, #0072ff);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --section-bg-network: rgba(84, 51, 255, 0.2);
+            --section-bg-playground: rgba(252, 70, 107, 0.2);
+            --section-bg-articles: rgba(106, 17, 203, 0.2);
+            --section-bg-support: rgba(37, 117, 252, 0.2);
+            --section-bg-podcasts: rgba(255, 0, 0, 0.2);
+        }
+
+        /* Light Mode Variables */
+        .light-mode {
+            --bg-color: #f0f4f8;
+            --text-primary: #1a202c;
+            --text-secondary: rgba(26, 32, 44, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --card-border: rgba(0, 0, 0, 0.1);
+            --section-bg-network: rgba(84, 51, 255, 0.1);
+            --section-bg-playground: rgba(252, 70, 107, 0.1);
+            --section-bg-articles: rgba(106, 17, 203, 0.1);
+            --section-bg-support: rgba(37, 117, 252, 0.1);
+            --section-bg-podcasts: rgba(255, 0, 0, 0.1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(84, 51, 255, 0.25) 0%, transparent 25%),
+                radial-gradient(circle at 85% 25%, rgba(252, 70, 107, 0.25) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(106, 17, 203, 0.2) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(37, 117, 252, 0.25) 0%, transparent 35%),
+                radial-gradient(circle at 25% 65%, rgba(255, 107, 107, 0.2) 0%, transparent 30%),
+                radial-gradient(circle at 70% 10%, rgba(255, 215, 0, 0.15) 0%, transparent 25%);
+            z-index: -1;
+            animation: backgroundShift 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 10% 20%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 20s;
+            background: rgba(84, 51, 255, 0.3);
+        }
+
+        .particle:nth-child(2) {
+            top: 70%;
+            left: 80%;
+            animation-delay: 2s;
+            animation-duration: 18s;
+            background: rgba(252, 70, 107, 0.3);
+        }
+
+        .particle:nth-child(3) {
+            top: 40%;
+            left: 40%;
+            animation-delay: 4s;
+            animation-duration: 25s;
+            background: rgba(106, 17, 203, 0.3);
+        }
+
+        .particle:nth-child(4) {
+            top: 10%;
+            left: 70%;
+            animation-delay: 6s;
+            animation-duration: 22s;
+            background: rgba(37, 117, 252, 0.3);
+        }
+
+        .particle:nth-child(5) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 8s;
+            animation-duration: 23s;
+            background: rgba(255, 107, 107, 0.3);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-40px) translateX(20px) scale(1.2);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        /* Header Styles */
+        header {
+            width: 100%;
+            max-width: 720px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .brand-text {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(34, 184, 255, 0.2);
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 14px;
+            padding: 5px;
+            width: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .search-container:hover .search-input,
+        .search-input:focus {
+            width: 150px;
+            opacity: 1;
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .visitor-counter {
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--card-bg);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-primary);
+            font-size: 20px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Container Styles */
+        .container {
+            width: 100%;
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Profile Card Styles */
+        .profile-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--gradient-3);
+        }
+
+        /* Avatar styles with initials fallback */
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border: 3px solid transparent;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .status-indicator {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #10B981;
+            border: 3px solid var(--card-bg);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .profile-info {
+            text-align: center;
+            width: 100%;
+        }
+
+        .profile-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-title {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .profile-bio {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            max-width: 80%;
+        }
+
+        .about-me {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 3px solid #22b8ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-me::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(34, 184, 255, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .about-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #22b8ff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .social-share {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(34, 184, 255, 0.2);
+            color: #22b8ff;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+        }
+
+        /* Section Styles */
+        .section {
+            width: 100%;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-3);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .section:hover .section-header::after {
+            width: 100px;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-right: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-icon i {
+            font-size: 18px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .section:hover .section-icon::before {
+            opacity: 1;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover .section-title {
+            transform: translateX(5px);
+        }
+
+        .section-network {
+            background: var(--section-bg-network);
+        }
+
+        .section-network .section-icon {
+            background: var(--gradient-1);
+        }
+
+        .section-playground {
+            background: var(--section-bg-playground);
+        }
+
+        .section-playground .section-icon {
+            background: var(--gradient-2);
+        }
+
+        .section-articles {
+            background: var(--section-bg-articles);
+        }
+
+        .section-articles .section-icon {
+            background: var(--gradient-3);
+        }
+
+        .section-training {
+            background: linear-gradient(135deg, rgba(0, 120, 212, 0.05), rgba(123, 97, 255, 0.05));
+            border: 1px solid rgba(0, 120, 212, 0.1);
+        }
+
+        .section-training .section-icon {
+            background: linear-gradient(135deg, #0078D4, #7B61FF);
+            color: white;
+        }
+
+        .section-training .icon i {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .section-training .link-button:hover .icon i {
+            transform: scale(1.2);
+        }
+
+        .section-training .link-button {
+            border: 1px solid rgba(0, 120, 212, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .section-training .link-button:hover {
+            border-color: rgba(0, 120, 212, 0.4);
+            background: rgba(0, 120, 212, 0.05);
+        }
+
+        .section-support {
+            background: var(--section-bg-support);
+        }
+
+        .section-support .section-icon {
+            background: var(--gradient-1);
+        }
+
+        .section-podcasts {
+            background: var(--section-bg-podcasts);
+        }
+
+        .section-podcasts .section-icon {
+            background: var(--gradient-2);
+        }
+
+        .section-newsletter {
+            background: linear-gradient(135deg, #2a1b4a, #1e1033);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(34, 184, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(34, 184, 255, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-newsletter .section-icon {
+            background: linear-gradient(135deg, #22b8ff, #1a8dff);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(34, 184, 255, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        /* Link Styles */
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .link-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: all 0.6s ease;
+        }
+
+        .link-button::after {
+            content: "→";
+            position: absolute;
+            right: 20px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .link-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding-right: 45px;
+        }
+
+        .link-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .link-button:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .links > a:nth-child(1) { animation-delay: 0.1s; }
+        .links > a:nth-child(2) { animation-delay: 0.2s; }
+        .links > a:nth-child(3) { animation-delay: 0.3s; }
+        .links > a:nth-child(4) { animation-delay: 0.4s; }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            margin-right: 15px;
+            background: var(--card-bg);
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .link-button:hover .icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .link-button:hover .icon::before {
+            opacity: 1;
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .link-description {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .linkedin .icon { background-color: #0A66C2; }
+        .github .icon { background-color: #333333; }
+        .twitter .icon { background-color: #1DA1F2; }
+        .youtube .icon { background-color: #FF0000; }
+        .copilot .icon { background-color: #7B61FF; }
+        .sap .icon { background-color: #00A1E4; }
+        .powerplatform .icon { background-color: #7B61FF; }
+        .azure .icon { background-color: #0078D4; }
+        .kofi .icon { background-color: #FF5E5B; }
+
+        /* Newsletter Styles */
+        .newsletter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 0;
+        }
+
+        .newsletter-content {
+            flex: 1;
+            min-width: 300px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .newsletter-heading {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #22b8ff;
+            line-height: 1.3;
+        }
+
+        .newsletter-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .newsletter-benefits {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-benefits li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .newsletter-benefits li i {
+            color: #22b8ff;
+            margin-right: 10px;
+            font-size: 18px;
+            background: rgba(34, 184, 255, 0.15);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer Styles */
+        footer {
+            width: 100%;
+            max-width: 720px;
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            font-size: 12px;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Search highlight styles */
+        .search-highlight {
+            animation: highlightPulse 2s ease-in-out;
+            box-shadow: 0 0 20px rgba(34, 184, 255, 0.6);
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes highlightPulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
+            50% { box-shadow: 0 0 20px rgba(34, 184, 255, 0.6); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .links {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-bio {
+                max-width: 100%;
+            }
+
+            .newsletter-container {
+                flex-direction: column;
+            }
+
+            .newsletter-content {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-card, .section {
+                padding: 20px 15px;
+            }
+
+            .profile-name {
+                font-size: 24px;
+            }
+
+            .skill-tag {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .link-button {
+                padding: 12px 15px;
+            }
+
+            .link-title {
+                font-size: 14px;
+            }
+
+            .newsletter-heading {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header>
+        <div class="brand">
+            <div class="logo">JM</div>
+            <div class="brand-text">Jagjeet Singh Makhija</div>
+        </div>
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search..." class="search-input">
+                <button id="search-btn" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="visitor-counter" id="visitor-count">Visitors: <span id="count">Loading...</span></div>
+            <button id="theme-btn" class="theme-toggle" aria-label="Toggle light mode">🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile-card">
+            <div class="avatar-container">
+                <img src="MyPic.jpg" alt="Jagjeet Singh Makhija" class="avatar" style="object-fit: cover;" onerror="this.style.display='none'; this.parentElement.querySelector('.avatar-fallback').style.display='flex';">
+                <div class="avatar avatar-fallback" style="display: none;">JM</div>
+                <div class="status-indicator"></div>
+            </div>
+
+            <div class="profile-info">
+                <h1 class="profile-name">Jagjeet Singh Makhija</h1>
+                <p class="profile-title">Senior Solution Architect • Ex-Microsoft • Published Author • EMBA</p>
+
+                <div class="about-me">
+                    <h3 class="about-title"><i class="fas fa-briefcase"></i> About Me</h3>
+                    <p class="about-text">I'm a distinguished Senior Solution Architect with 20+ years architecting enterprise data platforms. Specializing in Microsoft Fabric, Azure Synapse, Snowflake, and Agentic AI, I transform complex data challenges into scalable, intelligent solutions. I leverage enterprise data by AI to give meaningful data insights that drive strategic business decisions. As a published author and Ex-Microsoft architect with an Executive MBA, I bring both technical depth and strategic business acumen to every engagement.</p>
+                </div>
+
+                <div class="skills">
+                    <span class="skill-tag">Microsoft Fabric</span>
+                    <span class="skill-tag">Azure Synapse</span>
+                    <span class="skill-tag">Snowflake</span>
+                    <span class="skill-tag">Agentic AI</span>
+                    <span class="skill-tag">Data Architecture</span>
+                    <span class="skill-tag">AI/ML Integration</span>
+                </div>
+
+                <div class="social-share">
+                    <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" class="share-btn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/JagjeetMakhija" target="_blank" class="share-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/jagjeetmakhija" target="_blank" class="share-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:contact@jagjeetmakhija.com" class="share-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join My AI Network Section -->
+        <section class="section section-network">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-network-wired"></i></div>
+                <h2 class="section-title">Connect With Me</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://linkedin.com/in/jagjeetmakhija" target="_blank" class="link-button linkedin">
+                    <div class="icon">in</div>
+                    <div class="link-content">
+                        <div class="link-title">LinkedIn</div>
+                        <div class="link-description">Connect with me professionally</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/jagjeetmakhija" target="_blank" class="link-button github">
+                    <div class="icon">GH</div>
+                    <div class="link-content">
+                        <div class="link-title">GitHub</div>
+                        <div class="link-description">Check out my code repositories</div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/JagjeetMakhija" target="_blank" class="link-button twitter">
+                    <div class="icon">X</div>
+                    <div class="link-content">
+                        <div class="link-title">X / Twitter</div>
+                        <div class="link-description">Follow me for tech insights</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- My AI Playground & Apps Section -->
+        <section class="section section-playground">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-robot"></i></div>
+                <h2 class="section-title">My AI Playground & Apps</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/jagjeetmakhija/Natural-Language-to-Governed-Insights-End-to-End-Runbook" target="_blank" class="link-button copilot">
+                    <div class="icon">🔍</div>
+                    <div class="link-content">
+                        <div class="link-title">Natural Language to Governed Insights End-to-End Runbook</div>
+                        <div class="link-description">Microsoft Fabric + Semantic Model + Foundry Local</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/jagjeetmakhija/CallCenter-AIAgent" target="_blank" class="link-button sap">
+                    <div class="icon">📞</div>
+                    <div class="link-content">
+                        <div class="link-title">AI-Powered Call Center Solution</div>
+                        <div class="link-description">Intelligent call center agent with natural language processing capabilities</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Published Books Section -->
+        <section class="section section-articles">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-book"></i></div>
+                <h2 class="section-title">My Published Books</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://www.amazon.com/Implementing-Analytics-Solutions-Microsoft-Fabric-DP-600-ebook/dp/B0DQXNKS5Z" target="_blank" class="link-button powerplatform">
+                    <div class="link-content">
+                        <div class="link-title">Implementing Analytics Solutions Using Microsoft Fabric</div>
+                        <div class="link-description">DP-600 Exam Study Guide - Primary Author (with Charles Odunukwe)</div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/ADVANCED-AI-INSIGHT-Pushing-Boundaries/dp/B0DSJBBMNJ" target="_blank" class="link-button powerplatform">
+                    <div class="link-content">
+                        <div class="link-title">ADVANCED AI INSIGHT</div>
+                        <div class="link-description">Pushing the Boundaries of Data Science</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Books I've Reviewed Section -->
+        <section class="section section-playground">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-star"></i></div>
+                <h2 class="section-title">Books I've Reviewed & Recommend</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://www.amazon.com/Data-Ingestion-Python-Cookbook-identifying/dp/183763260X" target="_blank" class="link-button copilot">
+                    <div class="icon">🐍</div>
+                    <div class="link-content">
+                        <div class="link-title">Data Ingestion with Python Cookbook</div>
+                        <div class="link-description">By Gláucia Esppenchutz - Practical guide to building data ingestion pipelines with Python and PySpark</div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/Azure-Data-Engineering-Cookbook-recipe-based/dp/1803246782/" target="_blank" class="link-button azure">
+                    <div class="icon">☁️</div>
+                    <div class="link-content">
+                        <div class="link-title">Azure Data Engineering Cookbook</div>
+                        <div class="link-description">By Nagaraj Venkatesan & Ahmad Osama - 80+ recipes for Azure data engineering pipelines</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Published Articles Section -->
+        <section class="section section-articles">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-book-open"></i></div>
+                <h2 class="section-title">Published Articles & Insights</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://www.linkedin.com/pulse/power-data-lakehouse-azure-synapse-jagjeet-makhija" target="_blank" class="link-button azure">
+                    <div class="icon">🏛️</div>
+                    <div class="link-content">
+                        <div class="link-title">Power of Data Lakehouse in Azure Synapse</div>
+                        <div class="link-description">Leveraging Azure Synapse Analytics for modern data lakehouse architectures</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/pulse/alchemy-insight-jagjeet-makhija-ssfic" target="_blank" class="link-button powerplatform">
+                    <div class="icon">✨</div>
+                    <div class="link-content">
+                        <div class="link-title">Alchemy of Insight</div>
+                        <div class="link-description">Transforming raw data into actionable business intelligence</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/pulse/beauty-snowflake-power-bi-jagjeet-makhija" target="_blank" class="link-button powerplatform">
+                    <div class="icon">📊</div>
+                    <div class="link-content">
+                        <div class="link-title">The Beauty of Snowflake with Agentic AI</div>
+                        <div class="link-description">Technical deep-dive into integrating Snowflake with Microsoft Agentic AI</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_azuredatafactory-azuredatalake-dataengineering-activity-7345287107873034240-G8nV" target="_blank" class="link-button azure">
+                    <div class="icon">🔧</div>
+                    <div class="link-content">
+                        <div class="link-title">Delete all files inside each subfolder under a root directory</div>
+                        <div class="link-description">Delete all files inside each subfolder under a root directory</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_micorsoft-database-dataengineering-activity-7095151633428336640-TgT4" target="_blank" class="link-button azure">
+                    <div class="icon">💾</div>
+                    <div class="link-content">
+                        <div class="link-title">Navigating the Data Platform Landscape: Finding the Perfect Fit for Your Company Azure Synapse OR Microsoft Fabric</div>
+                        <div class="link-description">Navigating the Data Platform Landscape: Finding the Perfect Fit for Your Company Azure Synapse OR Microsoft Fabric</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_microsoft365-azure-office365-activity-7178862381173788672-kATI" target="_blank" class="link-button powerplatform">
+                    <div class="icon">☁️</div>
+                    <div class="link-content">
+                        <div class="link-title">Eyes as Pens: Microsoft's Leap Towards Revolutionary Accessibility</div>
+                        <div class="link-description">Eyes as Pens: Microsoft's Leap Towards Revolutionary Accessibility</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_microsoft-cloudarchitecture-cloudstorage-activity-6849039050393960448-Woui" target="_blank" class="link-button azure">
+                    <div class="icon">🏗️</div>
+                    <div class="link-content">
+                        <div class="link-title">Cloud Katana Microsoft Open Source</div>
+                        <div class="link-description">Microsoft Cloud Open Source</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_adfs-azuredatalake-azuredatabricks-activity-6769740877184294912-Cx9y" target="_blank" class="link-button azure">
+                    <div class="icon">🔐</div>
+                    <div class="link-content">
+                        <div class="link-title">ADF vs Data bricks</div>
+                        <div class="link-description">ADF vs Data bricks</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_azurecloud-azuresql-microsoftazure-activity-6801746066556489728-80S9" target="_blank" class="link-button azure">
+                    <div class="icon">🗄️</div>
+                    <div class="link-content">
+                        <div class="link-title">Key Attributes Of Azure Synapse</div>
+                        <div class="link-description">Key Attributes Of Azure Synapse</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section section-support">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-envelope"></i></div>
+                <h2 class="section-title">Let's Connect</h2>
+            </div>
+
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h3 class="newsletter-heading">Ready to Transform Your Data Strategy?</h3>
+                    <p class="newsletter-description">I'm always interested in discussing data architecture, cloud solutions, Microsoft Fabric, Snowflake, AI integration, and enterprise analytics. Whether you're looking for consulting, collaboration, or just want to exchange ideas—reach out!</p>
+                    <ul class="newsletter-benefits">
+                        <li><i class="fas fa-check"></i> Enterprise Data Platform Consulting</li>
+                        <li><i class="fas fa-check"></i> Microsoft Fabric & Azure Synapse Expertise</li>
+                        <li><i class="fas fa-check"></i> Snowflake Architecture & Implementation</li>
+                        <li><i class="fas fa-check"></i> Enterprise Data Leverage by AI</li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; margin-right: 10px;">Connect on LinkedIn</a>
+                        <a href="https://github.com/jagjeetmakhija" target="_blank" style="display: inline-block; padding: 12px 24px; background: #333; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">View GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Jagjeet Singh Makhija. All rights reserved. Views are personal. External links may lead to third-party sites.</p>
+    </footer>
+
+    <script>
+        // Global Visitor Counter with API simulation
+        // In production, you would use a real backend API to store and retrieve the count
+        (function() {
+            const COUNTER_KEY = 'jagjeet_global_visitor_count';
+            const VISITOR_KEY = 'jagjeet_visitor_visited';
+            const API_ENDPOINT = 'YOUR_API_ENDPOINT_HERE'; // Replace with actual API endpoint
+            
+            // Check if this visitor has been counted before
+            const hasVisited = sessionStorage.getItem(VISITOR_KEY);
+            
+            // Initialize or get current count
+            let globalCount = parseInt(localStorage.getItem(COUNTER_KEY) || '1000'); // Starting count
+            
+            if (!hasVisited) {
+                // New visitor - increment count
+                globalCount++;
+                localStorage.setItem(COUNTER_KEY, globalCount.toString());
+                sessionStorage.setItem(VISITOR_KEY, 'true');
+                
+                // In production, you would send this to your API:
+                // fetch(API_ENDPOINT, {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ action: 'increment' })
+                // }).then(response => response.json())
+                //   .then(data => {
+                //       document.getElementById('count').textContent = data.count;
+                //   });
+            }
+            
+            // Display the count
+            const countElement = document.getElementById('count');
+            if (countElement) {
+                // Animate the counter
+                animateCounter(countElement, 0, globalCount, 1000);
+            }
+            
+            // Sync with other tabs using storage event
+            window.addEventListener('storage', function(e) {
+                if (e.key === COUNTER_KEY && e.newValue) {
+                    const newCount = parseInt(e.newValue);
+                    animateCounter(countElement, parseInt(countElement.textContent || '0'), newCount, 500);
+                }
+            });
+        })();
+        
+        // Counter animation function
+        function animateCounter(element, start, end, duration) {
+            const range = end - start;
+            const increment = range / (duration / 16); // 60fps
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 16);
+        }
+
+        // Theme toggle functionality
+        const themeButton = document.getElementById('theme-btn');
+        if (themeButton) {
+            // Load saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeButton.textContent = '☀️';
+            }
+            
+            themeButton.onclick = function() {
+                document.body.classList.toggle('light-mode');
+                const isLight = document.body.classList.contains('light-mode');
+                this.textContent = isLight ? '☀️' : '🌙';
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            };
+        }
+
+        // Search functionality
+        document.getElementById('search-btn').addEventListener('click', function() {
+            performSearch();
+        });
+
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+            if (!searchTerm) return;
+
+            // Get all section titles, link titles, and descriptions
+            const sections = document.querySelectorAll('.section-title, .link-title, .link-description, .newsletter-heading, .newsletter-description, .about-text');
+            let foundElements = [];
+
+            // Search through all text content
+            sections.forEach(section => {
+                if (section.textContent.toLowerCase().includes(searchTerm)) {
+                    // Find the closest section or link to highlight
+                    let elementToHighlight = section.closest('.section') || section.closest('.link-button');
+                    if (elementToHighlight && !foundElements.includes(elementToHighlight)) {
+                        foundElements.push(elementToHighlight);
+                    }
+                }
+            });
+
+            // Clear previous highlights
+            document.querySelectorAll('.search-highlight').forEach(el => {
+                el.classList.remove('search-highlight');
+            });
+
+            // Highlight found elements
+            if (foundElements.length > 0) {
+                foundElements.forEach(el => {
+                    el.classList.add('search-highlight');
+                    // Scroll to the first result
+                    if (el === foundElements[0]) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+
+                // Show search results count
+                setTimeout(() => {
+                    alert(`Found ${foundElements.length} result(s) for "${searchTerm}"`);
+                }, 100);
+            } else {
+                alert(`No results found for "${searchTerm}"`);
+            }
+        }
+    </script>
+</body>
+</html>
