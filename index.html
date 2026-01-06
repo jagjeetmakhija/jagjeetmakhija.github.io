@@ -18,37 +18,43 @@
         gtag('config', 'G-XXXXXXX');
     </script>
     <style>
-        /* Base Variables */
+        /* Base Variables - NEON TOKYO 🌃 */
         :root {
-            --bg-color: #0f0c29;
-            --gradient-1: linear-gradient(to right, #5433FF, #20BDFF, #A5FECB);
-            --gradient-2: linear-gradient(to right, #FC466B, #3F5EFB);
-            --gradient-3: linear-gradient(to right, #6a11cb, #2575fc);
-            --gradient-4: linear-gradient(135deg, #ff6b6b, #ffa07a, #ffd700);
-            --gradient-5: linear-gradient(135deg, #00c6ff, #0072ff);
+            --bg-color: #0d0221;
+            --gradient-1: linear-gradient(135deg, #00ffc6, #00b4d8, #7209b7);
+            --gradient-2: linear-gradient(135deg, #00b4d8, #4cc9f0, #7209b7);
+            --gradient-3: linear-gradient(135deg, #00ffc6, #7209b7);
+            --gradient-4: linear-gradient(135deg, #4cc9f0, #00ffc6, #00b4d8);
+            --gradient-5: linear-gradient(135deg, #7209b7, #00b4d8, #00ffc6);
             --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.8);
-            --card-bg: rgba(255, 255, 255, 0.1);
-            --card-border: rgba(255, 255, 255, 0.2);
-            --section-bg-network: rgba(84, 51, 255, 0.2);
-            --section-bg-playground: rgba(252, 70, 107, 0.2);
-            --section-bg-articles: rgba(106, 17, 203, 0.2);
-            --section-bg-support: rgba(37, 117, 252, 0.2);
-            --section-bg-podcasts: rgba(255, 0, 0, 0.2);
+            --text-secondary: rgba(255, 255, 255, 0.9);
+            --card-bg: rgba(0, 255, 198, 0.08);
+            --card-border: rgba(0, 180, 216, 0.3);
+            --section-bg-network: rgba(0, 255, 198, 0.15);
+            --section-bg-playground: rgba(0, 180, 216, 0.15);
+            --section-bg-articles: rgba(114, 9, 183, 0.15);
+            --section-bg-support: rgba(76, 201, 240, 0.15);
+            --section-bg-podcasts: rgba(0, 255, 198, 0.2);
+            
+            /* Neon Tokyo Specific Colors */
+            --neon-mint: #00ffc6;
+            --cyber-aqua: #00b4d8;
+            --ultra-violet: #7209b7;
+            --sky-electric: #4cc9f0;
         }
 
-        /* Light Mode Variables */
+        /* Light Mode Variables - NEON TOKYO LIGHT */
         .light-mode {
-            --bg-color: #f0f4f8;
-            --text-primary: #1a202c;
-            --text-secondary: rgba(26, 32, 44, 0.8);
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --card-border: rgba(0, 0, 0, 0.1);
-            --section-bg-network: rgba(84, 51, 255, 0.1);
-            --section-bg-playground: rgba(252, 70, 107, 0.1);
-            --section-bg-articles: rgba(106, 17, 203, 0.1);
-            --section-bg-support: rgba(37, 117, 252, 0.1);
-            --section-bg-podcasts: rgba(255, 0, 0, 0.1);
+            --bg-color: #f0f9ff;
+            --text-primary: #0d0221;
+            --text-secondary: rgba(13, 2, 33, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-border: rgba(0, 180, 216, 0.3);
+            --section-bg-network: rgba(0, 255, 198, 0.1);
+            --section-bg-playground: rgba(0, 180, 216, 0.1);
+            --section-bg-articles: rgba(114, 9, 183, 0.1);
+            --section-bg-support: rgba(76, 201, 240, 0.1);
+            --section-bg-podcasts: rgba(0, 255, 198, 0.12);
         }
 
         /* Reset & Base Styles */
@@ -79,12 +85,12 @@
             width: 100%;
             height: 100%;
             background-image:
-                radial-gradient(circle at 15% 15%, rgba(84, 51, 255, 0.25) 0%, transparent 25%),
-                radial-gradient(circle at 85% 25%, rgba(252, 70, 107, 0.25) 0%, transparent 35%),
-                radial-gradient(circle at 50% 50%, rgba(106, 17, 203, 0.2) 0%, transparent 45%),
-                radial-gradient(circle at 80% 80%, rgba(37, 117, 252, 0.25) 0%, transparent 35%),
-                radial-gradient(circle at 25% 65%, rgba(255, 107, 107, 0.2) 0%, transparent 30%),
-                radial-gradient(circle at 70% 10%, rgba(255, 215, 0, 0.15) 0%, transparent 25%);
+                radial-gradient(circle at 15% 15%, rgba(0, 255, 198, 0.35) 0%, transparent 25%),
+                radial-gradient(circle at 85% 25%, rgba(0, 180, 216, 0.4) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(114, 9, 183, 0.3) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(76, 201, 240, 0.35) 0%, transparent 35%),
+                radial-gradient(circle at 25% 65%, rgba(0, 255, 198, 0.25) 0%, transparent 30%),
+                radial-gradient(circle at 70% 10%, rgba(0, 180, 216, 0.25) 0%, transparent 25%);
             z-index: -1;
             animation: backgroundShift 30s ease-in-out infinite alternate;
         }
@@ -126,7 +132,7 @@
             left: 10%;
             animation-delay: 0s;
             animation-duration: 20s;
-            background: rgba(84, 51, 255, 0.3);
+            background: rgba(0, 255, 198, 0.5);
         }
 
         .particle:nth-child(2) {
@@ -134,7 +140,7 @@
             left: 80%;
             animation-delay: 2s;
             animation-duration: 18s;
-            background: rgba(252, 70, 107, 0.3);
+            background: rgba(0, 180, 216, 0.5);
         }
 
         .particle:nth-child(3) {
@@ -142,7 +148,7 @@
             left: 40%;
             animation-delay: 4s;
             animation-duration: 25s;
-            background: rgba(106, 17, 203, 0.3);
+            background: rgba(114, 9, 183, 0.5);
         }
 
         .particle:nth-child(4) {
@@ -150,7 +156,7 @@
             left: 70%;
             animation-delay: 6s;
             animation-duration: 22s;
-            background: rgba(37, 117, 252, 0.3);
+            background: rgba(76, 201, 240, 0.5);
         }
 
         .particle:nth-child(5) {
@@ -158,7 +164,7 @@
             left: 20%;
             animation-delay: 8s;
             animation-duration: 23s;
-            background: rgba(255, 107, 107, 0.3);
+            background: rgba(0, 255, 198, 0.5);
         }
 
         @keyframes float {
@@ -173,6 +179,58 @@
             100% {
                 transform: translateY(0) translateX(0) scale(1);
                 opacity: 0.3;
+            }
+        }
+
+        /* Neon Tokyo Glow Effect */
+        @keyframes neonGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 255, 198, 0.4),
+                            0 0 40px rgba(0, 180, 216, 0.3),
+                            0 0 60px rgba(114, 9, 183, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(0, 255, 198, 0.6),
+                            0 0 60px rgba(0, 180, 216, 0.4),
+                            0 0 90px rgba(114, 9, 183, 0.3);
+            }
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        /* Neon Text Glow */
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(0, 255, 198, 0.8),
+                             0 0 20px rgba(0, 255, 198, 0.5),
+                             0 0 30px rgba(0, 180, 216, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(0, 255, 198, 1),
+                             0 0 30px rgba(0, 255, 198, 0.7),
+                             0 0 40px rgba(0, 180, 216, 0.5);
+            }
+        }
+
+        /* Slide Up Animation */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -779,9 +837,12 @@
         }
 
         .link-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 255, 198, 0.3),
+                        0 5px 20px rgba(0, 180, 216, 0.2),
+                        0 0 30px rgba(114, 9, 183, 0.15);
             padding-right: 45px;
+            border-color: rgba(0, 255, 198, 0.6);
         }
 
         .link-button:hover::before {
@@ -1147,6 +1208,153 @@
         </div>
     </header>
 
+    <!-- 🌃 NEON TOKYO HERO BANNER 🌃 -->
+    <div style="
+        max-width: 720px;
+        margin: 20px auto;
+        background: linear-gradient(135deg, #0d0221, #1a0440);
+        padding: 60px 40px;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 0 40px rgba(0, 255, 198, 0.4),
+                    0 20px 60px rgba(0, 180, 216, 0.3);
+        position: relative;
+        overflow: hidden;
+        border: 2px solid rgba(0, 255, 198, 0.3);
+        animation: neonGlow 3s ease-in-out infinite;
+    ">
+        <!-- Animated Background Pattern -->
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(0, 255, 198, 0.05) 30%, rgba(0, 255, 198, 0.05) 70%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(0, 180, 216, 0.05) 30%, rgba(0, 180, 216, 0.05) 70%, transparent 70%);
+            background-size: 50px 50px;
+            animation: slide 20s linear infinite;
+        "></div>
+        
+        <div style="
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 198, 0.1) 0%, transparent 70%);
+            animation: pulse 5s ease-in-out infinite;
+        "></div>
+        
+        <div style="position: relative; z-index: 1;">
+            <div style="
+                font-size: 0.95rem;
+                font-weight: 700;
+                color: #00ffc6;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                animation: textGlow 2s ease-in-out infinite;
+            ">⚡ ENTERPRISE DATA ARCHITECT ⚡</div>
+            
+            <h1 style="
+                font-size: 3rem;
+                font-weight: 900;
+                background: linear-gradient(135deg, #00ffc6, #00b4d8, #4cc9f0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 20px;
+                line-height: 1.2;
+                animation: textGlow 2s ease-in-out infinite;
+            ">
+                JAGJEET SINGH MAKHIJA
+            </h1>
+            
+            <div style="
+                display: inline-block;
+                background: rgba(0, 255, 198, 0.1);
+                padding: 15px 25px;
+                border-radius: 50px;
+                border: 2px solid rgba(0, 255, 198, 0.3);
+                margin-bottom: 25px;
+            ">
+                <p style="
+                    font-size: 1.15rem;
+                    color: #ffffff;
+                    margin: 0;
+                    line-height: 1.6;
+                    font-weight: 600;
+                ">
+                    🔷 Microsoft Fabric • ☁️ Azure Synapse • ❄️ Snowflake • 🤖 AI
+                </p>
+            </div>
+            
+            <p style="
+                font-size: 1.1rem;
+                color: rgba(255, 255, 255, 0.9);
+                max-width: 600px;
+                margin: 0 auto 30px;
+                line-height: 1.7;
+            ">
+                20+ years architecting enterprise data platforms | Published Author | Ex-Microsoft
+            </p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" onclick="document.querySelector('.section-playground').scrollIntoView({behavior: 'smooth'}); return false;" style="
+                    padding: 16px 35px;
+                    background: linear-gradient(135deg, #00ffc6, #00b4d8);
+                    border: 2px solid rgba(0, 255, 198, 0.5);
+                    border-radius: 50px;
+                    color: #0d0221;
+                    text-decoration: none;
+                    font-weight: 800;
+                    font-size: 1rem;
+                    transition: all 0.3s ease;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    box-shadow: 0 8px 25px rgba(0, 255, 198, 0.4);
+                " onmouseover="this.style.transform='scale(1.1) translateY(-3px)'; this.style.boxShadow='0 15px 35px rgba(0, 255, 198, 0.6)'" onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 8px 25px rgba(0, 255, 198, 0.4)'">
+                    🚀 View Projects
+                </a>
+                
+                <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" style="
+                    padding: 16px 35px;
+                    background: rgba(0, 180, 216, 0.2);
+                    backdrop-filter: blur(10px);
+                    border: 2px solid rgba(0, 180, 216, 0.5);
+                    border-radius: 50px;
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: 800;
+                    font-size: 1rem;
+                    transition: all 0.3s ease;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                " onmouseover="this.style.transform='scale(1.1) translateY(-3px)'; this.style.background='rgba(0, 180, 216, 0.3)'; this.style.boxShadow='0 15px 35px rgba(0, 180, 216, 0.5)'" onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.background='rgba(0, 180, 216, 0.2)'; this.style.boxShadow='none'">
+                    💼 Connect
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes slide {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+    </style>
+
     <div class="container">
         <div class="profile-card">
             <div class="avatar-container">
@@ -1159,8 +1367,66 @@
                 <p class="profile-title">Senior Solution Architect • Ex-Microsoft • Published Author • EMBA</p>
 
                 <div class="about-me">
-                    <h3 class="about-title"><i class="fas fa-briefcase"></i> About Me</h3>
-                    <p class="about-text">I'm a distinguished Senior Solution Architect with 20+ years architecting enterprise data platforms. Specializing in Microsoft Fabric, Azure Synapse, Snowflake, and Agentic AI, I transform complex data challenges into scalable, intelligent solutions. I leverage enterprise data by AI to give meaningful data insights that drive strategic business decisions. As a published author and Ex-Microsoft architect with an Executive MBA, I bring both technical depth and strategic business acumen to every engagement.</p>
+                    <h3 class="about-title"><i class="fas fa-briefcase"></i> 💼 About Me</h3>
+                    <p class="about-text">I'm a distinguished Senior Solution Architect with 20+ years architecting enterprise data platforms. Specializing in 🔷 Microsoft Fabric, ☁️ Azure Synapse, ❄️ Snowflake, and 🤖 Agentic AI, I transform complex data challenges into scalable, intelligent solutions. I leverage enterprise data by AI to give meaningful data insights that drive strategic business decisions. As a 📚 published author and Ex-Microsoft architect with an Executive MBA, I bring both technical depth and strategic business acumen to every engagement.</p>
+                </div>
+
+                <!-- Stats Showcase with Neon Tokyo Style -->
+                <div style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                    gap: 15px;
+                    margin-top: 25px;
+                    padding-top: 20px;
+                    border-top: 1px solid rgba(0, 255, 198, 0.2);
+                ">
+                    <div style="
+                        background: linear-gradient(135deg, rgba(0, 255, 198, 0.1), rgba(0, 180, 216, 0.1));
+                        padding: 20px;
+                        border-radius: 15px;
+                        text-align: center;
+                        border: 2px solid rgba(0, 255, 198, 0.3);
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(0, 255, 198, 0.6)'; this.style.boxShadow='0 15px 30px rgba(0, 255, 198, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0, 255, 198, 0.3)'; this.style.boxShadow='none'">
+                        <div style="font-size: 2rem; font-weight: 900; color: #00ffc6; margin-bottom: 5px;">20+</div>
+                        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); font-weight: 600;">Years Experience</div>
+                    </div>
+
+                    <div style="
+                        background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(114, 9, 183, 0.1));
+                        padding: 20px;
+                        border-radius: 15px;
+                        text-align: center;
+                        border: 2px solid rgba(0, 180, 216, 0.3);
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(0, 180, 216, 0.6)'; this.style.boxShadow='0 15px 30px rgba(0, 180, 216, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0, 180, 216, 0.3)'; this.style.boxShadow='none'">
+                        <div style="font-size: 2rem; font-weight: 900; color: #00b4d8; margin-bottom: 5px;">📚 2</div>
+                        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); font-weight: 600;">Published Books</div>
+                    </div>
+
+                    <div style="
+                        background: linear-gradient(135deg, rgba(114, 9, 183, 0.1), rgba(76, 201, 240, 0.1));
+                        padding: 20px;
+                        border-radius: 15px;
+                        text-align: center;
+                        border: 2px solid rgba(114, 9, 183, 0.3);
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(114, 9, 183, 0.6)'; this.style.boxShadow='0 15px 30px rgba(114, 9, 183, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(114, 9, 183, 0.3)'; this.style.boxShadow='none'">
+                        <div style="font-size: 2rem; font-weight: 900; color: #7209b7; margin-bottom: 5px;">🏢</div>
+                        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); font-weight: 600;">Ex-Microsoft</div>
+                    </div>
+
+                    <div style="
+                        background: linear-gradient(135deg, rgba(76, 201, 240, 0.1), rgba(0, 255, 198, 0.1));
+                        padding: 20px;
+                        border-radius: 15px;
+                        text-align: center;
+                        border: 2px solid rgba(76, 201, 240, 0.3);
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(76, 201, 240, 0.6)'; this.style.boxShadow='0 15px 30px rgba(76, 201, 240, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(76, 201, 240, 0.3)'; this.style.boxShadow='none'">
+                        <div style="font-size: 2rem; font-weight: 900; color: #4cc9f0; margin-bottom: 5px;">🎓</div>
+                        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); font-weight: 600;">Executive MBA</div>
+                    </div>
                 </div>
 
                 <div class="skills">
@@ -1185,7 +1451,7 @@
         <section class="section section-network">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-network-wired"></i></div>
-                <h2 class="section-title">Connect With Me</h2>
+                <h2 class="section-title">🌐 Connect With Me</h2>
             </div>
 
             <div class="links">
@@ -1219,7 +1485,7 @@
         <section class="section section-playground">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-robot"></i></div>
-                <h2 class="section-title">My AI Playground & Apps</h2>
+                <h2 class="section-title">🤖 My AI Playground & Apps</h2>
             </div>
 
             <div class="links">
@@ -1245,7 +1511,7 @@
         <section class="section section-articles">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-book"></i></div>
-                <h2 class="section-title">My Published Books</h2>
+                <h2 class="section-title">📚 My Published Books</h2>
             </div>
 
             <div class="links">
@@ -1269,7 +1535,7 @@
         <section class="section section-playground">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-star"></i></div>
-                <h2 class="section-title">Books I've Reviewed & Recommend</h2>
+                <h2 class="section-title">⭐ Books I've Reviewed & Recommend</h2>
             </div>
 
             <div class="links">
@@ -1295,7 +1561,7 @@
         <section class="section section-articles">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-book-open"></i></div>
-                <h2 class="section-title">Published Articles & Insights</h2>
+                <h2 class="section-title">📝 Published Articles & Insights</h2>
             </div>
 
             <div class="links">
@@ -1401,7 +1667,7 @@
         <section class="section section-support">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-envelope"></i></div>
-                <h2 class="section-title">Let's Connect</h2>
+                <h2 class="section-title">💬 Let's Connect</h2>
             </div>
 
             <div class="newsletter-container">
