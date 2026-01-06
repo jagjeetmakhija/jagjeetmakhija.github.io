@@ -18,43 +18,43 @@
         gtag('config', 'G-XXXXXXX');
     </script>
     <style>
-        /* Base Variables - NEON TOKYO 🌃 */
+        /* Base Variables - ELECTRIC CYBERPUNK 🔥⚡ */
         :root {
-            --bg-color: #0d0221;
-            --gradient-1: linear-gradient(135deg, #00ffc6, #00b4d8, #7209b7);
-            --gradient-2: linear-gradient(135deg, #00b4d8, #4cc9f0, #7209b7);
-            --gradient-3: linear-gradient(135deg, #00ffc6, #7209b7);
-            --gradient-4: linear-gradient(135deg, #4cc9f0, #00ffc6, #00b4d8);
-            --gradient-5: linear-gradient(135deg, #7209b7, #00b4d8, #00ffc6);
+            --bg-color: #0a0020;
+            --gradient-1: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
+            --gradient-2: linear-gradient(135deg, #8338ec, #3a86ff, #06ffa5);
+            --gradient-3: linear-gradient(135deg, #ff006e, #06ffa5);
+            --gradient-4: linear-gradient(135deg, #3a86ff, #06ffa5, #ff006e);
+            --gradient-5: linear-gradient(135deg, #06ffa5, #8338ec, #ff006e);
             --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.9);
-            --card-bg: rgba(0, 255, 198, 0.08);
-            --card-border: rgba(0, 180, 216, 0.3);
-            --section-bg-network: rgba(0, 255, 198, 0.15);
-            --section-bg-playground: rgba(0, 180, 216, 0.15);
-            --section-bg-articles: rgba(114, 9, 183, 0.15);
-            --section-bg-support: rgba(76, 201, 240, 0.15);
-            --section-bg-podcasts: rgba(0, 255, 198, 0.2);
+            --text-secondary: rgba(255, 255, 255, 0.95);
+            --card-bg: rgba(255, 0, 110, 0.08);
+            --card-border: rgba(131, 56, 236, 0.4);
+            --section-bg-network: rgba(255, 0, 110, 0.15);
+            --section-bg-playground: rgba(131, 56, 236, 0.15);
+            --section-bg-articles: rgba(58, 134, 255, 0.15);
+            --section-bg-support: rgba(6, 255, 165, 0.15);
+            --section-bg-podcasts: rgba(255, 0, 110, 0.2);
             
-            /* Neon Tokyo Specific Colors */
-            --neon-mint: #00ffc6;
-            --cyber-aqua: #00b4d8;
-            --ultra-violet: #7209b7;
-            --sky-electric: #4cc9f0;
+            /* Electric Cyberpunk Specific Colors */
+            --hot-pink: #ff006e;
+            --electric-purple: #8338ec;
+            --cyber-blue: #3a86ff;
+            --neon-green: #06ffa5;
         }
 
-        /* Light Mode Variables - NEON TOKYO LIGHT */
+        /* Light Mode Variables - ELECTRIC CYBERPUNK LIGHT */
         .light-mode {
-            --bg-color: #f0f9ff;
-            --text-primary: #0d0221;
-            --text-secondary: rgba(13, 2, 33, 0.8);
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --card-border: rgba(0, 180, 216, 0.3);
-            --section-bg-network: rgba(0, 255, 198, 0.1);
-            --section-bg-playground: rgba(0, 180, 216, 0.1);
-            --section-bg-articles: rgba(114, 9, 183, 0.1);
-            --section-bg-support: rgba(76, 201, 240, 0.1);
-            --section-bg-podcasts: rgba(0, 255, 198, 0.12);
+            --bg-color: #fff0f8;
+            --text-primary: #0a0020;
+            --text-secondary: rgba(10, 0, 32, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --card-border: rgba(131, 56, 236, 0.3);
+            --section-bg-network: rgba(255, 0, 110, 0.1);
+            --section-bg-playground: rgba(131, 56, 236, 0.1);
+            --section-bg-articles: rgba(58, 134, 255, 0.1);
+            --section-bg-support: rgba(6, 255, 165, 0.1);
+            --section-bg-podcasts: rgba(255, 0, 110, 0.12);
         }
 
         /* Reset & Base Styles */
@@ -85,12 +85,12 @@
             width: 100%;
             height: 100%;
             background-image:
-                radial-gradient(circle at 15% 15%, rgba(0, 255, 198, 0.35) 0%, transparent 25%),
-                radial-gradient(circle at 85% 25%, rgba(0, 180, 216, 0.4) 0%, transparent 35%),
-                radial-gradient(circle at 50% 50%, rgba(114, 9, 183, 0.3) 0%, transparent 45%),
-                radial-gradient(circle at 80% 80%, rgba(76, 201, 240, 0.35) 0%, transparent 35%),
-                radial-gradient(circle at 25% 65%, rgba(0, 255, 198, 0.25) 0%, transparent 30%),
-                radial-gradient(circle at 70% 10%, rgba(0, 180, 216, 0.25) 0%, transparent 25%);
+                radial-gradient(circle at 15% 15%, rgba(255, 0, 110, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 85% 25%, rgba(131, 56, 236, 0.45) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(58, 134, 255, 0.35) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(6, 255, 165, 0.4) 0%, transparent 35%),
+                radial-gradient(circle at 25% 65%, rgba(255, 0, 110, 0.3) 0%, transparent 30%),
+                radial-gradient(circle at 70% 10%, rgba(131, 56, 236, 0.3) 0%, transparent 25%);
             z-index: -1;
             animation: backgroundShift 30s ease-in-out infinite alternate;
         }
@@ -132,7 +132,7 @@
             left: 10%;
             animation-delay: 0s;
             animation-duration: 20s;
-            background: rgba(0, 255, 198, 0.5);
+            background: rgba(255, 0, 110, 0.6);
         }
 
         .particle:nth-child(2) {
@@ -140,7 +140,7 @@
             left: 80%;
             animation-delay: 2s;
             animation-duration: 18s;
-            background: rgba(0, 180, 216, 0.5);
+            background: rgba(131, 56, 236, 0.6);
         }
 
         .particle:nth-child(3) {
@@ -148,7 +148,7 @@
             left: 40%;
             animation-delay: 4s;
             animation-duration: 25s;
-            background: rgba(114, 9, 183, 0.5);
+            background: rgba(58, 134, 255, 0.6);
         }
 
         .particle:nth-child(4) {
@@ -156,7 +156,7 @@
             left: 70%;
             animation-delay: 6s;
             animation-duration: 22s;
-            background: rgba(76, 201, 240, 0.5);
+            background: rgba(6, 255, 165, 0.6);
         }
 
         .particle:nth-child(5) {
@@ -164,7 +164,7 @@
             left: 20%;
             animation-delay: 8s;
             animation-duration: 23s;
-            background: rgba(0, 255, 198, 0.5);
+            background: rgba(255, 0, 110, 0.6);
         }
 
         @keyframes float {
@@ -182,17 +182,22 @@
             }
         }
 
-        /* Neon Tokyo Glow Effect */
-        @keyframes neonGlow {
+        /* Electric Cyberpunk INTENSE Glow */
+        @keyframes electricGlow {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(0, 255, 198, 0.4),
-                            0 0 40px rgba(0, 180, 216, 0.3),
-                            0 0 60px rgba(114, 9, 183, 0.2);
+                box-shadow: 0 0 30px rgba(255, 0, 110, 0.6),
+                            0 0 60px rgba(131, 56, 236, 0.4),
+                            0 0 90px rgba(58, 134, 255, 0.3);
             }
-            50% {
-                box-shadow: 0 0 30px rgba(0, 255, 198, 0.6),
-                            0 0 60px rgba(0, 180, 216, 0.4),
-                            0 0 90px rgba(114, 9, 183, 0.3);
+            33% {
+                box-shadow: 0 0 40px rgba(131, 56, 236, 0.7),
+                            0 0 70px rgba(58, 134, 255, 0.5),
+                            0 0 100px rgba(6, 255, 165, 0.4);
+            }
+            66% {
+                box-shadow: 0 0 35px rgba(58, 134, 255, 0.7),
+                            0 0 65px rgba(6, 255, 165, 0.5),
+                            0 0 95px rgba(255, 0, 110, 0.4);
             }
         }
 
@@ -203,34 +208,42 @@
                 opacity: 1;
             }
             50% {
-                transform: scale(1.05);
-                opacity: 0.9;
+                transform: scale(1.08);
+                opacity: 0.85;
             }
         }
 
-        /* Neon Text Glow */
-        @keyframes textGlow {
+        /* Electric Text Glow */
+        @keyframes textElectric {
             0%, 100% {
-                text-shadow: 0 0 10px rgba(0, 255, 198, 0.8),
-                             0 0 20px rgba(0, 255, 198, 0.5),
-                             0 0 30px rgba(0, 180, 216, 0.3);
+                text-shadow: 0 0 15px rgba(255, 0, 110, 1),
+                             0 0 30px rgba(255, 0, 110, 0.7),
+                             0 0 45px rgba(131, 56, 236, 0.5);
             }
             50% {
-                text-shadow: 0 0 20px rgba(0, 255, 198, 1),
-                             0 0 30px rgba(0, 255, 198, 0.7),
-                             0 0 40px rgba(0, 180, 216, 0.5);
+                text-shadow: 0 0 25px rgba(131, 56, 236, 1),
+                             0 0 40px rgba(58, 134, 255, 0.8),
+                             0 0 55px rgba(6, 255, 165, 0.6);
             }
         }
 
-        /* Slide Up Animation */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        /* Scan Line Effect */
+        @keyframes scanline {
+            0% {
+                transform: translateY(-100%);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        /* RGB Shift */
+        @keyframes rgbShift {
+            0%, 100% {
+                filter: hue-rotate(0deg);
+            }
+            50% {
+                filter: hue-rotate(30deg);
             }
         }
 
@@ -837,12 +850,12 @@
         }
 
         .link-button:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 255, 198, 0.3),
-                        0 5px 20px rgba(0, 180, 216, 0.2),
-                        0 0 30px rgba(114, 9, 183, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 0, 110, 0.4),
+                        0 10px 30px rgba(131, 56, 236, 0.3),
+                        0 0 40px rgba(58, 134, 255, 0.2);
             padding-right: 45px;
-            border-color: rgba(0, 255, 198, 0.6);
+            border-color: rgba(255, 0, 110, 0.8);
         }
 
         .link-button:hover::before {
@@ -1208,22 +1221,24 @@
         </div>
     </header>
 
-    <!-- 🌃 NEON TOKYO HERO BANNER 🌃 -->
+    <!-- ⚡🔥 ELECTRIC CYBERPUNK HERO BANNER 🔥⚡ -->
     <div style="
         max-width: 720px;
         margin: 20px auto;
-        background: linear-gradient(135deg, #0d0221, #1a0440);
-        padding: 60px 40px;
-        border-radius: 25px;
+        background: linear-gradient(135deg, #0a0020, #1a0040, #2a0050);
+        padding: 70px 40px;
+        border-radius: 30px;
         text-align: center;
-        box-shadow: 0 0 40px rgba(0, 255, 198, 0.4),
-                    0 20px 60px rgba(0, 180, 216, 0.3);
+        box-shadow: 0 0 50px rgba(255, 0, 110, 0.6),
+                    0 0 100px rgba(131, 56, 236, 0.4),
+                    0 25px 80px rgba(0, 0, 0, 0.6);
         position: relative;
         overflow: hidden;
-        border: 2px solid rgba(0, 255, 198, 0.3);
-        animation: neonGlow 3s ease-in-out infinite;
+        border: 3px solid transparent;
+        background-clip: padding-box;
+        animation: electricGlow 3s ease-in-out infinite;
     ">
-        <!-- Animated Background Pattern -->
+        <!-- Electric Grid Background -->
         <div style="
             position: absolute;
             top: 0;
@@ -1231,10 +1246,37 @@
             right: 0;
             bottom: 0;
             background: 
-                linear-gradient(45deg, transparent 30%, rgba(0, 255, 198, 0.05) 30%, rgba(0, 255, 198, 0.05) 70%, transparent 70%),
-                linear-gradient(-45deg, transparent 30%, rgba(0, 180, 216, 0.05) 30%, rgba(0, 180, 216, 0.05) 70%, transparent 70%);
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 0, 110, 0.1) 2px, rgba(255, 0, 110, 0.1) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(131, 56, 236, 0.1) 2px, rgba(131, 56, 236, 0.1) 4px);
             background-size: 50px 50px;
-            animation: slide 20s linear infinite;
+            animation: slide 15s linear infinite;
+            opacity: 0.3;
+        "></div>
+
+        <!-- Animated Border -->
+        <div style="
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ff006e);
+            background-size: 400% 400%;
+            border-radius: 30px;
+            z-index: -1;
+            animation: gradient 3s ease infinite;
+        "></div>
+
+        <!-- Scan Line Effect -->
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(180deg, rgba(255, 0, 110, 0.3), transparent);
+            animation: scanline 4s linear infinite;
+            pointer-events: none;
         "></div>
         
         <div style="
@@ -1243,108 +1285,130 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 255, 198, 0.1) 0%, transparent 70%);
-            animation: pulse 5s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(255, 0, 110, 0.15) 0%, transparent 70%);
+            animation: pulse 6s ease-in-out infinite;
         "></div>
         
         <div style="position: relative; z-index: 1;">
             <div style="
-                font-size: 0.95rem;
-                font-weight: 700;
-                color: #00ffc6;
+                font-size: 1rem;
+                font-weight: 800;
+                color: #06ffa5;
                 margin-bottom: 15px;
                 text-transform: uppercase;
-                letter-spacing: 3px;
-                animation: textGlow 2s ease-in-out infinite;
-            ">⚡ ENTERPRISE DATA ARCHITECT ⚡</div>
+                letter-spacing: 4px;
+                animation: textElectric 2s ease-in-out infinite;
+            ">⚡ MAXIMUM POWER ⚡ DATA ARCHITECT ⚡</div>
             
             <h1 style="
-                font-size: 3rem;
+                font-size: 3.5rem;
                 font-weight: 900;
-                background: linear-gradient(135deg, #00ffc6, #00b4d8, #4cc9f0);
+                background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
+                background-size: 300% 300%;
+                animation: gradient 3s ease infinite, textElectric 2s ease-in-out infinite;
                 margin-bottom: 20px;
-                line-height: 1.2;
-                animation: textGlow 2s ease-in-out infinite;
+                line-height: 1.1;
+                filter: drop-shadow(0 0 20px rgba(255, 0, 110, 0.8));
             ">
-                JAGJEET SINGH MAKHIJA
+                JAGJEET SINGH<br>MAKHIJA
             </h1>
             
             <div style="
                 display: inline-block;
-                background: rgba(0, 255, 198, 0.1);
-                padding: 15px 25px;
+                background: rgba(255, 0, 110, 0.15);
+                padding: 18px 30px;
                 border-radius: 50px;
-                border: 2px solid rgba(0, 255, 198, 0.3);
+                border: 2px solid rgba(255, 0, 110, 0.4);
                 margin-bottom: 25px;
+                box-shadow: 0 0 30px rgba(255, 0, 110, 0.4),
+                            inset 0 0 20px rgba(131, 56, 236, 0.2);
             ">
                 <p style="
                     font-size: 1.15rem;
                     color: #ffffff;
                     margin: 0;
                     line-height: 1.6;
-                    font-weight: 600;
+                    font-weight: 700;
                 ">
-                    🔷 Microsoft Fabric • ☁️ Azure Synapse • ❄️ Snowflake • 🤖 AI
+                    🔷 FABRIC • ☁️ SYNAPSE • ❄️ SNOWFLAKE • 🤖 AI
                 </p>
             </div>
             
             <p style="
-                font-size: 1.1rem;
-                color: rgba(255, 255, 255, 0.9);
+                font-size: 1.2rem;
+                color: rgba(255, 255, 255, 0.95);
                 max-width: 600px;
-                margin: 0 auto 30px;
+                margin: 0 auto 35px;
                 line-height: 1.7;
+                font-weight: 600;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             ">
-                20+ years architecting enterprise data platforms | Published Author | Ex-Microsoft
+                <span style="color: #06ffa5;">20+ YEARS</span> • <span style="color: #ff006e;">EX-MICROSOFT</span> • <span style="color: #3a86ff;">PUBLISHED AUTHOR</span>
             </p>
             
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="#" onclick="document.querySelector('.section-playground').scrollIntoView({behavior: 'smooth'}); return false;" style="
-                    padding: 16px 35px;
-                    background: linear-gradient(135deg, #00ffc6, #00b4d8);
-                    border: 2px solid rgba(0, 255, 198, 0.5);
-                    border-radius: 50px;
-                    color: #0d0221;
-                    text-decoration: none;
-                    font-weight: 800;
-                    font-size: 1rem;
-                    transition: all 0.3s ease;
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 10px;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                    box-shadow: 0 8px 25px rgba(0, 255, 198, 0.4);
-                " onmouseover="this.style.transform='scale(1.1) translateY(-3px)'; this.style.boxShadow='0 15px 35px rgba(0, 255, 198, 0.6)'" onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 8px 25px rgba(0, 255, 198, 0.4)'">
-                    🚀 View Projects
-                </a>
-                
-                <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" style="
-                    padding: 16px 35px;
-                    background: rgba(0, 180, 216, 0.2);
-                    backdrop-filter: blur(10px);
-                    border: 2px solid rgba(0, 180, 216, 0.5);
+                    padding: 18px 40px;
+                    background: linear-gradient(135deg, #ff006e, #8338ec);
+                    border: 3px solid rgba(255, 0, 110, 0.6);
                     border-radius: 50px;
                     color: #ffffff;
                     text-decoration: none;
-                    font-weight: 800;
-                    font-size: 1rem;
+                    font-weight: 900;
+                    font-size: 1.1rem;
                     transition: all 0.3s ease;
                     display: inline-flex;
                     align-items: center;
                     gap: 10px;
                     text-transform: uppercase;
-                    letter-spacing: 1px;
-                " onmouseover="this.style.transform='scale(1.1) translateY(-3px)'; this.style.background='rgba(0, 180, 216, 0.3)'; this.style.boxShadow='0 15px 35px rgba(0, 180, 216, 0.5)'" onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.background='rgba(0, 180, 216, 0.2)'; this.style.boxShadow='none'">
-                    💼 Connect
+                    letter-spacing: 2px;
+                    box-shadow: 0 10px 40px rgba(255, 0, 110, 0.6),
+                                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                    position: relative;
+                    overflow: hidden;
+                " onmouseover="this.style.transform='scale(1.15) translateY(-5px)'; this.style.boxShadow='0 20px 60px rgba(255, 0, 110, 0.9)'" onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 10px 40px rgba(255, 0, 110, 0.6)'">
+                    <span style="position: relative; z-index: 1;">🚀 EXPLORE PROJECTS</span>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" style="
+                    padding: 18px 40px;
+                    background: rgba(131, 56, 236, 0.3);
+                    backdrop-filter: blur(10px);
+                    border: 3px solid rgba(131, 56, 236, 0.6);
+                    border-radius: 50px;
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: 900;
+                    font-size: 1.1rem;
+                    transition: all 0.3s ease;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    box-shadow: 0 10px 40px rgba(131, 56, 236, 0.4);
+                " onmouseover="this.style.transform='scale(1.15) translateY(-5px)'; this.style.background='rgba(131, 56, 236, 0.5)'; this.style.boxShadow='0 20px 60px rgba(131, 56, 236, 0.7)'" onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.background='rgba(131, 56, 236, 0.3)'; this.style.boxShadow='0 10px 40px rgba(131, 56, 236, 0.4)'">
+                    💼 CONNECT NOW
                 </a>
             </div>
         </div>
     </div>
 
     <style>
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
         @keyframes slide {
             0% {
                 background-position: 0 0;
@@ -1368,64 +1432,120 @@
 
                 <div class="about-me">
                     <h3 class="about-title"><i class="fas fa-briefcase"></i> 💼 About Me</h3>
-                    <p class="about-text">I'm a distinguished Senior Solution Architect with 20+ years architecting enterprise data platforms. Specializing in 🔷 Microsoft Fabric, ☁️ Azure Synapse, ❄️ Snowflake, and 🤖 Agentic AI, I transform complex data challenges into scalable, intelligent solutions. I leverage enterprise data by AI to give meaningful data insights that drive strategic business decisions. As a 📚 published author and Ex-Microsoft architect with an Executive MBA, I bring both technical depth and strategic business acumen to every engagement.</p>
+                    <p class="about-text">I'm a distinguished Senior Solution Architect with 20+ years architecting enterprise data platforms. Specializing in 🔷 <strong>Microsoft Fabric</strong>, ☁️ <strong>Azure Synapse</strong>, ❄️ <strong>Snowflake</strong>, and 🤖 <strong>Agentic AI</strong>, I transform complex data challenges into scalable, intelligent solutions. I leverage enterprise data by AI to give meaningful data insights that drive strategic business decisions. As a 📚 published author and <strong>Ex-Microsoft</strong> architect with an <strong>Executive MBA</strong>, I bring both technical depth and strategic business acumen to every engagement.</p>
                 </div>
 
-                <!-- Stats Showcase with Neon Tokyo Style -->
+                <!-- ELECTRIC STATS SHOWCASE -->
                 <div style="
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
                     gap: 15px;
-                    margin-top: 25px;
-                    padding-top: 20px;
-                    border-top: 1px solid rgba(0, 255, 198, 0.2);
+                    margin-top: 30px;
+                    padding-top: 25px;
+                    border-top: 2px solid transparent;
+                    border-image: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff, #06ffa5) 1;
                 ">
                     <div style="
-                        background: linear-gradient(135deg, rgba(0, 255, 198, 0.1), rgba(0, 180, 216, 0.1));
-                        padding: 20px;
-                        border-radius: 15px;
+                        background: linear-gradient(135deg, rgba(255, 0, 110, 0.15), rgba(131, 56, 236, 0.1));
+                        padding: 25px 20px;
+                        border-radius: 20px;
                         text-align: center;
-                        border: 2px solid rgba(0, 255, 198, 0.3);
-                        transition: all 0.3s ease;
-                    " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(0, 255, 198, 0.6)'; this.style.boxShadow='0 15px 30px rgba(0, 255, 198, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0, 255, 198, 0.3)'; this.style.boxShadow='none'">
-                        <div style="font-size: 2rem; font-weight: 900; color: #00ffc6; margin-bottom: 5px;">20+</div>
-                        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); font-weight: 600;">Years Experience</div>
+                        border: 2px solid rgba(255, 0, 110, 0.4);
+                        transition: all 0.4s ease;
+                        position: relative;
+                        overflow: hidden;
+                    " onmouseover="this.style.transform='translateY(-8px) scale(1.05)'; this.style.borderColor='rgba(255, 0, 110, 0.8)'; this.style.boxShadow='0 20px 40px rgba(255, 0, 110, 0.5)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.borderColor='rgba(255, 0, 110, 0.4)'; this.style.boxShadow='none'">
+                        <div style="
+                            position: absolute;
+                            top: -50%;
+                            left: -50%;
+                            width: 200%;
+                            height: 200%;
+                            background: radial-gradient(circle, rgba(255, 0, 110, 0.3) 0%, transparent 70%);
+                            animation: pulse 3s ease-in-out infinite;
+                        "></div>
+                        <div style="position: relative; z-index: 1;">
+                            <div style="font-size: 2.5rem; font-weight: 900; color: #ff006e; margin-bottom: 8px; text-shadow: 0 0 20px rgba(255, 0, 110, 0.8);">20+</div>
+                            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.9); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">YEARS</div>
+                        </div>
                     </div>
 
                     <div style="
-                        background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(114, 9, 183, 0.1));
-                        padding: 20px;
-                        border-radius: 15px;
+                        background: linear-gradient(135deg, rgba(131, 56, 236, 0.15), rgba(58, 134, 255, 0.1));
+                        padding: 25px 20px;
+                        border-radius: 20px;
                         text-align: center;
-                        border: 2px solid rgba(0, 180, 216, 0.3);
-                        transition: all 0.3s ease;
-                    " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(0, 180, 216, 0.6)'; this.style.boxShadow='0 15px 30px rgba(0, 180, 216, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0, 180, 216, 0.3)'; this.style.boxShadow='none'">
-                        <div style="font-size: 2rem; font-weight: 900; color: #00b4d8; margin-bottom: 5px;">📚 2</div>
-                        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); font-weight: 600;">Published Books</div>
+                        border: 2px solid rgba(131, 56, 236, 0.4);
+                        transition: all 0.4s ease;
+                        position: relative;
+                        overflow: hidden;
+                    " onmouseover="this.style.transform='translateY(-8px) scale(1.05)'; this.style.borderColor='rgba(131, 56, 236, 0.8)'; this.style.boxShadow='0 20px 40px rgba(131, 56, 236, 0.5)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.borderColor='rgba(131, 56, 236, 0.4)'; this.style.boxShadow='none'">
+                        <div style="
+                            position: absolute;
+                            top: -50%;
+                            left: -50%;
+                            width: 200%;
+                            height: 200%;
+                            background: radial-gradient(circle, rgba(131, 56, 236, 0.3) 0%, transparent 70%);
+                            animation: pulse 3s ease-in-out infinite;
+                            animation-delay: 0.5s;
+                        "></div>
+                        <div style="position: relative; z-index: 1;">
+                            <div style="font-size: 2.5rem; font-weight: 900; color: #8338ec; margin-bottom: 8px; text-shadow: 0 0 20px rgba(131, 56, 236, 0.8);">📚 2</div>
+                            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.9); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">BOOKS</div>
+                        </div>
                     </div>
 
                     <div style="
-                        background: linear-gradient(135deg, rgba(114, 9, 183, 0.1), rgba(76, 201, 240, 0.1));
-                        padding: 20px;
-                        border-radius: 15px;
+                        background: linear-gradient(135deg, rgba(58, 134, 255, 0.15), rgba(6, 255, 165, 0.1));
+                        padding: 25px 20px;
+                        border-radius: 20px;
                         text-align: center;
-                        border: 2px solid rgba(114, 9, 183, 0.3);
-                        transition: all 0.3s ease;
-                    " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(114, 9, 183, 0.6)'; this.style.boxShadow='0 15px 30px rgba(114, 9, 183, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(114, 9, 183, 0.3)'; this.style.boxShadow='none'">
-                        <div style="font-size: 2rem; font-weight: 900; color: #7209b7; margin-bottom: 5px;">🏢</div>
-                        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); font-weight: 600;">Ex-Microsoft</div>
+                        border: 2px solid rgba(58, 134, 255, 0.4);
+                        transition: all 0.4s ease;
+                        position: relative;
+                        overflow: hidden;
+                    " onmouseover="this.style.transform='translateY(-8px) scale(1.05)'; this.style.borderColor='rgba(58, 134, 255, 0.8)'; this.style.boxShadow='0 20px 40px rgba(58, 134, 255, 0.5)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.borderColor='rgba(58, 134, 255, 0.4)'; this.style.boxShadow='none'">
+                        <div style="
+                            position: absolute;
+                            top: -50%;
+                            left: -50%;
+                            width: 200%;
+                            height: 200%;
+                            background: radial-gradient(circle, rgba(58, 134, 255, 0.3) 0%, transparent 70%);
+                            animation: pulse 3s ease-in-out infinite;
+                            animation-delay: 1s;
+                        "></div>
+                        <div style="position: relative; z-index: 1;">
+                            <div style="font-size: 2.5rem; font-weight: 900; color: #3a86ff; margin-bottom: 8px; text-shadow: 0 0 20px rgba(58, 134, 255, 0.8);">🏢</div>
+                            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.9); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">EX-MSFT</div>
+                        </div>
                     </div>
 
                     <div style="
-                        background: linear-gradient(135deg, rgba(76, 201, 240, 0.1), rgba(0, 255, 198, 0.1));
-                        padding: 20px;
-                        border-radius: 15px;
+                        background: linear-gradient(135deg, rgba(6, 255, 165, 0.15), rgba(255, 0, 110, 0.1));
+                        padding: 25px 20px;
+                        border-radius: 20px;
                         text-align: center;
-                        border: 2px solid rgba(76, 201, 240, 0.3);
-                        transition: all 0.3s ease;
-                    " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(76, 201, 240, 0.6)'; this.style.boxShadow='0 15px 30px rgba(76, 201, 240, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(76, 201, 240, 0.3)'; this.style.boxShadow='none'">
-                        <div style="font-size: 2rem; font-weight: 900; color: #4cc9f0; margin-bottom: 5px;">🎓</div>
-                        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.8); font-weight: 600;">Executive MBA</div>
+                        border: 2px solid rgba(6, 255, 165, 0.4);
+                        transition: all 0.4s ease;
+                        position: relative;
+                        overflow: hidden;
+                    " onmouseover="this.style.transform='translateY(-8px) scale(1.05)'; this.style.borderColor='rgba(6, 255, 165, 0.8)'; this.style.boxShadow='0 20px 40px rgba(6, 255, 165, 0.5)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.borderColor='rgba(6, 255, 165, 0.4)'; this.style.boxShadow='none'">
+                        <div style="
+                            position: absolute;
+                            top: -50%;
+                            left: -50%;
+                            width: 200%;
+                            height: 200%;
+                            background: radial-gradient(circle, rgba(6, 255, 165, 0.3) 0%, transparent 70%);
+                            animation: pulse 3s ease-in-out infinite;
+                            animation-delay: 1.5s;
+                        "></div>
+                        <div style="position: relative; z-index: 1;">
+                            <div style="font-size: 2.5rem; font-weight: 900; color: #06ffa5; margin-bottom: 8px; text-shadow: 0 0 20px rgba(6, 255, 165, 0.8);">🎓</div>
+                            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.9); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">EMBA</div>
+                        </div>
                     </div>
                 </div>
 
@@ -1485,7 +1605,7 @@
         <section class="section section-playground">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-robot"></i></div>
-                <h2 class="section-title">🤖 My AI Playground & Apps</h2>
+                <h2 class="section-title">🤖 My AI Playground <h2 class="section-title">My AI Playground & Apps< Apps</h2>
             </div>
 
             <div class="links">
@@ -1535,7 +1655,7 @@
         <section class="section section-playground">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-star"></i></div>
-                <h2 class="section-title">⭐ Books I've Reviewed & Recommend</h2>
+                <h2 class="section-title">⭐ Books I've Reviewed <h2 class="section-title">Books I've Reviewed & Recommend< Recommend</h2>
             </div>
 
             <div class="links">
@@ -1561,7 +1681,7 @@
         <section class="section section-articles">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-book-open"></i></div>
-                <h2 class="section-title">📝 Published Articles & Insights</h2>
+                <h2 class="section-title">📝 Published Articles <h2 class="section-title">Published Articles & Insights< Insights</h2>
             </div>
 
             <div class="links">
