@@ -1711,6 +1711,9 @@
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Constants
+        const CLONE_REPO_URL = 'https://github.com/jagjeetmakhija/jagjeetmakhija.github.io.git';
+        
         // Visitor Counter - Increments on each page view
         (function() {
             // Get current count from localStorage or start at 0
@@ -1799,22 +1802,26 @@
         // Beehiiv iframe integration
         // The form is now handled directly by Beehiiv through the iframe
 
+        // Helper function to show copy notification
+        function showCopyNotification() {
+            const notification = document.getElementById('copy-notification');
+            notification.style.display = 'block';
+            
+            // Hide notification after 3 seconds
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
         // Clone command copy functionality
         function copyCloneCommand() {
-            const cloneCommand = 'git clone https://github.com/jagjeetmakhija/jagjeetmakhija.github.io.git';
+            const cloneCommand = 'git clone ' + CLONE_REPO_URL;
             
             // Check if Clipboard API is available
             if (navigator.clipboard && window.isSecureContext) {
                 // Use the modern Clipboard API
                 navigator.clipboard.writeText(cloneCommand).then(function() {
-                    // Show notification
-                    const notification = document.getElementById('copy-notification');
-                    notification.style.display = 'block';
-                    
-                    // Hide notification after 3 seconds
-                    setTimeout(function() {
-                        notification.style.display = 'none';
-                    }, 3000);
+                    showCopyNotification();
                 }).catch(function(err) {
                     // Fallback if clipboard write fails
                     console.error('Failed to copy: ', err);
@@ -1826,17 +1833,15 @@
                 const textarea = document.createElement('textarea');
                 textarea.value = cloneCommand;
                 textarea.style.position = 'fixed';
-                textarea.style.opacity = '0';
+                textarea.style.left = '-9999px';
+                textarea.style.top = '0';
+                textarea.setAttribute('aria-hidden', 'true');
                 document.body.appendChild(textarea);
                 textarea.select();
                 
                 try {
                     document.execCommand('copy');
-                    const notification = document.getElementById('copy-notification');
-                    notification.style.display = 'block';
-                    setTimeout(function() {
-                        notification.style.display = 'none';
-                    }, 3000);
+                    showCopyNotification();
                 } catch (err) {
                     console.error('Failed to copy: ', err);
                     alert('Clone command: ' + cloneCommand);
