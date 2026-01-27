@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagjeet Singh Makhija - Data Architecture Expert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for better icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+    </script>
+    <style>
+        /* Base Variables - FEATURED WORKS INSPIRED 🎨 */
+        :root {
+            --bg-color: #1a1a1a;
+            --dark-bg: #0a0a0a;
+            --gradient-1: linear-gradient(135deg, #ffd60a, #ff6b9d, #5ffbf1);
+            --gradient-2: linear-gradient(135deg, #ff6b9d, #5ffbf1, #ffd60a);
+            --gradient-3: linear-gradient(135deg, #5ffbf1, #ffd60a, #ff6b9d);
+            --gradient-4: linear-gradient(135deg, #ffd60a, #5ffbf1);
+            --gradient-5: linear-gradient(135deg, #ff6b9d, #5ffbf1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.85);
+            --card-bg: rgba(255, 214, 10, 0.08);
+            --card-border: rgba(95, 251, 241, 0.3);
+            --section-bg-network: rgba(255, 214, 10, 0.12);
+            --section-bg-playground: rgba(255, 107, 157, 0.12);
+            --section-bg-articles: rgba(95, 251, 241, 0.12);
+            --section-bg-support: rgba(255, 214, 10, 0.15);
+            --section-bg-podcasts: rgba(255, 107, 157, 0.15);
+            --section-bg-certifications: rgba(95, 251, 241, 0.15);
+            
+            /* Featured Works Colors */
+            --yellow: #ffd60a;
+            --coral: #ff6b9d;
+            --mint-green: #5ffbf1;
+            --dark-accent: #0a0a0a;
+        }
+
+        /* Light Mode Variables - FEATURED WORKS LIGHT */
+        .light-mode {
+            --bg-color: #fafafa;
+            --text-primary: #1a1a1a;
+            --text-secondary: rgba(26, 26, 26, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-border: rgba(95, 251, 241, 0.4);
+            --section-bg-network: rgba(255, 214, 10, 0.15);
+            --section-bg-playground: rgba(255, 107, 157, 0.15);
+            --section-bg-articles: rgba(95, 251, 241, 0.15);
+            --section-bg-support: rgba(255, 214, 10, 0.18);
+            --section-bg-podcasts: rgba(255, 107, 157, 0.18);
+            --section-bg-certifications: rgba(95, 251, 241, 0.18);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(255, 214, 10, 0.25) 0%, transparent 25%),
+                radial-gradient(circle at 85% 25%, rgba(255, 107, 157, 0.3) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(95, 251, 241, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(255, 214, 10, 0.2) 0%, transparent 35%),
+                radial-gradient(circle at 25% 65%, rgba(255, 107, 157, 0.25) 0%, transparent 30%),
+                radial-gradient(circle at 70% 10%, rgba(95, 251, 241, 0.2) 0%, transparent 25%);
+            z-index: -1;
+            animation: backgroundShift 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 10% 20%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 20s;
+            background: rgba(84, 51, 255, 0.3);
+        }
+
+        .particle:nth-child(2) {
+            top: 70%;
+            left: 80%;
+            animation-delay: 2s;
+            animation-duration: 18s;
+            background: rgba(252, 70, 107, 0.3);
+        }
+
+        .particle:nth-child(3) {
+            top: 40%;
+            left: 40%;
+            animation-delay: 4s;
+            animation-duration: 25s;
+            background: rgba(106, 17, 203, 0.3);
+        }
+
+        .particle:nth-child(4) {
+            top: 10%;
+            left: 70%;
+            animation-delay: 6s;
+            animation-duration: 22s;
+            background: rgba(37, 117, 252, 0.3);
+        }
+
+        .particle:nth-child(5) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 8s;
+            animation-duration: 23s;
+            background: rgba(255, 107, 107, 0.3);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-40px) translateX(20px) scale(1.2);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        /* Header Styles */
+        header {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .brand-text {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 3px rgba(34, 184, 255, 0.2);
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 14px;
+            padding: 5px;
+            width: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .search-container:hover .search-input,
+        .search-input:focus {
+            width: 150px;
+            opacity: 1;
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .visitor-counter {
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--card-bg);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-primary);
+            font-size: 20px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Container Styles */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Profile Card Styles */
+        .profile-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--gradient-3);
+        }
+
+        /* Avatar styles with initials fallback */
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border: 3px solid transparent;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .status-indicator {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #10B981;
+            border: 3px solid var(--card-bg);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .profile-info {
+            text-align: center;
+            width: 100%;
+        }
+
+        .profile-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-title {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .profile-bio {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            max-width: 80%;
+        }
+
+        .about-me {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 3px solid #22b8ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-me::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(34, 184, 255, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .about-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #22b8ff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .social-share {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(34, 184, 255, 0.2);
+            color: #22b8ff;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+        }
+
+        /* Section Styles */
+        .section {
+            width: 100%;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+        .section:nth-child(7) { animation-delay: 0.7s; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-3);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .section:hover .section-header::after {
+            width: 100px;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-right: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-icon i {
+            font-size: 18px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .section:hover .section-icon::before {
+            opacity: 1;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover .section-title {
+            transform: translateX(5px);
+        }
+
+        .section-network {
+            background: var(--section-bg-network);
+        }
+
+        .section-network .section-icon {
+            background: var(--gradient-1);
+        }
+
+        .section-playground {
+            background: var(--section-bg-playground);
+        }
+
+        .section-playground .section-icon {
+            background: var(--gradient-2);
+        }
+
+        .section-articles {
+            background: var(--section-bg-articles);
+        }
+
+        .section-articles .section-icon {
+            background: var(--gradient-3);
+        }
+
+        .section-certifications {
+            background: var(--section-bg-certifications);
+        }
+
+        .section-certifications .section-icon {
+            background: var(--gradient-3);
+        }
+
+        .section-training {
+            background: linear-gradient(135deg, rgba(0, 120, 212, 0.05), rgba(123, 97, 255, 0.05));
+            border: 1px solid rgba(0, 120, 212, 0.1);
+        }
+
+        .section-training .section-icon {
+            background: linear-gradient(135deg, #0078D4, #7B61FF);
+            color: white;
+        }
+
+        .section-training .icon i {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .section-training .link-button:hover .icon i {
+            transform: scale(1.2);
+        }
+
+        .section-training .link-button {
+            border: 1px solid rgba(0, 120, 212, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .section-training .link-button:hover {
+            border-color: rgba(0, 120, 212, 0.4);
+            background: rgba(0, 120, 212, 0.05);
+        }
+
+        .section-support {
+            background: var(--section-bg-support);
+        }
+
+        .section-support .section-icon {
+            background: var(--gradient-1);
+        }
+
+        .section-podcasts {
+            background: var(--section-bg-podcasts);
+        }
+
+        .section-podcasts .section-icon {
+            background: var(--gradient-2);
+        }
+
+        .section-newsletter {
+            background: linear-gradient(135deg, #2a1b4a, #1e1033);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(34, 184, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(34, 184, 255, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-newsletter .section-icon {
+            background: linear-gradient(135deg, #22b8ff, #1a8dff);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(34, 184, 255, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(34, 184, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 184, 255, 0);
+            }
+        }
+
+        /* Link Styles */
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .link-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: all 0.6s ease;
+        }
+
+        .link-button::after {
+            content: "→";
+            position: absolute;
+            right: 20px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .link-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding-right: 45px;
+        }
+
+        .link-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .link-button:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .links > a:nth-child(1) { animation-delay: 0.1s; }
+        .links > a:nth-child(2) { animation-delay: 0.2s; }
+        .links > a:nth-child(3) { animation-delay: 0.3s; }
+        .links > a:nth-child(4) { animation-delay: 0.4s; }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            margin-right: 15px;
+            background: var(--card-bg);
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .link-button:hover .icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .link-button:hover .icon::before {
+            opacity: 1;
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+
+        .link-description {
+            font-size: 11px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .linkedin .icon { background-color: #0A66C2; }
+        .github .icon { background-color: #333333; }
+        .twitter .icon { background-color: #1DA1F2; }
+        .youtube .icon { background-color: #FF0000; }
+        .copilot .icon { background-color: #7B61FF; }
+        .sap .icon { background-color: #00A1E4; }
+        .powerplatform .icon { background-color: #7B61FF; }
+        .azure .icon { background-color: #0078D4; }
+        .kofi .icon { background-color: #FF5E5B; }
+
+        /* Certification Badge Styles */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .cert-category {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid rgba(95, 251, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cert-category:hover {
+            border-color: rgba(95, 251, 241, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(95, 251, 241, 0.2);
+        }
+
+        .cert-category-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #5ffbf1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cert-logo {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background: rgba(95, 251, 241, 0.15);
+        }
+
+        .cert-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 3px solid #5ffbf1;
+            transition: all 0.2s ease;
+        }
+
+        .cert-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(5px);
+        }
+
+        .cert-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cert-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .cert-code {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Courier New', monospace;
+        }
+
+        .cert-year {
+            font-size: 12px;
+            color: #5ffbf1;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        /* Newsletter Styles */
+        .newsletter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 0;
+        }
+
+        .newsletter-content {
+            flex: 1;
+            min-width: 300px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .newsletter-heading {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #22b8ff;
+            line-height: 1.3;
+        }
+
+        .newsletter-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .newsletter-benefits {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-benefits li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .newsletter-benefits li i {
+            color: #22b8ff;
+            margin-right: 10px;
+            font-size: 18px;
+            background: rgba(34, 184, 255, 0.15);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .newsletter-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 100%;
+            background: rgba(59, 46, 88, 0.5);
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .newsletter-form:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        .form-group input[type="email"] {
+            flex: 1;
+            padding: 15px 20px;
+            height: 48px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            min-width: 0; /* Prevents input from overflowing */
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="email"]:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 0 3px rgba(34, 184, 255, 0.2);
+        }
+
+        .form-group input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .subscribe-btn {
+            margin-left: 10px;
+            padding: 0 20px;
+            height: 48px;
+            min-width: 120px;
+            border: none;
+            border-radius: 10px;
+            background: #22b8ff;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(34, 184, 255, 0.3);
+            white-space: nowrap;
+        }
+
+        .subscribe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(34, 184, 255, 0.4);
+            background: #1ca9f0;
+        }
+
+        .subscribe-btn i {
+            transition: transform 0.3s ease;
+            margin-left: 5px;
+        }
+
+        .subscribe-btn:hover i {
+            transform: translateX(3px);
+        }
+
+        .form-privacy {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-privacy label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+
+        .form-privacy input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 3px;
+            accent-color: #22b8ff;
+            width: 16px;
+            height: 16px;
+        }
+
+        #form-message {
+            font-size: 14px;
+            padding: 10px 0;
+            color: #10B981;
+            font-weight: 500;
+            min-height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-container {
+                flex-direction: column;
+            }
+
+            .newsletter-content, .newsletter-form {
+                width: 100%;
+            }
+
+            .beehiiv-embed {
+                min-height: 420px;
+            }
+
+            .beehiiv-iframe {
+                min-height: 420px;
+            }
+        }
+
+        /* Footer Styles */
+        footer {
+            width: 100%;
+            max-width: 720px;
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--card-border);
+            font-size: 12px;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .links {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-bio {
+                max-width: 100%;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-card, .section {
+                padding: 20px 15px;
+            }
+
+            .profile-name {
+                font-size: 24px;
+            }
+
+            .skill-tag {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .link-button {
+                padding: 12px 15px;
+            }
+
+            .link-title {
+                font-size: 14px;
+            }
+
+            .newsletter-heading {
+                font-size: 22px;
+            }
+
+            .beehiiv-embed {
+                min-height: 450px;
+            }
+
+            .beehiiv-iframe {
+                min-height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header>
+        <div class="brand">
+            <div class="logo">JM</div>
+            <div class="brand-text">Jagjeet Singh Makhija</div>
+        </div>
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search..." class="search-input">
+                <button id="search-btn" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="visitor-counter" id="visitor-count">Visitors: <span id="count">0</span></div>
+            <button id="theme-btn" class="theme-toggle" aria-label="Toggle light mode">🌙</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile-card" style="padding: 35px 30px;">
+            <div class="avatar-container">
+                <img src="MyPic.jpg" alt="Jagjeet Singh Makhija" class="avatar" style="object-fit: cover;">
+                <div class="status-indicator"></div>
+            </div>
+
+            <div class="profile-info">
+                <h1 class="profile-name" style="font-size: 2.2rem; margin-bottom: 18px;">Jagjeet Singh Makhija</h1>
+                <p class="profile-title" style="font-size: 1rem; line-height: 1.8; margin-bottom: 20px;">
+                    ⚡ Senior Data Engineering Architect | 🏢 Enterprise Data Platforms Manager | 📊 Data Architect
+                    <span style="display: inline-flex; align-items: center; gap: 4px;">
+                        <svg width="18" height="18" viewBox="0 0 23 23" style="vertical-align: middle;">
+                            <rect x="0" y="0" width="10" height="10" fill="#F25022"/>
+                            <rect x="11" y="0" width="10" height="10" fill="#7FBA00"/>
+                            <rect x="0" y="11" width="10" height="10" fill="#00A4EF"/>
+                            <rect x="11" y="11" width="10" height="10" fill="#FFB900"/>
+                        </svg>
+                        Ex-Microsoft
+                    </span> • 📚 Published Author • 🎓 EMBA
+                </p>
+
+                <div class="about-me" style="margin-bottom: 25px;">
+                    <h3 class="about-title" style="font-size: 1.1rem; margin-bottom: 12px;"><i class="fas fa-briefcase"></i> About Me</h3>
+                    <p class="about-text" style="font-size: 0.95rem; line-height: 1.7;">I'm a distinguished Senior Solution Architect with 20+ years architecting enterprise data platforms. Specializing in Microsoft Fabric, Azure Synapse, Snowflake, and Agentic AI, I transform complex data challenges into scalable, intelligent solutions. I leverage enterprise data by AI to give meaningful data insights that drive strategic business decisions. As a published author and Ex-Microsoft architect with an Executive MBA, I bring both technical depth and strategic business acumen to every engagement.</p>
+                </div>
+
+                <div class="skills" style="gap: 10px; margin-bottom: 25px;">
+                    <span class="skill-tag" style="padding: 10px 18px; font-size: 0.95rem;">🔷 Microsoft Fabric</span>
+                    <span class="skill-tag" style="padding: 10px 18px; font-size: 0.95rem;">☁️ Azure Synapse</span>
+                    <span class="skill-tag" style="padding: 10px 18px; font-size: 0.95rem;">❄️ Snowflake</span>
+                    <span class="skill-tag" style="padding: 10px 18px; font-size: 0.95rem;">🤖 Agentic AI</span>
+                    <span class="skill-tag" style="padding: 10px 18px; font-size: 0.95rem;">🏗️ Data Architecture</span>
+                    <span class="skill-tag" style="padding: 10px 18px; font-size: 0.95rem;">🧠 AI/ML Integration</span>
+                </div>
+
+                <!-- Compact Stats Showcase -->
+                <div style="
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 8px;
+                    margin-top: 20px;
+                    padding-top: 15px;
+                    border-top: 2px solid rgba(255, 255, 255, 0.1);
+                ">
+                    <div style="
+                        background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 107, 157, 0.05));
+                        padding: 12px 8px;
+                        border-radius: 10px;
+                        text-align: center;
+                        border: 2px solid rgba(255, 214, 10, 0.3);
+                        transition: all 0.3s ease;
+                        min-height: 70px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(255, 214, 10, 0.6)'; this.style.boxShadow='0 6px 15px rgba(255, 214, 10, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 214, 10, 0.3)'; this.style.boxShadow='none'">
+                        <div style="font-size: 1.5rem; font-weight: 900; color: #ffd60a; margin-bottom: 4px;">💼 20+</div>
+                        <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); font-weight: 600; line-height: 1.2;">Years<br>Experience</div>
+                    </div>
+
+                    <div style="
+                        background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(95, 251, 241, 0.05));
+                        padding: 12px 8px;
+                        border-radius: 10px;
+                        text-align: center;
+                        border: 2px solid rgba(255, 107, 157, 0.3);
+                        transition: all 0.3s ease;
+                        min-height: 70px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(255, 107, 157, 0.6)'; this.style.boxShadow='0 6px 15px rgba(255, 107, 157, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 107, 157, 0.3)'; this.style.boxShadow='none'">
+                        <div style="font-size: 1.5rem; font-weight: 900; color: #ff6b9d; margin-bottom: 4px;">📚 2</div>
+                        <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); font-weight: 600; line-height: 1.2;">Published<br>Books</div>
+                    </div>
+
+                    <div style="
+                        background: linear-gradient(135deg, rgba(95, 251, 241, 0.1), rgba(255, 107, 157, 0.05));
+                        padding: 12px 8px;
+                        border-radius: 10px;
+                        text-align: center;
+                        border: 2px solid rgba(95, 251, 241, 0.3);
+                        transition: all 0.3s ease;
+                        min-height: 70px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(95, 251, 241, 0.6)'; this.style.boxShadow='0 6px 15px rgba(95, 251, 241, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(95, 251, 241, 0.3)'; this.style.boxShadow='none'">
+                        <div style="font-size: 1.5rem; font-weight: 900; color: #5ffbf1; margin-bottom: 4px;">📝 50+</div>
+                        <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); font-weight: 600; line-height: 1.2;">Published<br>Articles</div>
+                    </div>
+
+                    <div style="
+                        background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 107, 157, 0.05));
+                        padding: 12px 8px;
+                        border-radius: 10px;
+                        text-align: center;
+                        border: 2px solid rgba(255, 214, 10, 0.3);
+                        transition: all 0.3s ease;
+                        min-height: 70px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(255, 214, 10, 0.6)'; this.style.boxShadow='0 6px 15px rgba(255, 214, 10, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 214, 10, 0.3)'; this.style.boxShadow='none'">
+                        <div style="margin-bottom: 4px;">
+                            <svg width="28" height="28" viewBox="0 0 23 23">
+                                <rect x="0" y="0" width="10" height="10" fill="#F25022"/>
+                                <rect x="11" y="0" width="10" height="10" fill="#7FBA00"/>
+                                <rect x="0" y="11" width="10" height="10" fill="#00A4EF"/>
+                                <rect x="11" y="11" width="10" height="10" fill="#FFB900"/>
+                            </svg>
+                        </div>
+                        <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); font-weight: 600; line-height: 1.2;">Ex-<br>Microsoft</div>
+                    </div>
+
+                    <div style="
+                        background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(95, 251, 241, 0.05));
+                        padding: 12px 8px;
+                        border-radius: 10px;
+                        text-align: center;
+                        border: 2px solid rgba(255, 107, 157, 0.3);
+                        transition: all 0.3s ease;
+                        min-height: 70px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(255, 107, 157, 0.6)'; this.style.boxShadow='0 6px 15px rgba(255, 107, 157, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 107, 157, 0.3)'; this.style.boxShadow='none'">
+                        <div style="font-size: 1.5rem; font-weight: 900; color: #ff6b9d; margin-bottom: 4px;">🎓</div>
+                        <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); font-weight: 600; line-height: 1.2;">Executive<br>MBA</div>
+                    </div>
+                </div>
+
+                <!-- Responsive Grid for Mobile -->
+                <style>
+                    @media (max-width: 768px) {
+                        div[style*="grid-template-columns: repeat(5, 1fr)"] {
+                            grid-template-columns: repeat(2, 1fr) !important;
+                        }
+                    }
+                    @media (max-width: 480px) {
+                        div[style*="grid-template-columns: repeat(5, 1fr)"] {
+                            grid-template-columns: 1fr !important;
+                        }
+                    }
+                </style>
+
+                <div class="social-share">
+                    <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" class="share-btn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/JagjeetMakhija" target="_blank" class="share-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/jagjeetmakhija" target="_blank" class="share-btn"><i class="fab fa-github"></i></a>
+                    <a href="mailto:contact@example.com" class="share-btn"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Certifications Section - NEW -->
+        <section id="certifications" class="section section-certifications">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-certificate"></i></div>
+                <h2 class="section-title">🏆 Professional Certifications</h2>
+            </div>
+
+            <div class="cert-grid">
+                <!-- Microsoft Azure Certifications -->
+                <div class="cert-category">
+                    <div class="cert-category-title">
+                        <div class="cert-logo">
+                            <svg width="24" height="24" viewBox="0 0 23 23">
+                                <rect x="0" y="0" width="10" height="10" fill="#F25022"/>
+                                <rect x="11" y="0" width="10" height="10" fill="#7FBA00"/>
+                                <rect x="0" y="11" width="10" height="10" fill="#00A4EF"/>
+                                <rect x="11" y="11" width="10" height="10" fill="#FFB900"/>
+                            </svg>
+                        </div>
+                        Microsoft Azure
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Designing and Implementing Microsoft Fabric</div>
+                        <span class="cert-code">DP-600</span>
+                        <span class="cert-year">• 2024</span>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Azure Data Engineer Associate</div>
+                        <span class="cert-code">DP-203</span>
+                        <span class="cert-year">• 2021</span>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Designing Azure Data Solutions</div>
+                        <span class="cert-code">DP-201</span>
+                        <span class="cert-year">• 2021</span>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Azure Fundamentals</div>
+                        <span class="cert-code">AZ-900</span>
+                        <span class="cert-year">• 2020</span>
+                    </div>
+                </div>
+
+                <!-- Snowflake Certifications -->
+                <div class="cert-category">
+                    <div class="cert-category-title">
+                        <div class="cert-logo">❄️</div>
+                        Snowflake
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">SnowPro Advanced: Architect</div>
+                        <span class="cert-year">2021</span>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">SnowPro Core Certification</div>
+                        <span class="cert-year">2021</span>
+                    </div>
+                </div>
+
+                <!-- Databricks Certification -->
+                <div class="cert-category">
+                    <div class="cert-category-title">
+                        <div class="cert-logo">🧱</div>
+                        Databricks
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Databricks Certified Data Engineer Professional</div>
+                        <span class="cert-year">2026</span>
+                    </div>
+                </div>
+
+                <!-- Claude Certification -->
+                <div class="cert-category">
+                    <div class="cert-category-title">
+                        <div class="cert-logo">🤖</div>
+                        Claude AI
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Claude Code in Action</div>
+                        <span class="cert-year">2026</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join My AI Network Section -->
+        <section id="connect" class="section section-network">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-network-wired"></i></div>
+                <h2 class="section-title">🌐 Connect With Me</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://linkedin.com/in/jagjeetmakhija" target="_blank" class="link-button linkedin">
+                    <div class="icon">
+                        <svg width="42" height="42" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="72" height="72" rx="12" fill="#0077B5"/>
+                            <path d="M24.7 28.9H18.4V53.1H24.7V28.9Z" fill="white"/>
+                            <path d="M21.55 26.4C19.55 26.4 18 24.85 18 22.95C18 21.05 19.55 19.5 21.55 19.5C23.55 19.5 25.1 21.05 25.1 22.95C25.1 24.85 23.55 26.4 21.55 26.4Z" fill="white"/>
+                            <path d="M46.2 34.8C46.2 31.4 44.3 28.6 40.1 28.6C37.3 28.6 35.7 30.1 35 31.3V28.9H28.9V53.1H35.2V41.4C35.2 38.9 35.7 36.5 38.8 36.5C41.8 36.5 41.9 39.4 41.9 41.6V53.2H48.2V40.3C48.2 36.4 48.1 34.8 46.2 34.8Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="link-content">
+                        <div class="link-title">LinkedIn</div>
+                        <div class="link-description">Let's connect professionally 🤝</div>
+                    </div>
+                </a>
+
+                <a href="http://github.com/jagjeetmakhija" target="_blank" class="link-button github">
+                    <div class="icon">
+                        <svg width="42" height="42" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="72" height="72" rx="12" fill="#24292E"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M36 18C26.058 18 18 26.058 18 36C18 43.985 23.163 50.784 30.328 53.172C31.228 53.333 31.558 52.772 31.558 52.289C31.558 51.849 31.543 50.634 31.536 49.047C26.868 50.125 25.817 46.725 25.817 46.725C25.001 44.637 23.814 44.078 23.814 44.078C22.174 42.968 23.942 42.989 23.942 42.989C25.759 43.116 26.705 44.844 26.705 44.844C28.32 47.631 31.005 46.834 31.591 46.368C31.754 45.197 32.219 44.401 32.733 43.946C28.954 43.486 24.973 41.985 24.973 35.219C24.973 33.246 25.671 31.637 26.739 30.375C26.554 29.916 25.939 28.145 26.914 25.709C26.914 25.709 28.433 25.218 31.519 27.291C32.979 26.888 34.494 26.687 36.002 26.68C37.509 26.687 39.025 26.888 40.488 27.291C43.571 25.218 45.088 25.709 45.088 25.709C46.065 28.145 45.45 29.916 45.265 30.375C46.336 31.637 47.029 33.246 47.029 35.219C47.029 42.003 43.043 43.481 39.253 43.933C39.898 44.488 40.468 45.586 40.468 47.264C40.468 49.664 40.449 51.597 40.449 52.289C40.449 52.776 40.774 53.341 41.686 53.17C48.844 50.779 54 43.982 54 36C54 26.058 45.941 18 36 18Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="link-content">
+                        <div class="link-title">GitHub</div>
+                        <div class="link-description">Explore my open-source projects 🚀</div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/JagjeetMakhija" target="_blank" class="link-button twitter">
+                    <div class="icon">
+                        <svg width="42" height="42" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="72" height="72" rx="12" fill="#000000"/>
+                            <path d="M42.5 25.5H46L38.5 34.2L47.5 46.5H40.7L35.3 38.8L29.2 46.5H25.7L33.7 37.2L25 25.5H32L36.9 32.5L42.5 25.5ZM41.3 44.3H43.1L31.3 27.3H29.4L41.3 44.3Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="link-content">
+                        <div class="link-title">X / Twitter</div>
+                        <div class="link-description">Daily tech insights & trends 💡</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Professional Certifications Section -->
+        <section id="certifications" class="section" style="background: linear-gradient(135deg, rgba(95, 251, 241, 0.15), rgba(167, 139, 250, 0.08)); animation-delay: 0.7s;">
+            <div class="section-header">
+                <div class="section-icon" style="background: var(--gradient-3);"><i class="fas fa-certificate"></i></div>
+                <h2 class="section-title">🏆 Professional Certifications</h2>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <p style="font-size: 15px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 25px;">
+                    Committed to continuous learning and staying at the forefront of cloud and data technologies. Here are my industry-recognized certifications across leading platforms.
+                </p>
+            </div>
+
+            <!-- Certifications Grid -->
+            <div class="cert-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                
+                <!-- Microsoft Azure Certifications -->
+                <div class="cert-card" style="
+                    background: rgba(0, 0, 0, 0.2);
+                    padding: 25px;
+                    border-radius: 16px;
+                    border: 2px solid rgba(0, 120, 212, 0.3);
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(0, 120, 212, 0.6)'; this.style.boxShadow='0 12px 30px rgba(0, 120, 212, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0, 120, 212, 0.3)'; this.style.boxShadow='none'">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+                        <svg width="40" height="40" viewBox="0 0 23 23">
+                            <rect x="0" y="0" width="10" height="10" fill="#F25022"/>
+                            <rect x="11" y="0" width="10" height="10" fill="#7FBA00"/>
+                            <rect x="0" y="11" width="10" height="10" fill="#00A4EF"/>
+                            <rect x="11" y="11" width="10" height="10" fill="#FFB900"/>
+                        </svg>
+                        <h3 style="font-size: 18px; font-weight: 700; color: #0078D4; margin: 0;">Microsoft Azure</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+                            <span style="color: #0078D4; font-size: 16px; flex-shrink: 0;">✓</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">Designing and Implementing Microsoft Fabric</strong>
+                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">DP-600 • 2024</span>
+                            </div>
+                        </li>
+                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+                            <span style="color: #0078D4; font-size: 16px; flex-shrink: 0;">✓</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">Azure Data Engineer Associate</strong>
+                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">DP-203 • 2021</span>
+                            </div>
+                        </li>
+                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+                            <span style="color: #0078D4; font-size: 16px; flex-shrink: 0;">✓</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">Designing Azure Data Solutions</strong>
+                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">DP-201 • 2021</span>
+                            </div>
+                        </li>
+                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+                            <span style="color: #0078D4; font-size: 16px; flex-shrink: 0;">✓</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">Azure Fundamentals</strong>
+                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">AZ-900 • 2020</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Snowflake Certifications -->
+                <div class="cert-card" style="
+                    background: rgba(0, 0, 0, 0.2);
+                    padding: 25px;
+                    border-radius: 16px;
+                    border: 2px solid rgba(41, 184, 219, 0.3);
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(41, 184, 219, 0.6)'; this.style.boxShadow='0 12px 30px rgba(41, 184, 219, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(41, 184, 219, 0.3)'; this.style.boxShadow='none'">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+                        <div style="width: 40px; height: 40px; background: #29B8DB; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: white;">❄️</div>
+                        <h3 style="font-size: 18px; font-weight: 700; color: #29B8DB; margin: 0;">Snowflake</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+                            <span style="color: #29B8DB; font-size: 16px; flex-shrink: 0;">✓</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">SnowPro Advanced: Architect</strong>
+                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">2021</span>
+                            </div>
+                        </li>
+                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+                            <span style="color: #29B8DB; font-size: 16px; flex-shrink: 0;">✓</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">SnowPro Core Certification</strong>
+                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">2021</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Databricks Certification -->
+                <div class="cert-card" style="
+                    background: rgba(0, 0, 0, 0.2);
+                    padding: 25px;
+                    border-radius: 16px;
+                    border: 2px solid rgba(255, 59, 48, 0.3);
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(255, 59, 48, 0.6)'; this.style.boxShadow='0 12px 30px rgba(255, 59, 48, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 59, 48, 0.3)'; this.style.boxShadow='none'">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+                        <div style="width: 40px; height: 40px; background: #FF3B30; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: white;">🧱</div>
+                        <h3 style="font-size: 18px; font-weight: 700; color: #FF3B30; margin: 0;">Databricks</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+                            <span style="color: #FF3B30; font-size: 16px; flex-shrink: 0;">✓</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">Databricks Certified Data Engineer Professional</strong>
+                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">2026</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Claude Certification -->
+                <div class="cert-card" style="
+                    background: rgba(0, 0, 0, 0.2);
+                    padding: 25px;
+                    border-radius: 16px;
+                    border: 2px solid rgba(167, 139, 250, 0.3);
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(167, 139, 250, 0.6)'; this.style.boxShadow='0 12px 30px rgba(167, 139, 250, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(167, 139, 250, 0.3)'; this.style.boxShadow='none'">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+                        <div style="width: 40px; height: 40px; background: #a78bfa; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: white;">🤖</div>
+                        <h3 style="font-size: 18px; font-weight: 700; color: #a78bfa; margin: 0;">Claude AI</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
+                            <span style="color: #a78bfa; font-size: 16px; flex-shrink: 0;">✓</span>
+                            <div>
+                                <strong style="color: var(--text-primary);">Claude Code in Action</strong>
+                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">2026</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Certification Stats -->
+            <div style="
+                margin-top: 30px;
+                padding: 20px;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 12px;
+                border: 2px solid rgba(95, 251, 241, 0.2);
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            ">
+                <div style="text-align: center;">
+                    <div style="font-size: 36px; font-weight: 900; color: #5ffbf1; margin-bottom: 5px;">8</div>
+                    <div style="font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.5px;">Total Certifications</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 36px; font-weight: 900; color: #a78bfa; margin-bottom: 5px;">4</div>
+                    <div style="font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.5px;">Platform Vendors</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 36px; font-weight: 900; color: #ffd60a; margin-bottom: 5px;">2026</div>
+                    <div style="font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.5px;">Latest Certification</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (continued from original file) -->
+        <section id="contact" class="section section-support">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-envelope"></i></div>
+                <h2 class="section-title">💬 Let's Connect</h2>
+            </div>
+
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h3 class="newsletter-heading">Ready to Transform Your Data Strategy?</h3>
+                    <p class="newsletter-description">I'm always interested in discussing data architecture, cloud solutions, Microsoft Fabric, Snowflake, AI integration, and enterprise analytics. Whether you're looking for consulting, collaboration, or just want to exchange ideas—reach out!</p>
+                    <ul class="newsletter-benefits">
+                        <li><i class="fas fa-check"></i> Enterprise Data Platform Consulting</li>
+                        <li><i class="fas fa-check"></i> Microsoft Fabric & Azure Synapse Expertise</li>
+                        <li><i class="fas fa-check"></i> Snowflake Architecture & Implementation</li>
+                        <li><i class="fas fa-check"></i> Enterprise Data Leverage by AI</li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; margin-right: 10px;">Connect on LinkedIn</a>
+                        <a href="https://github.com/jagjeetmakhija" target="_blank" style="display: inline-block; padding: 12px 24px; background: #333; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">View GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Jagjeet Singh Makhija. All rights reserved. Views are personal. External links may lead to third-party sites.</p>
+    </footer>
+
+    <script>
+        // Visitor Counter
+        (function() {
+            let visitorCount = localStorage.getItem('visitorCount');
+            if (!visitorCount) {
+                visitorCount = 0;
+            } else {
+                visitorCount = parseInt(visitorCount);
+            }
+            visitorCount++;
+            localStorage.setItem('visitorCount', visitorCount);
+            const countElement = document.getElementById('count');
+            if (countElement) {
+                countElement.textContent = visitorCount;
+            }
+        })();
+
+        // Theme toggle
+        var themeButton = document.getElementById('theme-btn');
+        if (themeButton) {
+            themeButton.onclick = function() {
+                document.body.classList.toggle('light-mode');
+                this.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+            };
+        }
+
+        // Search functionality
+        document.getElementById('search-btn').addEventListener('click', function() {
+            performSearch();
+        });
+
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+            if (!searchTerm) return;
+
+            const sections = document.querySelectorAll('.section-title, .link-title, .link-description, .newsletter-heading, .newsletter-description, .cert-name, .cert-category-title');
+            let foundElements = [];
+
+            sections.forEach(section => {
+                if (section.textContent.toLowerCase().includes(searchTerm)) {
+                    let elementToHighlight = section.closest('.section') || section.closest('.link-button') || section.closest('.cert-item');
+                    if (elementToHighlight && !foundElements.includes(elementToHighlight)) {
+                        foundElements.push(elementToHighlight);
+                    }
+                }
+            });
+
+            document.querySelectorAll('.search-highlight').forEach(el => {
+                el.classList.remove('search-highlight');
+            });
+
+            if (foundElements.length > 0) {
+                foundElements.forEach(el => {
+                    el.classList.add('search-highlight');
+                    if (el === foundElements[0]) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+                alert(`Found ${foundElements.length} results for "${searchTerm}"`);
+            } else {
+                alert(`No results found for "${searchTerm}"`);
+            }
+        }
+    </script>
+
+    <style>
+        .search-highlight {
+            animation: highlightPulse 2s ease-in-out;
+            box-shadow: 0 0 20px rgba(34, 184, 255, 0.6);
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes highlightPulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
+            50% { box-shadow: 0 0 20px rgba(34, 184, 255, 0.6); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
+        }
+    </style>
+</body>
+</html>
