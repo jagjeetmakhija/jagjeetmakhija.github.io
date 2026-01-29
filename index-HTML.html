@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jagjeet Singh Makhija - Data Architecture Expert</title>
+    <title>Jagjeet Singh Makhija - Data Architecture Expert <a href="https://github.com/jagjeetmakhija"></a></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -36,7 +36,6 @@
             --section-bg-articles: rgba(95, 251, 241, 0.12);
             --section-bg-support: rgba(255, 214, 10, 0.15);
             --section-bg-podcasts: rgba(255, 107, 157, 0.15);
-            --section-bg-certifications: rgba(95, 251, 241, 0.15);
             
             /* Featured Works Colors */
             --yellow: #ffd60a;
@@ -57,7 +56,6 @@
             --section-bg-articles: rgba(95, 251, 241, 0.15);
             --section-bg-support: rgba(255, 214, 10, 0.18);
             --section-bg-podcasts: rgba(255, 107, 157, 0.18);
-            --section-bg-certifications: rgba(95, 251, 241, 0.18);
         }
 
         /* Reset & Base Styles */
@@ -188,7 +186,7 @@
         /* Header Styles */
         header {
             width: 100%;
-            max-width: 900px;
+            max-width: 720px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -312,7 +310,7 @@
         /* Main Container Styles */
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 720px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -541,7 +539,6 @@
         .section:nth-child(4) { animation-delay: 0.4s; }
         .section:nth-child(5) { animation-delay: 0.5s; }
         .section:nth-child(6) { animation-delay: 0.6s; }
-        .section:nth-child(7) { animation-delay: 0.7s; }
 
         .section-header {
             display: flex;
@@ -642,14 +639,6 @@
             background: var(--gradient-3);
         }
 
-        .section-certifications {
-            background: var(--section-bg-certifications);
-        }
-
-        .section-certifications .section-icon {
-            background: var(--gradient-3);
-        }
-
         .section-training {
             background: linear-gradient(135deg, rgba(0, 120, 212, 0.05), rgba(123, 97, 255, 0.05));
             border: 1px solid rgba(0, 120, 212, 0.1);
@@ -693,6 +682,92 @@
 
         .section-podcasts .section-icon {
             background: var(--gradient-2);
+        }
+
+        .section-certifications {
+            background: linear-gradient(135deg, rgba(95, 251, 241, 0.08), rgba(167, 139, 250, 0.08));
+        }
+
+        .section-certifications .section-icon {
+            background: var(--gradient-3);
+        }
+
+        /* Certification Badge Styles */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .cert-category {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid rgba(95, 251, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cert-category:hover {
+            border-color: rgba(95, 251, 241, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(95, 251, 241, 0.2);
+        }
+
+        .cert-category-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #5ffbf1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cert-logo {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background: rgba(95, 251, 241, 0.15);
+        }
+
+        .cert-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 3px solid #5ffbf1;
+            transition: all 0.2s ease;
+        }
+
+        .cert-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(5px);
+        }
+
+        .cert-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cert-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .cert-code {
+            font-size: 12px;
+            color: rgba(95, 251, 241, 0.8);
+            font-weight: 500;
+        }
+
+        .cert-year {
+            font-size: 12px;
+            color: var(--text-secondary);
         }
 
         .section-newsletter {
@@ -881,86 +956,6 @@
         .powerplatform .icon { background-color: #7B61FF; }
         .azure .icon { background-color: #0078D4; }
         .kofi .icon { background-color: #FF5E5B; }
-
-        /* Certification Badge Styles */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-        }
-
-        .cert-category {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            border: 2px solid rgba(95, 251, 241, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .cert-category:hover {
-            border-color: rgba(95, 251, 241, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(95, 251, 241, 0.2);
-        }
-
-        .cert-category-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #5ffbf1;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cert-logo {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            background: rgba(95, 251, 241, 0.15);
-        }
-
-        .cert-item {
-            padding: 12px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            border-left: 3px solid #5ffbf1;
-            transition: all 0.2s ease;
-        }
-
-        .cert-item:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateX(5px);
-        }
-
-        .cert-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .cert-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .cert-code {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.6);
-            font-family: 'Courier New', monospace;
-        }
-
-        .cert-year {
-            font-size: 12px;
-            color: #5ffbf1;
-            font-weight: 600;
-            margin-left: 8px;
-        }
 
         /* Newsletter Styles */
         .newsletter-container {
@@ -1263,16 +1258,9 @@
             <div class="profile-info">
                 <h1 class="profile-name" style="font-size: 2.2rem; margin-bottom: 18px;">Jagjeet Singh Makhija</h1>
                 <p class="profile-title" style="font-size: 1rem; line-height: 1.8; margin-bottom: 20px;">
-                    ⚡ Senior Data Engineering Architect | 🏢 Enterprise Data Platforms Manager | 📊 Data Architect
-                    <span style="display: inline-flex; align-items: center; gap: 4px;">
-                        <svg width="18" height="18" viewBox="0 0 23 23" style="vertical-align: middle;">
-                            <rect x="0" y="0" width="10" height="10" fill="#F25022"/>
-                            <rect x="11" y="0" width="10" height="10" fill="#7FBA00"/>
-                            <rect x="0" y="11" width="10" height="10" fill="#00A4EF"/>
-                            <rect x="11" y="11" width="10" height="10" fill="#FFB900"/>
-                        </svg>
-                        Ex-Microsoft
-                    </span> • 📚 Published Author • 🎓 EMBA
+                    ⚡ Senior Data Engineering Architect<br>
+                    🏢 Enterprise Data Platforms Manager | 📊 Data Architect<br>
+                    🏢 Ex-Microsoft • 📚 Published Author • 🎓 EMBA
                 </p>
 
                 <div class="about-me" style="margin-bottom: 25px;">
@@ -1310,7 +1298,7 @@
                         flex-direction: column;
                         justify-content: center;
                     " onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(255, 214, 10, 0.6)'; this.style.boxShadow='0 6px 15px rgba(255, 214, 10, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 214, 10, 0.3)'; this.style.boxShadow='none'">
-                        <div style="font-size: 1.5rem; font-weight: 900; color: #ffd60a; margin-bottom: 4px;">💼 20+</div>
+                        <div style="font-size: 1.5rem; font-weight: 900; color: #ffd60a; margin-bottom: 4px;">20+</div>
                         <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); font-weight: 600; line-height: 1.2;">Years<br>Experience</div>
                     </div>
 
@@ -1358,14 +1346,7 @@
                         flex-direction: column;
                         justify-content: center;
                     " onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(255, 214, 10, 0.6)'; this.style.boxShadow='0 6px 15px rgba(255, 214, 10, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 214, 10, 0.3)'; this.style.boxShadow='none'">
-                        <div style="margin-bottom: 4px;">
-                            <svg width="28" height="28" viewBox="0 0 23 23">
-                                <rect x="0" y="0" width="10" height="10" fill="#F25022"/>
-                                <rect x="11" y="0" width="10" height="10" fill="#7FBA00"/>
-                                <rect x="0" y="11" width="10" height="10" fill="#00A4EF"/>
-                                <rect x="11" y="11" width="10" height="10" fill="#FFB900"/>
-                            </svg>
-                        </div>
+                        <div style="font-size: 1.5rem; font-weight: 900; color: #ffd60a; margin-bottom: 4px;">🏢</div>
                         <div style="font-size: 0.65rem; color: rgba(255, 255, 255, 0.9); font-weight: 600; line-height: 1.2;">Ex-<br>Microsoft</div>
                     </div>
 
@@ -1404,12 +1385,12 @@
                     <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" class="share-btn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://x.com/JagjeetMakhija" target="_blank" class="share-btn"><i class="fab fa-twitter"></i></a>
                     <a href="https://github.com/jagjeetmakhija" target="_blank" class="share-btn"><i class="fab fa-github"></i></a>
-                    <a href="mailto:contact@example.com" class="share-btn"><i class="fas fa-envelope"></i></a>
+                    <a href="/cdn-cgi/l/email-protection#2445494d50484548644b5150484b4b4f0a474b49" class="share-btn"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
 
-        <!-- Professional Certifications Section - NEW -->
+        <!-- Professional Certifications Section -->
         <section id="certifications" class="section section-certifications">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-certificate"></i></div>
@@ -1503,14 +1484,7 @@
 
             <div class="links">
                 <a href="https://linkedin.com/in/jagjeetmakhija" target="_blank" class="link-button linkedin">
-                    <div class="icon">
-                        <svg width="42" height="42" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="72" height="72" rx="12" fill="#0077B5"/>
-                            <path d="M24.7 28.9H18.4V53.1H24.7V28.9Z" fill="white"/>
-                            <path d="M21.55 26.4C19.55 26.4 18 24.85 18 22.95C18 21.05 19.55 19.5 21.55 19.5C23.55 19.5 25.1 21.05 25.1 22.95C25.1 24.85 23.55 26.4 21.55 26.4Z" fill="white"/>
-                            <path d="M46.2 34.8C46.2 31.4 44.3 28.6 40.1 28.6C37.3 28.6 35.7 30.1 35 31.3V28.9H28.9V53.1H35.2V41.4C35.2 38.9 35.7 36.5 38.8 36.5C41.8 36.5 41.9 39.4 41.9 41.6V53.2H48.2V40.3C48.2 36.4 48.1 34.8 46.2 34.8Z" fill="white"/>
-                        </svg>
-                    </div>
+                    <div class="icon">💼</div>
                     <div class="link-content">
                         <div class="link-title">LinkedIn</div>
                         <div class="link-description">Let's connect professionally 🤝</div>
@@ -1518,12 +1492,7 @@
                 </a>
 
                 <a href="http://github.com/jagjeetmakhija" target="_blank" class="link-button github">
-                    <div class="icon">
-                        <svg width="42" height="42" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="72" height="72" rx="12" fill="#24292E"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M36 18C26.058 18 18 26.058 18 36C18 43.985 23.163 50.784 30.328 53.172C31.228 53.333 31.558 52.772 31.558 52.289C31.558 51.849 31.543 50.634 31.536 49.047C26.868 50.125 25.817 46.725 25.817 46.725C25.001 44.637 23.814 44.078 23.814 44.078C22.174 42.968 23.942 42.989 23.942 42.989C25.759 43.116 26.705 44.844 26.705 44.844C28.32 47.631 31.005 46.834 31.591 46.368C31.754 45.197 32.219 44.401 32.733 43.946C28.954 43.486 24.973 41.985 24.973 35.219C24.973 33.246 25.671 31.637 26.739 30.375C26.554 29.916 25.939 28.145 26.914 25.709C26.914 25.709 28.433 25.218 31.519 27.291C32.979 26.888 34.494 26.687 36.002 26.68C37.509 26.687 39.025 26.888 40.488 27.291C43.571 25.218 45.088 25.709 45.088 25.709C46.065 28.145 45.45 29.916 45.265 30.375C46.336 31.637 47.029 33.246 47.029 35.219C47.029 42.003 43.043 43.481 39.253 43.933C39.898 44.488 40.468 45.586 40.468 47.264C40.468 49.664 40.449 51.597 40.449 52.289C40.449 52.776 40.774 53.341 41.686 53.17C48.844 50.779 54 43.982 54 36C54 26.058 45.941 18 36 18Z" fill="white"/>
-                        </svg>
-                    </div>
+                    <div class="icon">💻</div>
                     <div class="link-content">
                         <div class="link-title">GitHub</div>
                         <div class="link-description">Explore my open-source projects 🚀</div>
@@ -1531,12 +1500,7 @@
                 </a>
 
                 <a href="https://x.com/JagjeetMakhija" target="_blank" class="link-button twitter">
-                    <div class="icon">
-                        <svg width="42" height="42" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="72" height="72" rx="12" fill="#000000"/>
-                            <path d="M42.5 25.5H46L38.5 34.2L47.5 46.5H40.7L35.3 38.8L29.2 46.5H25.7L33.7 37.2L25 25.5H32L36.9 32.5L42.5 25.5ZM41.3 44.3H43.1L31.3 27.3H29.4L41.3 44.3Z" fill="white"/>
-                        </svg>
-                    </div>
+                    <div class="icon">✨</div>
                     <div class="link-content">
                         <div class="link-title">X / Twitter</div>
                         <div class="link-description">Daily tech insights & trends 💡</div>
@@ -1545,176 +1509,1245 @@
             </div>
         </section>
 
-        <!-- Professional Certifications Section -->
-        <section id="certifications" class="section" style="background: linear-gradient(135deg, rgba(95, 251, 241, 0.15), rgba(167, 139, 250, 0.08)); animation-delay: 0.7s;">
+        <!-- My AI Playground & Apps Section -->
+        <section id="playground" class="section section-playground">
             <div class="section-header">
-                <div class="section-icon" style="background: var(--gradient-3);"><i class="fas fa-certificate"></i></div>
-                <h2 class="section-title">🏆 Professional Certifications</h2>
+                <div class="section-icon"><i class="fas fa-robot"></i></div>
+                <h2 class="section-title">🤖 My AI Playground & Apps</h2>
             </div>
 
-            <div style="margin-bottom: 20px;">
-                <p style="font-size: 15px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 25px;">
-                    Committed to continuous learning and staying at the forefront of cloud and data technologies. Here are my industry-recognized certifications across leading platforms.
+            <div class="links">
+                <a href="https://huggingface.co/spaces/jackiemakhija/Natural-Language-to-Governed-Insights" target="_blank" class="link-button copilot">
+                    <div class="icon">🤗</div>
+                    <div class="link-content">
+                        <div class="link-title">Natural Language to Governed Insights APP</div>
+                        <div class="link-description">Interactive Hugging Face Space - Microsoft Fabric + Semantic Model + Foundry Local</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/jagjeetmakhija/Natural-Language-to-Governed-Insights-End-to-End-Runbook" target="_blank" class="link-button copilot">
+                    <div class="icon">🔍</div>
+                    <div class="link-content">
+                        <div class="link-title">Natural Language to Governed Insights Runbook</div>
+                        <div class="link-description">Complete End-to-End GitHub Implementation Guide</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/jagjeetmakhija/CallCenter-AIAgent" target="_blank" class="link-button sap">
+                    <div class="icon">📞</div>
+                    <div class="link-content">
+                        <div class="link-title">AI-Powered Call Center Solution</div>
+                        <div class="link-description">Intelligent call center agent with natural language processing capabilities</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Published Books Section -->
+        <section id="books" class="section section-articles">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-book"></i></div>
+                <h2 class="section-title">📚 My Published Books</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://www.amazon.com/Implementing-Analytics-Solutions-Microsoft-Fabric-DP-600-ebook/dp/B0DQXNKS5Z" target="_blank" class="link-button powerplatform">
+                    <div class="link-content">
+                        <div class="link-title">Implementing Analytics Solutions Using Microsoft Fabric</div>
+                        <div class="link-description">DP-600 Exam Study Guide - Primary Author (with Charles Odunukwe)</div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/ADVANCED-AI-INSIGHT-Pushing-Boundaries/dp/B0DSJBBMNJ" target="_blank" class="link-button powerplatform">
+                    <div class="link-content">
+                        <div class="link-title">ADVANCED AI INSIGHT</div>
+                        <div class="link-description">Pushing the Boundaries of Data Science</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Books I've Reviewed Section -->
+        <section id="playground" class="section section-playground">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-star"></i></div>
+                <h2 class="section-title">⭐ Books I've Reviewed & Recommend</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://www.amazon.com/Data-Ingestion-Python-Cookbook-identifying/dp/183763260X" target="_blank" class="link-button copilot">
+                    <div class="icon">🐍</div>
+                    <div class="link-content">
+                        <div class="link-title">Data Ingestion with Python Cookbook</div>
+                        <div class="link-description">By Gláucia Esppenchutz - Practical guide to building data ingestion pipelines with Python and PySpark</div>
+                    </div>
+                </a>
+
+                <a href="https://www.amazon.com/Azure-Data-Engineering-Cookbook-recipe-based/dp/1803246782/" target="_blank" class="link-button azure">
+                    <div class="icon">☁️</div>
+                    <div class="link-content">
+                        <div class="link-title">Azure Data Engineering Cookbook</div>
+                        <div class="link-description">By Nagaraj Venkatesan & Ahmad Osama - 80+ recipes for Azure data engineering pipelines</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Published Articles Section -->
+        <section id="articles" class="section section-articles">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-book-open"></i></div>
+                <h2 class="section-title">📝 Published Articles & Insights</h2>
+            </div>
+
+            <div class="links">
+                <a href="https://www.linkedin.com/pulse/ai-powered-call-center-solution-jagjeet-makhija-5ngvc" target="_blank" class="link-button powerplatform">
+                    <div class="icon">📞</div>
+                    <div class="link-content">
+                        <div class="link-title">AI-Powered Call Center Solution</div>
+                        <div class="link-description">Building intelligent call center solutions with AI agents and natural language processing</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/pulse/natural-language-governed-insights-end-to-end-runbook-jagjeet-makhija-arbtc" target="_blank" class="link-button powerplatform">
+                    <div class="icon">🔍</div>
+                    <div class="link-content">
+                        <div class="link-title">Natural Language to Governed Insights</div>
+                        <div class="link-description">End-to-End Runbook for Microsoft Fabric + Semantic Model + Foundry Local</div>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/pulse/power-data-lakehouse-azure-synapse-jagjeet-makhija" target="_blank" class="link-button azure">
+                    <div class="icon">🏛️</div>
+                    <div class="link-content">
+                        <div class="link-title">Power of Data Lakehouse in Azure Synapse</div>
+                   
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/pulse/alchemy-insight-jagjeet-makhija-ssfic" target="_blank" class="link-button powerplatform">
+                    <div class="icon">✨</div>
+                    <div class="link-content">
+                        <div class="link-title">Alchemy of Insight</div>
+                    
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/pulse/beauty-snowflake-power-bi-jagjeet-makhija" target="_blank" class="link-button powerplatform">
+                    <div class="icon">📊</div>
+                    <div class="link-content">
+                        <div class="link-title">The Beauty of Snowflake with Agentic AI</div>
+                        
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_azuredatafactory-azuredatalake-dataengineering-activity-7345287107873034240-G8nV" target="_blank" class="link-button azure">
+                    <div class="icon">🔧</div>
+                    <div class="link-content">
+                        <div class="link-title">Azure Data Factory Best Practices</div>
+                        
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_micrsoft-copilot-chatgpt-activity-7153453681013616640-hSkW" target="_blank" class="link-button powerplatform">
+                    <div class="icon">🤖</div>
+                    <div class="link-content">
+                        <div class="link-title">Microsoft Copilot & ChatGPT Integration</div>
+      
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_micorsoft-database-dataengineering-activity-7095151633428336640-TgT4" target="_blank" class="link-button azure">
+                    <div class="icon">💾</div>
+                    <div class="link-content">
+                        <div class="link-title">Microsoft Database & Data Engineering</div>
+                 
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_microsoft365-azure-office365-activity-7178862381173788672-kATI" target="_blank" class="link-button powerplatform">
+                    <div class="icon">☁️</div>
+                    <div class="link-content">
+                        <div class="link-title">Microsoft 365 & Azure Integration</div>
+          
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_microsoft-cloudarchitecture-cloudstorage-activity-6849039050393960448-Woui" target="_blank" class="link-button azure">
+                    <div class="icon">🏗️</div>
+                    <div class="link-content">
+                        <div class="link-title">Cloud Architecture & Storage Solutions</div>
+                       
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_adfs-azuredatalake-azuredatabricks-activity-6769740877184294912-Cx9y" target="_blank" class="link-button azure">
+                    <div class="icon">🔐</div>
+                    <div class="link-content">
+                        <div class="link-title">ADFS, Data Lake & Databricks Integration</div>
+                      
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/posts/jagjeetmakhija_azurecloud-azuresql-microsoftazure-activity-6801746066556489728-80S9" target="_blank" class="link-button azure">
+                    <div class="icon">🗄️</div>
+                    <div class="link-content">
+                        <div class="link-title">Azure Cloud & Azure SQL</div>
+                    
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Knowledge Sharing & Community Impact Section -->
+        <section id="knowledge" class="section" style="background: linear-gradient(135deg, rgba(255, 214, 10, 0.08), rgba(255, 107, 157, 0.08));">
+            <div class="section-header">
+                <div class="section-icon" style="background: linear-gradient(135deg, #ffd60a, #ff6b9d);"><i class="fas fa-lightbulb"></i></div>
+                <h2 class="section-title">💡 Knowledge Sharing & Community Impact</h2>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <p style="font-size: 15px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 20px;">
+                    Passionate about empowering the tech community through consistent knowledge sharing. I actively contribute across multiple platforms, helping professionals navigate the evolving landscape of data engineering, cloud architecture, and AI integration.
                 </p>
             </div>
 
-            <!-- Certifications Grid -->
-            <div class="cert-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                
-                <!-- Microsoft Azure Certifications -->
-                <div class="cert-card" style="
-                    background: rgba(0, 0, 0, 0.2);
-                    padding: 25px;
-                    border-radius: 16px;
-                    border: 2px solid rgba(0, 120, 212, 0.3);
-                    transition: all 0.3s ease;
-                " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(0, 120, 212, 0.6)'; this.style.boxShadow='0 12px 30px rgba(0, 120, 212, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0, 120, 212, 0.3)'; this.style.boxShadow='none'">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
-                        <svg width="40" height="40" viewBox="0 0 23 23">
-                            <rect x="0" y="0" width="10" height="10" fill="#F25022"/>
-                            <rect x="11" y="0" width="10" height="10" fill="#7FBA00"/>
-                            <rect x="0" y="11" width="10" height="10" fill="#00A4EF"/>
-                            <rect x="11" y="11" width="10" height="10" fill="#FFB900"/>
-                        </svg>
-                        <h3 style="font-size: 18px; font-weight: 700; color: #0078D4; margin: 0;">Microsoft Azure</h3>
+            <!-- Professional Analytics Dashboard - LinkedIn Style -->
+            <div style="
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(26, 26, 26, 0.6));
+                padding: 25px;
+                border-radius: 16px;
+                border: 1px solid rgba(255, 214, 10, 0.15);
+                margin-bottom: 25px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            ">
+                <!-- Header with Dropdown -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                    <div>
+                        <h3 style="font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 5px 0; display: flex; align-items: center; gap: 10px;">
+                            📊 Content Performance Analytics
+                        </h3>
+                        <p style="font-size: 13px; color: rgba(255, 255, 255, 0.6); margin: 0;">Real-time engagement metrics across platforms</p>
                     </div>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
-                            <span style="color: #0078D4; font-size: 16px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text-primary);">Designing and Implementing Microsoft Fabric</strong>
-                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">DP-600 • 2024</span>
-                            </div>
-                        </li>
-                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
-                            <span style="color: #0078D4; font-size: 16px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text-primary);">Azure Data Engineer Associate</strong>
-                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">DP-203 • 2021</span>
-                            </div>
-                        </li>
-                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
-                            <span style="color: #0078D4; font-size: 16px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text-primary);">Designing Azure Data Solutions</strong>
-                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">DP-201 • 2021</span>
-                            </div>
-                        </li>
-                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
-                            <span style="color: #0078D4; font-size: 16px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text-primary);">Azure Fundamentals</strong>
-                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">AZ-900 • 2020</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <!-- Social Media Platform Badges -->
+                        <div style="display: flex; gap: 6px; padding: 6px 10px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                            <div style="width: 24px; height: 24px; background: #0077b5; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: white;">in</div>
+                            <div style="width: 24px; height: 24px; background: #1DA1F2; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: white;">𝕏</div>
+                            <div style="width: 24px; height: 24px; background: #FF6B35; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: white;">M</div>
+                        </div>
+                        <div style="position: relative;">
+                            <select id="time-filter" onchange="filterGraph(this.value)" style="
+                                padding: 10px 40px 10px 16px;
+                                background: linear-gradient(135deg, rgba(255, 214, 10, 0.15), rgba(255, 107, 157, 0.1));
+                                border: 1px solid rgba(255, 214, 10, 0.3);
+                                border-radius: 10px;
+                                color: #ffd60a;
+                                font-size: 14px;
+                                font-weight: 600;
+                                cursor: pointer;
+                                appearance: none;
+                                outline: none;
+                                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                                transition: all 0.3s ease;
+                            " onmouseover="this.style.background='linear-gradient(135deg, rgba(255, 214, 10, 0.25), rgba(255, 107, 157, 0.15))'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255, 214, 10, 0.15), rgba(255, 107, 157, 0.1))'">
+                                <option value="week" selected>📅 Last 7 Days</option>
+                                <option value="month">📆 Last 30 Days</option>
+                                <option value="year">📊 Last 12 Months</option>
+                            </select>
+                            <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #ffd60a; font-size: 12px;">▼</div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Snowflake Certifications -->
-                <div class="cert-card" style="
-                    background: rgba(0, 0, 0, 0.2);
-                    padding: 25px;
-                    border-radius: 16px;
-                    border: 2px solid rgba(41, 184, 219, 0.3);
-                    transition: all 0.3s ease;
-                " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(41, 184, 219, 0.6)'; this.style.boxShadow='0 12px 30px rgba(41, 184, 219, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(41, 184, 219, 0.3)'; this.style.boxShadow='none'">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
-                        <div style="width: 40px; height: 40px; background: #29B8DB; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: white;">❄️</div>
-                        <h3 style="font-size: 18px; font-weight: 700; color: #29B8DB; margin: 0;">Snowflake</h3>
+                <!-- Platform Legend -->
+                <div style="display: flex; gap: 15px; margin-bottom: 15px; padding: 10px; background: rgba(255, 255, 255, 0.02); border-radius: 8px; flex-wrap: wrap; justify-content: center;">
+                    <div style="display: flex; align-items: center; gap: 6px; font-size: 12px;">
+                        <div style="width: 20px; height: 20px; background: #0077b5; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: white;">in</div>
+                        <span style="color: rgba(255, 255, 255, 0.8); font-weight: 600;">LinkedIn</span>
                     </div>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
-                            <span style="color: #29B8DB; font-size: 16px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text-primary);">SnowPro Advanced: Architect</strong>
-                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">2021</span>
-                            </div>
-                        </li>
-                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
-                            <span style="color: #29B8DB; font-size: 16px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text-primary);">SnowPro Core Certification</strong>
-                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">2021</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <div style="display: flex; align-items: center; gap: 6px; font-size: 12px;">
+                        <div style="width: 20px; height: 20px; background: #1DA1F2; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: white;">𝕏</div>
+                        <span style="color: rgba(255, 255, 255, 0.8); font-weight: 600;">X/Twitter</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px; font-size: 12px;">
+                        <div style="width: 20px; height: 20px; background: #FF6B35; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: white;">M</div>
+                        <span style="color: rgba(255, 255, 255, 0.8); font-weight: 600;">Medium</span>
+                    </div>
                 </div>
 
-                <!-- Databricks Certification -->
-                <div class="cert-card" style="
-                    background: rgba(0, 0, 0, 0.2);
-                    padding: 25px;
-                    border-radius: 16px;
-                    border: 2px solid rgba(255, 59, 48, 0.3);
-                    transition: all 0.3s ease;
-                " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(255, 59, 48, 0.6)'; this.style.boxShadow='0 12px 30px rgba(255, 59, 48, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 59, 48, 0.3)'; this.style.boxShadow='none'">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
-                        <div style="width: 40px; height: 40px; background: #FF3B30; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: white;">🧱</div>
-                        <h3 style="font-size: 18px; font-weight: 700; color: #FF3B30; margin: 0;">Databricks</h3>
+                <!-- KPI Cards - LinkedIn/Sprout Social Style -->
+                <div style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                    gap: 12px;
+                    margin-bottom: 25px;
+                ">
+                    <div id="card-articles" style="
+                        background: linear-gradient(135deg, rgba(255, 214, 10, 0.12), rgba(255, 214, 10, 0.08));
+                        padding: 18px 15px;
+                        border-radius: 12px;
+                        border-left: 4px solid #ffd60a;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(255, 214, 10, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <div style="font-size: 11px; font-weight: 600; color: rgba(255, 214, 10, 0.8); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Articles Published</div>
+                        <div style="font-size: 28px; font-weight: 900; color: #ffd60a; margin-bottom: 6px;" id="total-articles">14</div>
+                        <div style="font-size: 11px; color: rgba(255, 255, 255, 0.6); display: flex; align-items: center; gap: 4px;">
+                            <span style="color: #4ade80;">↑ 23%</span> vs last period
+                        </div>
                     </div>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
-                            <span style="color: #FF3B30; font-size: 16px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text-primary);">Databricks Certified Data Engineer Professional</strong>
-                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">2026</span>
-                            </div>
-                        </li>
-                    </ul>
+
+                    <div id="card-likes" style="
+                        background: linear-gradient(135deg, rgba(255, 107, 157, 0.12), rgba(255, 107, 157, 0.08));
+                        padding: 18px 15px;
+                        border-radius: 12px;
+                        border-left: 4px solid #ff6b9d;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(255, 107, 157, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <div style="font-size: 11px; font-weight: 600; color: rgba(255, 107, 157, 0.8); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Total Engagement</div>
+                        <div style="font-size: 28px; font-weight: 900; color: #ff6b9d; margin-bottom: 6px;" id="total-likes">348</div>
+                        <div style="font-size: 11px; color: rgba(255, 255, 255, 0.6); display: flex; align-items: center; gap: 4px;">
+                            <span style="color: #4ade80;">↑ 34%</span> vs last period
+                        </div>
+                    </div>
+
+                    <div id="card-reads" style="
+                        background: linear-gradient(135deg, rgba(95, 251, 241, 0.12), rgba(95, 251, 241, 0.08));
+                        padding: 18px 15px;
+                        border-radius: 12px;
+                        border-left: 4px solid #5ffbf1;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(95, 251, 241, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <div style="font-size: 11px; font-weight: 600; color: rgba(95, 251, 241, 0.8); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Total Impressions</div>
+                        <div style="font-size: 28px; font-weight: 900; color: #5ffbf1; margin-bottom: 6px;" id="total-reads">2.4K</div>
+                        <div style="font-size: 11px; color: rgba(255, 255, 255, 0.6); display: flex; align-items: center; gap: 4px;">
+                            <span style="color: #4ade80;">↑ 18%</span> vs last period
+                        </div>
+                    </div>
+
+                    <div id="card-reposts" style="
+                        background: linear-gradient(135deg, rgba(167, 139, 250, 0.12), rgba(167, 139, 250, 0.08));
+                        padding: 18px 15px;
+                        border-radius: 12px;
+                        border-left: 4px solid #a78bfa;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(167, 139, 250, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <div style="font-size: 11px; font-weight: 600; color: rgba(167, 139, 250, 0.8); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Shares & Reposts</div>
+                        <div style="font-size: 28px; font-weight: 900; color: #a78bfa; margin-bottom: 6px;" id="total-reposts">62</div>
+                        <div style="font-size: 11px; color: rgba(255, 255, 255, 0.6); display: flex; align-items: center; gap: 4px;">
+                            <span style="color: #4ade80;">↑ 28%</span> vs last period
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Claude Certification -->
-                <div class="cert-card" style="
-                    background: rgba(0, 0, 0, 0.2);
-                    padding: 25px;
-                    border-radius: 16px;
-                    border: 2px solid rgba(167, 139, 250, 0.3);
-                    transition: all 0.3s ease;
-                " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(167, 139, 250, 0.6)'; this.style.boxShadow='0 12px 30px rgba(167, 139, 250, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(167, 139, 250, 0.3)'; this.style.boxShadow='none'">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
-                        <div style="width: 40px; height: 40px; background: #a78bfa; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: white;">🤖</div>
-                        <h3 style="font-size: 18px; font-weight: 700; color: #a78bfa; margin: 0;">Claude AI</h3>
-                    </div>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-                        <li class="cert-item" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); padding-left: 8px; border-left: 3px solid transparent; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#5ffbf1'; this.style.transform='translateX(5px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateX(0)'">
-                            <span style="color: #a78bfa; font-size: 16px; flex-shrink: 0;">✓</span>
-                            <div>
-                                <strong style="color: var(--text-primary);">Claude Code in Action</strong>
-                                <span style="display: block; font-size: 12px; color: rgba(255, 255, 255, 0.6); margin-top: 2px;">2026</span>
-                            </div>
-                        </li>
-                    </ul>
+                <!-- Chart Style Selector -->
+                <div style="margin-bottom: 20px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                    <button onclick="switchChartStyle('line')" id="chart-style-line" style="
+                        padding: 10px 20px;
+                        background: linear-gradient(135deg, rgba(255, 214, 10, 0.25), rgba(255, 107, 157, 0.15));
+                        border: 2px solid rgba(255, 214, 10, 0.4);
+                        border-radius: 10px;
+                        color: #ffd60a;
+                        font-size: 13px;
+                        font-weight: 700;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 15px rgba(255, 214, 10, 0.3);
+                    " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        📈 Multi-Line Graph
+                    </button>
+                    <button onclick="switchChartStyle('bar')" id="chart-style-bar" style="
+                        padding: 10px 20px;
+                        background: rgba(255, 255, 255, 0.05);
+                        border: 2px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
+                        color: rgba(255, 255, 255, 0.7);
+                        font-size: 13px;
+                        font-weight: 700;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.background='rgba(255, 107, 157, 0.15)'; this.style.borderColor='rgba(255, 107, 157, 0.4)'; this.style.color='#ff6b9d'; this.style.transform='translateY(-2px)'" onmouseout="if(!this.id.includes('bar') || currentChartStyle !== 'bar') { this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='translateY(0)'; }">
+                        📊 Horizontal Bars
+                    </button>
+                    <button onclick="switchChartStyle('combo')" id="chart-style-combo" style="
+                        padding: 10px 20px;
+                        background: rgba(255, 255, 255, 0.05);
+                        border: 2px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
+                        color: rgba(255, 255, 255, 0.7);
+                        font-size: 13px;
+                        font-weight: 700;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.background='rgba(95, 251, 241, 0.15)'; this.style.borderColor='rgba(95, 251, 241, 0.4)'; this.style.color='#5ffbf1'; this.style.transform='translateY(-2px)'" onmouseout="if(!this.id.includes('combo') || currentChartStyle !== 'combo') { this.style.background='rgba(255, 255, 255, 0.05)'; this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.color='rgba(255, 255, 255, 0.7)'; this.style.transform='translateY(0)'; }">
+                        📊📈 Combo Chart
+                    </button>
                 </div>
 
+                <!-- Main Graph Area -->
+                <div style="
+                    background: rgba(0, 0, 0, 0.4);
+                    border-radius: 12px;
+                    padding: 20px 15px 30px 55px;
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    position: relative;
+                    min-height: 280px;
+                ">
+                    <svg id="graph-svg" width="100%" height="280" style="display: block;"></svg>
+                    <div id="bar-chart-container" style="display: none; padding: 20px;"></div>
+                    <div id="combo-chart-container" style="display: none;"></div>
+                </div>
+
+                <!-- Legend - Modern Style -->
+                <div id="chart-legend" style="
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 24px;
+                    flex-wrap: wrap;
+                    padding: 15px;
+                    background: rgba(255, 255, 255, 0.02);
+                    border-radius: 10px;
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                ">
+                    <div style="display: flex; align-items: center; gap: 8px; cursor: pointer;" onclick="toggleMetric('articles')">
+                        <div style="width: 12px; height: 12px; background: #ffd60a; border-radius: 50%; box-shadow: 0 0 10px rgba(255, 214, 10, 0.5);"></div>
+                        <span style="color: rgba(255, 255, 255, 0.9); font-size: 13px; font-weight: 600;">Articles</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; cursor: pointer;" onclick="toggleMetric('likes')">
+                        <div style="width: 12px; height: 12px; background: #ff6b9d; border-radius: 50%; box-shadow: 0 0 10px rgba(255, 107, 157, 0.5);"></div>
+                        <span style="color: rgba(255, 255, 255, 0.9); font-size: 13px; font-weight: 600;">Engagement</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; cursor: pointer;" onclick="toggleMetric('reads')">
+                        <div style="width: 12px; height: 12px; background: #5ffbf1; border-radius: 50%; box-shadow: 0 0 10px rgba(95, 251, 241, 0.5);"></div>
+                        <span style="color: rgba(255, 255, 255, 0.9); font-size: 13px; font-weight: 600;">Impressions</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; cursor: pointer;" onclick="toggleMetric('reposts')">
+                        <div style="width: 12px; height: 12px; background: #a78bfa; border-radius: 50%; box-shadow: 0 0 10px rgba(167, 139, 250, 0.5);"></div>
+                        <span style="color: rgba(255, 255, 255, 0.9); font-size: 13px; font-weight: 600;">Shares</span>
+                    </div>
+                </div>
+
+                <!-- Topic Filters - Key Topics I Write About -->
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-filter" style="color: rgba(255, 255, 255, 0.6); font-size: 14px;"></i>
+                            <span style="font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.5px;">Filter by Topic:</span>
+                        </div>
+                        <button onclick="filterByTopic('all')" id="topic-all" style="
+                            padding: 8px 16px;
+                            background: rgba(255, 255, 255, 0.1);
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                            border-radius: 20px;
+                            color: #fff;
+                            font-size: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='rgba(255, 255, 255, 0.15)'" onmouseout="if(this.id.includes('all') && currentTopic === 'all') this.style.background='linear-gradient(135deg, rgba(255, 214, 10, 0.25), rgba(255, 107, 157, 0.15))'; else if(currentTopic !== 'all') this.style.background='rgba(255, 255, 255, 0.1)'">
+                            🌐 All Topics
+                        </button>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <button onclick="filterByTopic('fabric')" id="topic-fabric" style="
+                            padding: 8px 16px;
+                            background: rgba(255, 214, 10, 0.12);
+                            border: 1px solid rgba(255, 214, 10, 0.3);
+                            border-radius: 20px;
+                            color: #ffd60a;
+                            font-size: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        " onmouseover="this.style.background='rgba(255, 214, 10, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 214, 10, 0.12)'; this.style.transform='translateY(0)'">
+                            <span style="font-size: 14px;">🔷</span> Microsoft Fabric
+                        </button>
+
+                        <button onclick="filterByTopic('azure')" id="topic-azure" style="
+                            padding: 8px 16px;
+                            background: rgba(255, 107, 157, 0.12);
+                            border: 1px solid rgba(255, 107, 157, 0.3);
+                            border-radius: 20px;
+                            color: #ff6b9d;
+                            font-size: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        " onmouseover="this.style.background='rgba(255, 107, 157, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 107, 157, 0.12)'; this.style.transform='translateY(0)'">
+                            <span style="font-size: 14px;">☁️</span> Azure Architecture
+                        </button>
+
+                        <button onclick="filterByTopic('snowflake')" id="topic-snowflake" style="
+                            padding: 8px 16px;
+                            background: rgba(95, 251, 241, 0.12);
+                            border: 1px solid rgba(95, 251, 241, 0.3);
+                            border-radius: 20px;
+                            color: #5ffbf1;
+                            font-size: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        " onmouseover="this.style.background='rgba(95, 251, 241, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(95, 251, 241, 0.12)'; this.style.transform='translateY(0)'">
+                            <span style="font-size: 14px;">❄️</span> Snowflake
+                        </button>
+
+                        <button onclick="filterByTopic('ai')" id="topic-ai" style="
+                            padding: 8px 16px;
+                            background: rgba(255, 214, 10, 0.12);
+                            border: 1px solid rgba(255, 214, 10, 0.3);
+                            border-radius: 20px;
+                            color: #ffd60a;
+                            font-size: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        " onmouseover="this.style.background='rgba(255, 214, 10, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 214, 10, 0.12)'; this.style.transform='translateY(0)'">
+                            <span style="font-size: 14px;">🤖</span> Agentic AI
+                        </button>
+
+                        <button onclick="filterByTopic('architecture')" id="topic-architecture" style="
+                            padding: 8px 16px;
+                            background: rgba(255, 107, 157, 0.12);
+                            border: 1px solid rgba(255, 107, 157, 0.3);
+                            border-radius: 20px;
+                            color: #ff6b9d;
+                            font-size: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        " onmouseover="this.style.background='rgba(255, 107, 157, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 107, 157, 0.12)'; this.style.transform='translateY(0)'">
+                            <span style="font-size: 14px;">🏗️</span> Data Architecture
+                        </button>
+
+                        <button onclick="filterByTopic('ml')" id="topic-ml" style="
+                            padding: 8px 16px;
+                            background: rgba(95, 251, 241, 0.12);
+                            border: 1px solid rgba(95, 251, 241, 0.3);
+                            border-radius: 20px;
+                            color: #5ffbf1;
+                            font-size: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                        " onmouseover="this.style.background='rgba(95, 251, 241, 0.2)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(95, 251, 241, 0.12)'; this.style.transform='translateY(0)'">
+                            <span style="font-size: 14px;">🧠</span> AI/ML Best Practices
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <!-- Certification Stats -->
+            <script>
+                // Professional analytics data by topic
+                const activityDataByTopic = {
+                    all: {
+                        week: {
+                            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            articles: [2, 3, 1, 2, 4, 1, 1],
+                            likes: [45, 67, 32, 58, 89, 23, 34],
+                            reads: [320, 450, 280, 410, 560, 180, 290],
+                            reposts: [8, 12, 5, 10, 16, 4, 7]
+                        },
+                        month: {
+                            labels: ['W1', 'W2', 'W3', 'W4'],
+                            articles: [8, 10, 12, 9],
+                            likes: [234, 312, 389, 276],
+                            reads: [1840, 2350, 2890, 2120],
+                            reposts: [42, 58, 68, 51]
+                        },
+                        year: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            articles: [32, 38, 35, 42, 39, 45, 48, 43, 47, 41, 44, 50],
+                            likes: [890, 1120, 1050, 1340, 1230, 1480, 1620, 1450, 1580, 1390, 1510, 1720],
+                            reads: [6800, 8500, 7900, 9800, 9200, 10500, 11200, 10100, 10800, 9600, 10300, 11800],
+                            reposts: [156, 198, 182, 234, 215, 268, 289, 257, 278, 243, 264, 301]
+                        }
+                    },
+                    fabric: {
+                        week: {
+                            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            articles: [1, 2, 0, 1, 2, 0, 1],
+                            likes: [28, 45, 18, 35, 52, 12, 22],
+                            reads: [210, 320, 150, 280, 380, 95, 190],
+                            reposts: [5, 8, 3, 6, 10, 2, 4]
+                        },
+                        month: {
+                            labels: ['W1', 'W2', 'W3', 'W4'],
+                            articles: [5, 6, 7, 5],
+                            likes: [145, 189, 234, 167],
+                            reads: [1150, 1480, 1820, 1320],
+                            reposts: [26, 35, 42, 31]
+                        },
+                        year: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            articles: [18, 22, 20, 24, 23, 26, 28, 25, 27, 24, 26, 29],
+                            likes: [520, 650, 610, 780, 720, 860, 940, 840, 920, 810, 880, 1000],
+                            reads: [3960, 4950, 4620, 5720, 5400, 6300, 6720, 6050, 6480, 5760, 6180, 6900],
+                            reposts: [91, 115, 106, 136, 125, 156, 168, 150, 162, 142, 154, 175]
+                        }
+                    },
+                    azure: {
+                        week: {
+                            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            articles: [0, 1, 0, 1, 1, 0, 0],
+                            likes: [12, 18, 8, 15, 25, 7, 10],
+                            reads: [85, 135, 60, 110, 165, 45, 75],
+                            reposts: [2, 3, 1, 3, 4, 1, 2]
+                        },
+                        month: {
+                            labels: ['W1', 'W2', 'W3', 'W4'],
+                            articles: [2, 3, 3, 2],
+                            likes: [68, 92, 110, 78],
+                            reads: [525, 715, 850, 605],
+                            reposts: [12, 17, 20, 14]
+                        },
+                        year: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            articles: [8, 10, 9, 11, 10, 12, 13, 11, 12, 11, 12, 13],
+                            likes: [245, 310, 285, 355, 320, 385, 425, 375, 410, 360, 395, 450],
+                            reads: [1870, 2360, 2180, 2690, 2430, 2920, 3190, 2820, 3060, 2710, 2970, 3350],
+                            reposts: [43, 55, 50, 63, 57, 70, 76, 67, 73, 64, 70, 80]
+                        }
+                    },
+                    snowflake: {
+                        week: {
+                            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            articles: [0, 0, 1, 0, 1, 1, 0],
+                            likes: [5, 4, 6, 8, 12, 4, 2],
+                            reads: [25, 15, 70, 20, 15, 50, 25],
+                            reposts: [1, 1, 1, 1, 2, 1, 1]
+                        },
+                        month: {
+                            labels: ['W1', 'W2', 'W3', 'W4'],
+                            articles: [1, 1, 2, 2],
+                            likes: [21, 28, 35, 28],
+                            reads: [165, 220, 275, 220],
+                            reposts: [4, 6, 8, 6]
+                        },
+                        year: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            articles: [6, 6, 6, 7, 6, 7, 7, 7, 8, 6, 6, 8],
+                            likes: [125, 130, 155, 165, 150, 175, 180, 170, 190, 160, 155, 195],
+                            reads: [970, 990, 1180, 1250, 1140, 1330, 1370, 1290, 1440, 1220, 1180, 1480],
+                            reposts: [22, 23, 27, 29, 26, 31, 32, 30, 34, 28, 27, 35]
+                        }
+                    },
+                    ai: {
+                        week: {
+                            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            articles: [1, 0, 0, 0, 0, 0, 0],
+                            likes: [0, 0, 0, 0, 0, 0, 0],
+                            reads: [0, 0, 0, 0, 0, 0, 0],
+                            reposts: [0, 0, 0, 0, 0, 0, 0]
+                        },
+                        month: {
+                            labels: ['W1', 'W2', 'W3', 'W4'],
+                            articles: [0, 0, 0, 0],
+                            likes: [0, 3, 10, 3],
+                            reads: [0, 0, 0, 0],
+                            reposts: [0, 0, 0, 0]
+                        },
+                        year: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            articles: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            likes: [0, 30, 0, 40, 40, 60, 75, 65, 60, 60, 80, 80],
+                            reads: [0, 200, 0, 360, 230, 950, 1150, 940, 820, 910, 975, 1190],
+                            reposts: [0, 5, 0, 6, 7, 11, 13, 10, 8, 11, 13, 11]
+                        }
+                    },
+                    architecture: {
+                        week: {
+                            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            articles: [0, 1, 0, 0, 1, 0, 0],
+                            likes: [15, 22, 8, 12, 28, 6, 9],
+                            reads: [110, 165, 60, 95, 210, 45, 70],
+                            reposts: [3, 4, 1, 2, 5, 1, 2]
+                        },
+                        month: {
+                            labels: ['W1', 'W2', 'W3', 'W4'],
+                            articles: [1, 2, 2, 1],
+                            likes: [52, 78, 85, 61],
+                            reads: [405, 605, 660, 475],
+                            reposts: [9, 14, 16, 11]
+                        },
+                        year: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            articles: [4, 5, 5, 6, 5, 6, 7, 6, 6, 5, 6, 7],
+                            likes: [185, 225, 210, 265, 240, 280, 310, 275, 295, 255, 285, 325],
+                            reads: [1420, 1720, 1605, 2020, 1830, 2135, 2360, 2095, 2250, 1945, 2175, 2480],
+                            reposts: [33, 40, 37, 47, 43, 50, 55, 49, 53, 45, 51, 58]
+                        }
+                    },
+                    ml: {
+                        week: {
+                            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                            articles: [0, 0, 1, 0, 1, 0, 0],
+                            likes: [8, 5, 18, 10, 25, 6, 8],
+                            reads: [60, 38, 135, 75, 185, 45, 62],
+                            reposts: [1, 1, 3, 2, 4, 1, 1]
+                        },
+                        month: {
+                            labels: ['W1', 'W2', 'W3', 'W4'],
+                            articles: [1, 1, 2, 1],
+                            likes: [38, 48, 62, 45],
+                            reads: [295, 375, 480, 350],
+                            reposts: [7, 9, 11, 8]
+                        },
+                        year: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            articles: [3, 4, 3, 5, 4, 5, 6, 5, 5, 4, 5, 6],
+                            likes: [140, 180, 165, 220, 195, 240, 265, 235, 255, 210, 245, 280],
+                            reads: [1070, 1375, 1260, 1680, 1485, 1830, 2020, 1790, 1945, 1600, 1870, 2135],
+                            reposts: [25, 32, 29, 39, 35, 43, 47, 42, 45, 38, 42, 50]
+                        }
+                    }
+                };
+
+                let currentFilter = 'week';
+                let currentTopic = 'all';
+                let currentChartStyle = 'line';
+                let visibleMetrics = { articles: true, likes: true, reads: true, reposts: true };
+
+                function switchChartStyle(style) {
+                    currentChartStyle = style;
+                    
+                    // Update button styles
+                    document.querySelectorAll('[id^="chart-style-"]').forEach(btn => {
+                        btn.style.background = 'rgba(255, 255, 255, 0.05)';
+                        btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                        btn.style.color = 'rgba(255, 255, 255, 0.7)';
+                        btn.style.boxShadow = 'none';
+                    });
+                    
+                    const activeBtn = document.getElementById('chart-style-' + style);
+                    if (style === 'line') {
+                        activeBtn.style.background = 'linear-gradient(135deg, rgba(255, 214, 10, 0.25), rgba(255, 107, 157, 0.15))';
+                        activeBtn.style.borderColor = 'rgba(255, 214, 10, 0.4)';
+                        activeBtn.style.color = '#ffd60a';
+                        activeBtn.style.boxShadow = '0 4px 15px rgba(255, 214, 10, 0.3)';
+                    } else if (style === 'bar') {
+                        activeBtn.style.background = 'linear-gradient(135deg, rgba(255, 107, 157, 0.25), rgba(95, 251, 241, 0.15))';
+                        activeBtn.style.borderColor = 'rgba(255, 107, 157, 0.4)';
+                        activeBtn.style.color = '#ff6b9d';
+                        activeBtn.style.boxShadow = '0 4px 15px rgba(255, 107, 157, 0.3)';
+                    } else {
+                        activeBtn.style.background = 'linear-gradient(135deg, rgba(95, 251, 241, 0.25), rgba(167, 139, 250, 0.15))';
+                        activeBtn.style.borderColor = 'rgba(95, 251, 241, 0.4)';
+                        activeBtn.style.color = '#5ffbf1';
+                        activeBtn.style.boxShadow = '0 4px 15px rgba(95, 251, 241, 0.3)';
+                    }
+                    
+                    // Show/hide appropriate containers
+                    document.getElementById('graph-svg').style.display = style === 'line' ? 'block' : 'none';
+                    document.getElementById('bar-chart-container').style.display = style === 'bar' ? 'block' : 'none';
+                    document.getElementById('combo-chart-container').style.display = style === 'combo' ? 'block' : 'none';
+                    
+                    // Render appropriate chart
+                    if (style === 'line') {
+                        renderGraph(currentFilter, currentTopic);
+                    } else if (style === 'bar') {
+                        renderBarChart(currentFilter, currentTopic);
+                    } else {
+                        renderComboChart(currentFilter, currentTopic);
+                    }
+                }
+
+                function filterByTopic(topic) {
+                    currentTopic = topic;
+                    
+                    // Reset all topic buttons
+                    document.querySelectorAll('[id^="topic-"]').forEach(btn => {
+                        btn.style.background = btn.id.includes('all') ? 'rgba(255, 255, 255, 0.1)' : 
+                                               btn.id.includes('fabric') || btn.id.includes('ai') ? 'rgba(255, 214, 10, 0.12)' :
+                                               btn.id.includes('azure') || btn.id.includes('architecture') ? 'rgba(255, 107, 157, 0.12)' :
+                                               'rgba(95, 251, 241, 0.12)';
+                        btn.style.transform = 'translateY(0)';
+                        btn.style.boxShadow = 'none';
+                    });
+                    
+                    // Highlight selected topic
+                    const selectedBtn = document.getElementById('topic-' + topic);
+                    selectedBtn.style.background = 'linear-gradient(135deg, rgba(255, 214, 10, 0.25), rgba(255, 107, 157, 0.15))';
+                    selectedBtn.style.transform = 'translateY(-2px)';
+                    selectedBtn.style.boxShadow = '0 4px 15px rgba(255, 214, 10, 0.3)';
+                    
+                    // Update all visualizations
+                    updateKPICards(currentFilter, topic);
+                    
+                    // Render appropriate chart type
+                    if (currentChartStyle === 'line') {
+                        renderGraph(currentFilter, topic);
+                    } else if (currentChartStyle === 'bar') {
+                        renderBarChart(currentFilter, topic);
+                    } else if (currentChartStyle === 'combo') {
+                        renderComboChart(currentFilter, topic);
+                    }
+                }
+
+                function filterGraph(period) {
+                    currentFilter = period;
+                    updateKPICards(period, currentTopic);
+                    
+                    // Render appropriate chart type
+                    if (currentChartStyle === 'line') {
+                        renderGraph(period, currentTopic);
+                    } else if (currentChartStyle === 'bar') {
+                        renderBarChart(period, currentTopic);
+                    } else if (currentChartStyle === 'combo') {
+                        renderComboChart(period, currentTopic);
+                    }
+                }
+
+                function toggleMetric(metric) {
+                    visibleMetrics[metric] = !visibleMetrics[metric];
+                    
+                    // Only works for line graph
+                    if (currentChartStyle === 'line') {
+                        renderGraph(currentFilter, currentTopic);
+                    }
+                }
+
+                function updateKPICards(period, topic = 'all') {
+                    const data = activityDataByTopic[topic][period];
+                    const totals = {
+                        articles: data.articles.reduce((a, b) => a + b, 0),
+                        likes: data.likes.reduce((a, b) => a + b, 0),
+                        reads: data.reads.reduce((a, b) => a + b, 0),
+                        reposts: data.reposts.reduce((a, b) => a + b, 0)
+                    };
+
+                    document.getElementById('total-articles').textContent = totals.articles;
+                    document.getElementById('total-likes').textContent = totals.likes;
+                    document.getElementById('total-reads').textContent = totals.reads >= 1000 ? (totals.reads / 1000).toFixed(1) + 'K' : totals.reads;
+                    document.getElementById('total-reposts').textContent = totals.reposts;
+                }
+
+                function renderGraph(period, topic = 'all') {
+                    const svg = document.getElementById('graph-svg');
+                    const svgRect = svg.getBoundingClientRect();
+                    const width = svgRect.width - 70;
+                    const height = 240;
+                    const data = activityDataByTopic[topic][period];
+                    
+                    svg.innerHTML = '';
+                    
+                    const maxArticles = Math.max(...data.articles);
+                    const maxLikes = Math.max(...data.likes);
+                    const maxReads = Math.max(...data.reads);
+                    const maxReposts = Math.max(...data.reposts);
+                    
+                    const normalize = (value, max) => value / max;
+                    
+                    const pointSpacing = width / (data.labels.length - 1);
+                    const leftPadding = 50;
+                    const topPadding = 20;
+                    
+                    const metrics = [
+                        { name: 'articles', data: data.articles, max: maxArticles, color: '#ffd60a', label: 'Articles', visible: visibleMetrics.articles },
+                        { name: 'likes', data: data.likes, max: maxLikes, color: '#ff6b9d', label: 'Engagement', visible: visibleMetrics.likes },
+                        { name: 'reads', data: data.reads, max: maxReads, color: '#5ffbf1', label: 'Impressions', visible: visibleMetrics.reads },
+                        { name: 'reposts', data: data.reposts, max: maxReposts, color: '#a78bfa', label: 'Shares', visible: visibleMetrics.reposts }
+                    ];
+                    
+                    // Grid lines with enhanced visibility
+                    for (let i = 0; i <= 4; i++) {
+                        const y = topPadding + (i * (height / 4));
+                        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                        line.setAttribute('x1', leftPadding);
+                        line.setAttribute('y1', y);
+                        line.setAttribute('x2', leftPadding + width);
+                        line.setAttribute('y2', y);
+                        line.setAttribute('stroke', i === 4 ? 'rgba(255, 214, 10, 0.15)' : 'rgba(255, 255, 255, 0.08)');
+                        line.setAttribute('stroke-width', i === 4 ? '2' : '1');
+                        if (i === 4) line.setAttribute('stroke-dasharray', '4,4');
+                        svg.appendChild(line);
+                        
+                        // Enhanced Y-axis labels
+                        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                        text.setAttribute('x', leftPadding - 12);
+                        text.setAttribute('y', y + 4);
+                        text.setAttribute('text-anchor', 'end');
+                        text.setAttribute('fill', i === 4 ? '#ffd60a' : 'rgba(255, 255, 255, 0.7)');
+                        text.setAttribute('font-size', '12');
+                        text.setAttribute('font-weight', '700');
+                        text.textContent = (100 - (i * 25)) + '%';
+                        svg.appendChild(text);
+                    }
+                    
+                    // Draw metrics
+                    metrics.filter(m => m.visible).forEach((metric) => {
+                        const points = metric.data.map((value, i) => ({
+                            x: leftPadding + (i * pointSpacing),
+                            y: topPadding + height - (normalize(value, metric.max) * height),
+                            value: value,
+                            label: data.labels[i]
+                        }));
+                        
+                        // Area
+                        const areaPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        let areaD = `M ${points[0].x} ${topPadding + height}`;
+                        areaD += ` L ${points[0].x} ${points[0].y}`;
+                        points.forEach(p => areaD += ` L ${p.x} ${p.y}`);
+                        areaD += ` L ${points[points.length - 1].x} ${topPadding + height} Z`;
+                        areaPath.setAttribute('d', areaD);
+                        areaPath.setAttribute('fill', metric.color);
+                        areaPath.setAttribute('opacity', '0.08');
+                        svg.appendChild(areaPath);
+                        
+                        // Line
+                        const linePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        let d = `M ${points[0].x} ${points[0].y}`;
+                        points.forEach(p => d += ` L ${p.x} ${p.y}`);
+                        linePath.setAttribute('d', d);
+                        linePath.setAttribute('stroke', metric.color);
+                        linePath.setAttribute('stroke-width', '2.5');
+                        linePath.setAttribute('fill', 'none');
+                        linePath.setAttribute('stroke-linecap', 'round');
+                        linePath.setAttribute('stroke-linejoin', 'round');
+                        svg.appendChild(linePath);
+                        
+                        // Enhanced data points with better visibility
+                        points.forEach((p, i) => {
+                            // Outer glow circle
+                            const outerGlow = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                            outerGlow.setAttribute('cx', p.x);
+                            outerGlow.setAttribute('cy', p.y);
+                            outerGlow.setAttribute('r', '8');
+                            outerGlow.setAttribute('fill', metric.color);
+                            outerGlow.setAttribute('opacity', '0.15');
+                            svg.appendChild(outerGlow);
+                            
+                            // Main circle with enhanced stroke
+                            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                            circle.setAttribute('cx', p.x);
+                            circle.setAttribute('cy', p.y);
+                            circle.setAttribute('r', '6');
+                            circle.setAttribute('fill', metric.color);
+                            circle.setAttribute('stroke', '#000');
+                            circle.setAttribute('stroke-width', '3');
+                            circle.style.cursor = 'pointer';
+                            circle.style.filter = `drop-shadow(0 0 8px ${metric.color})`;
+                            circle.style.transition = 'all 0.2s ease';
+                            
+                            circle.addEventListener('mouseover', function() {
+                                this.setAttribute('r', '9');
+                                this.style.filter = `drop-shadow(0 0 12px ${metric.color})`;
+                                outerGlow.setAttribute('r', '12');
+                                outerGlow.setAttribute('opacity', '0.3');
+                                
+                                const tooltip = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                                tooltip.setAttribute('id', 'tooltip-' + metric.name + '-' + i);
+                                
+                                const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                                bg.setAttribute('x', p.x - 50);
+                                bg.setAttribute('y', p.y - 55);
+                                bg.setAttribute('width', '100');
+                                bg.setAttribute('height', '45');
+                                bg.setAttribute('fill', 'rgba(0, 0, 0, 0.95)');
+                                bg.setAttribute('rx', '10');
+                                bg.setAttribute('stroke', metric.color);
+                                bg.setAttribute('stroke-width', '2');
+                                tooltip.appendChild(bg);
+                                
+                                const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                                label.setAttribute('x', p.x);
+                                label.setAttribute('y', p.y - 38);
+                                label.setAttribute('text-anchor', 'middle');
+                                label.setAttribute('fill', 'rgba(255, 255, 255, 0.7)');
+                                label.setAttribute('font-size', '11');
+                                label.setAttribute('font-weight', '600');
+                                label.textContent = metric.label;
+                                tooltip.appendChild(label);
+                                
+                                const value = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                                value.setAttribute('x', p.x);
+                                value.setAttribute('y', p.y - 22);
+                                value.setAttribute('text-anchor', 'middle');
+                                value.setAttribute('fill', metric.color);
+                                value.setAttribute('font-size', '16');
+                                value.setAttribute('font-weight', 'bold');
+                                value.textContent = p.value.toLocaleString();
+                                tooltip.appendChild(value);
+                                
+                                svg.appendChild(tooltip);
+                            });
+                            
+                            circle.addEventListener('mouseout', function() {
+                                this.setAttribute('r', '6');
+                                this.style.filter = `drop-shadow(0 0 8px ${metric.color})`;
+                                outerGlow.setAttribute('r', '8');
+                                outerGlow.setAttribute('opacity', '0.15');
+                                const tooltip = document.getElementById('tooltip-' + metric.name + '-' + i);
+                                if (tooltip) tooltip.remove();
+                            });
+                            
+                            svg.appendChild(circle);
+                        });
+                    });
+                    
+                    // Enhanced X-axis labels with background boxes
+                    data.labels.forEach((label, i) => {
+                        // Background box for label
+                        const labelBg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                        labelBg.setAttribute('x', leftPadding + (i * pointSpacing) - 18);
+                        labelBg.setAttribute('y', topPadding + height + 8);
+                        labelBg.setAttribute('width', '36');
+                        labelBg.setAttribute('height', '20');
+                        labelBg.setAttribute('fill', 'rgba(255, 214, 10, 0.08)');
+                        labelBg.setAttribute('rx', '6');
+                        labelBg.setAttribute('stroke', 'rgba(255, 214, 10, 0.2)');
+                        labelBg.setAttribute('stroke-width', '1');
+                        svg.appendChild(labelBg);
+                        
+                        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                        text.setAttribute('x', leftPadding + (i * pointSpacing));
+                        text.setAttribute('y', topPadding + height + 22);
+                        text.setAttribute('text-anchor', 'middle');
+                        text.setAttribute('fill', '#ffd60a');
+                        text.setAttribute('font-size', '12');
+                        text.setAttribute('font-weight', '700');
+                        text.textContent = label;
+                        svg.appendChild(text);
+                    });
+                }
+
+                // Horizontal Bar Chart Function
+                function renderBarChart(period, topic = 'all') {
+                    const container = document.getElementById('bar-chart-container');
+                    const data = activityDataByTopic[topic][period];
+                    
+                    // Calculate totals
+                    const totals = {
+                        articles: data.articles.reduce((a, b) => a + b, 0),
+                        likes: data.likes.reduce((a, b) => a + b, 0),
+                        reads: data.reads.reduce((a, b) => a + b, 0),
+                        reposts: data.reposts.reduce((a, b) => a + b, 0)
+                    };
+                    
+                    const maxValue = Math.max(totals.articles, totals.likes, totals.reads, totals.reposts);
+                    
+                    const metrics = [
+                        { name: 'Articles', value: totals.articles, color: '#ffd60a', icon: '📝' },
+                        { name: 'Engagement', value: totals.likes, color: '#ff6b9d', icon: '❤️' },
+                        { name: 'Impressions', value: totals.reads, color: '#5ffbf1', icon: '👁️' },
+                        { name: 'Shares', value: totals.reposts, color: '#a78bfa', icon: '🔄' }
+                    ];
+                    
+                    let html = '<div style="display: flex; flex-direction: column; gap: 20px; padding: 10px 0;">';
+                    
+                    metrics.forEach(metric => {
+                        const percentage = (metric.value / maxValue) * 100;
+                        html += `
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="min-width: 120px; display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-size: 20px;">${metric.icon}</span>
+                                    <span style="font-size: 13px; font-weight: 600; color: ${metric.color};">${metric.name}</span>
+                                </div>
+                                <div style="flex: 1; position: relative;">
+                                    <div style="
+                                        width: 100%;
+                                        height: 35px;
+                                        background: rgba(255, 255, 255, 0.05);
+                                        border-radius: 8px;
+                                        overflow: hidden;
+                                        position: relative;
+                                    ">
+                                        <div style="
+                                            width: ${percentage}%;
+                                            height: 100%;
+                                            background: linear-gradient(90deg, ${metric.color}, ${metric.color}dd);
+                                            border-radius: 8px;
+                                            transition: width 1s ease;
+                                            box-shadow: 0 0 20px ${metric.color}66;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: flex-end;
+                                            padding-right: 12px;
+                                        ">
+                                            <span style="font-size: 14px; font-weight: 900; color: #000; text-shadow: 0 0 10px rgba(255,255,255,0.5);">${metric.value.toLocaleString()}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    html += '</div>';
+                    container.innerHTML = html;
+                }
+
+                // Combo Chart Function (Bar + Line)
+                function renderComboChart(period, topic = 'all') {
+                    const container = document.getElementById('combo-chart-container');
+                    const data = activityDataByTopic[topic][period];
+                    
+                    let html = `
+                        <svg width="100%" height="280" style="display: block;">
+                            <defs>
+                                <linearGradient id="comboGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#ffd60a;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#ff6b9d;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#5ffbf1;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                    `;
+                    
+                    const width = 600;
+                    const height = 240;
+                    const leftPadding = 60;
+                    const bottomPadding = 40;
+                    const barWidth = (width - leftPadding - 40) / data.labels.length - 10;
+                    
+                    const maxArticles = Math.max(...data.articles);
+                    const maxEngagement = Math.max(...data.likes);
+                    
+                    // Draw bars for articles
+                    data.articles.forEach((value, i) => {
+                        const barHeight = (value / maxArticles) * (height - bottomPadding - 20);
+                        const x = leftPadding + (i * (barWidth + 10));
+                        const y = height - bottomPadding - barHeight;
+                        
+                        html += `
+                            <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" 
+                                  fill="#ffd60a" opacity="0.6" rx="4"/>
+                            <text x="${x + barWidth/2}" y="${y - 5}" text-anchor="middle" 
+                                  fill="#ffd60a" font-size="11" font-weight="bold">${value}</text>
+                        `;
+                    });
+                    
+                    // Draw line for engagement
+                    let linePath = 'M ';
+                    data.likes.forEach((value, i) => {
+                        const x = leftPadding + (i * (barWidth + 10)) + barWidth/2;
+                        const y = 20 + (height - bottomPadding - 20) * (1 - value / maxEngagement);
+                        linePath += `${x},${y} `;
+                        
+                        // Draw points
+                        html += `
+                            <circle cx="${x}" cy="${y}" r="5" fill="#ff6b9d" stroke="#000" stroke-width="2"/>
+                            <text x="${x}" y="${y - 10}" text-anchor="middle" 
+                                  fill="#ff6b9d" font-size="10" font-weight="bold">${value}</text>
+                        `;
+                    });
+                    
+                    html += `<path d="${linePath}" stroke="#ff6b9d" stroke-width="3" fill="none"/>`;
+                    
+                    // X-axis labels
+                    data.labels.forEach((label, i) => {
+                        const x = leftPadding + (i * (barWidth + 10)) + barWidth/2;
+                        html += `<text x="${x}" y="${height - 15}" text-anchor="middle" fill="#ffd60a" font-size="12" font-weight="bold">${label}</text>`;
+                    });
+                    
+                    html += '</svg>';
+                    container.innerHTML = html;
+                }
+
+                // Initialize
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        setTimeout(() => {
+                            // Initialize "All Topics" button as active
+                            const allTopicsBtn = document.getElementById('topic-all');
+                            if (allTopicsBtn) {
+                                allTopicsBtn.style.background = 'linear-gradient(135deg, rgba(255, 214, 10, 0.25), rgba(255, 107, 157, 0.15))';
+                                allTopicsBtn.style.boxShadow = '0 4px 15px rgba(255, 214, 10, 0.3)';
+                            }
+                            
+                            updateKPICards('week', 'all');
+                            renderGraph('week', 'all');
+                        }, 100);
+                    });
+                } else {
+                    setTimeout(() => {
+                        // Initialize "All Topics" button as active
+                        const allTopicsBtn = document.getElementById('topic-all');
+                        if (allTopicsBtn) {
+                            allTopicsBtn.style.background = 'linear-gradient(135deg, rgba(255, 214, 10, 0.25), rgba(255, 107, 157, 0.15))';
+                            allTopicsBtn.style.boxShadow = '0 4px 15px rgba(255, 214, 10, 0.3)';
+                        }
+                        
+                        updateKPICards('week', 'all');
+                        renderGraph('week', 'all');
+                    }, 100);
+                }
+                
+                window.addEventListener('resize', () => {
+                    if (currentChartStyle === 'line') {
+                        renderGraph(currentFilter, currentTopic);
+                    } else if (currentChartStyle === 'bar') {
+                        renderBarChart(currentFilter, currentTopic);
+                    } else if (currentChartStyle === 'combo') {
+                        renderComboChart(currentFilter, currentTopic);
+                    }
+                });
+            </script>
+
+            <!-- Call to Action -->
             <div style="
-                margin-top: 30px;
+                margin-top: 25px;
                 padding: 20px;
-                background: rgba(0, 0, 0, 0.3);
+                background: linear-gradient(135deg, rgba(255, 214, 10, 0.1), rgba(255, 107, 157, 0.1));
                 border-radius: 12px;
-                border: 2px solid rgba(95, 251, 241, 0.2);
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 20px;
+                border: 2px solid rgba(255, 214, 10, 0.2);
+                text-align: center;
             ">
-                <div style="text-align: center;">
-                    <div style="font-size: 36px; font-weight: 900; color: #5ffbf1; margin-bottom: 5px;">8</div>
-                    <div style="font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.5px;">Total Certifications</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 36px; font-weight: 900; color: #a78bfa; margin-bottom: 5px;">4</div>
-                    <div style="font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.5px;">Platform Vendors</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 36px; font-weight: 900; color: #ffd60a; margin-bottom: 5px;">2026</div>
-                    <div style="font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.5px;">Latest Certification</div>
+                <p style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 15px;">
+                    🚀 Want to stay updated with my latest insights?
+                </p>
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://www.linkedin.com/in/jagjeetmakhija/" target="_blank" style="
+                        padding: 10px 20px;
+                        background: linear-gradient(135deg, #0077b5, #005885);
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 8px;
+                        font-size: 13px;
+                        font-weight: 600;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(0, 119, 181, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <i class="fab fa-linkedin"></i> Follow on LinkedIn
+                    </a>
+                    <a href="https://x.com/JagjeetMakhija" target="_blank" style="
+                        padding: 10px 20px;
+                        background: linear-gradient(135deg, #1DA1F2, #0d8bd9);
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 8px;
+                        font-size: 13px;
+                        font-weight: 600;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(29, 161, 242, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <i class="fab fa-twitter"></i> Follow on X/Twitter
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section (continued from original file) -->
+        <!-- Contact Section -->
         <section id="contact" class="section section-support">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-envelope"></i></div>
@@ -1744,24 +2777,32 @@
         <p>© 2025 Jagjeet Singh Makhija. All rights reserved. Views are personal. External links may lead to third-party sites.</p>
     </footer>
 
-    <script>
-        // Visitor Counter
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Visitor Counter - Increments on each page view
         (function() {
+            // Get current count from localStorage or start at 0
             let visitorCount = localStorage.getItem('visitorCount');
+            
             if (!visitorCount) {
                 visitorCount = 0;
             } else {
                 visitorCount = parseInt(visitorCount);
             }
+            
+            // Increment the count
             visitorCount++;
+            
+            // Save the new count
             localStorage.setItem('visitorCount', visitorCount);
+            
+            // Display the count
             const countElement = document.getElementById('count');
             if (countElement) {
                 countElement.textContent = visitorCount;
             }
         })();
 
-        // Theme toggle
+        // Theme toggle functionality with minimal code
         var themeButton = document.getElementById('theme-btn');
         if (themeButton) {
             themeButton.onclick = function() {
@@ -1785,37 +2826,113 @@
             const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
             if (!searchTerm) return;
 
-            const sections = document.querySelectorAll('.section-title, .link-title, .link-description, .newsletter-heading, .newsletter-description, .cert-name, .cert-category-title');
+            // Get all section titles, link titles, and descriptions
+            const sections = document.querySelectorAll('.section-title, .link-title, .link-description, .newsletter-heading, .newsletter-description');
             let foundElements = [];
 
+            // Search through all text content
             sections.forEach(section => {
                 if (section.textContent.toLowerCase().includes(searchTerm)) {
-                    let elementToHighlight = section.closest('.section') || section.closest('.link-button') || section.closest('.cert-item');
+                    // Find the closest section or link to highlight
+                    let elementToHighlight = section.closest('.section') || section.closest('.link-button');
                     if (elementToHighlight && !foundElements.includes(elementToHighlight)) {
                         foundElements.push(elementToHighlight);
                     }
                 }
             });
 
+            // Clear previous highlights
             document.querySelectorAll('.search-highlight').forEach(el => {
                 el.classList.remove('search-highlight');
             });
 
+            // Highlight found elements
             if (foundElements.length > 0) {
                 foundElements.forEach(el => {
                     el.classList.add('search-highlight');
+                    // Scroll to the first result
                     if (el === foundElements[0]) {
                         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                 });
+
+                // Show search results count
                 alert(`Found ${foundElements.length} results for "${searchTerm}"`);
             } else {
                 alert(`No results found for "${searchTerm}"`);
             }
         }
+
+        // Beehiiv iframe integration
+        // The form is now handled directly by Beehiiv through the iframe
+
+        // Social sharing functionality
+        function shareProfile(platform) {
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent("Check out Jagjeet Singh Makhija's AI & SAP expertise");
+            const pageDescription = encodeURIComponent("Jagjeet Singh Makhija drives enterprise innovation at the intersection of SAP and AI—leveraging Power Platform and Azure AI.");
+
+            let shareUrl = '';
+
+            switch(platform) {
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=${pageTitle}&body=${pageDescription}%0A%0A${pageUrl}`;
+                    break;
+                default:
+                    return;
+            }
+
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
     </script>
 
     <style>
+        /* Success animation for the form */
+        @keyframes successPulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .newsletter-form.success {
+            border-color: #10B981;
+            animation: successPulse 2s ease-out;
+        }
+
+        /* Beehiiv iframe styling */
+        .beehiiv-embed {
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 0;
+            min-height: 400px;
+            background: rgba(59, 46, 88, 0.5);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .beehiiv-embed:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .beehiiv-iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* Search highlight styles */
         .search-highlight {
             animation: highlightPulse 2s ease-in-out;
             box-shadow: 0 0 20px rgba(34, 184, 255, 0.6);
@@ -1825,7 +2942,8 @@
 
         @keyframes highlightPulse {
             0% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
-            50% { box-shadow: 0 0 20px rgba(34, 184, 255, 0.6); }
+            50% { box
+-shadow: 0 0 20px rgba(34, 184, 255, 0.6); }
             100% { box-shadow: 0 0 0 0 rgba(34, 184, 255, 0.6); }
         }
     </style>
